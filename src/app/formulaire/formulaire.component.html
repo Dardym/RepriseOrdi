@@ -4,12 +4,12 @@
               <h2>Informations personnelles</h2>
                <div class="form-group">
                    <label for="exampleInputEmail1">Adresse Email</label>
-                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                   <input [(ngModel)]="client.email" type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                    <small id="emailHelp" class="form-text text-muted">Nous ne dévoilerons votre adresse à personne.</small>
                  </div>
                  <div class="form-group">
                    <label for="exampleInputPassword1">Nom et Prénom</label>
-                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nom et Prénom">
+                   <input [(ngModel)]="client.nom" type="texte" name="name" class="form-control" id="exampleInputPassword1" placeholder="Nom et Prénom">
                  </div>
             </div>
              
@@ -17,29 +17,29 @@
                <h2>Votre ordinateur: </h2>
                <div class="form-group">
                    <label for="exampleInputPassword1">Marque</label>
-                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Asus, Apple, Dell...">
+                   <input [(ngModel)]="client.ordinateur.marque" name="marque" type="text" class="form-control" id="exampleInputPassword1" placeholder="Asus, Apple, Dell...">
                </div>
                <div class="form-group">
                    <label for="exampleInputPassword1">Modèle</label>
-                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Modèle">
+                   <input [(ngModel)]="client.ordinateur.modele" name="modele" type="text" class="form-control" id="exampleInputPassword1" placeholder="Modèle">
                </div>
                <div class="form-check">
-                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                 <input [(ngModel)]="client.ordinateur.complet" name="complet" type="checkbox" class="form-check-input" id="exampleCheck1">
                  <label class="form-check-label" for="exampleCheck1">Complet</label>
                </div>
                <div class="form-check">
-                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                 <input [(ngModel)]="client.ordinateur.fonctionnel" name="fonctionnel" type="checkbox" class="form-check-input" id="exampleCheck1">
                  <label class="form-check-label" for="exampleCheck1">Bon état fonctionnel</label>
                </div>
                <div class="form-check">
-                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                 <input [(ngModel)]="client.ordinateur.visuel" name="visuel" type="checkbox" class="form-check-input" id="exampleCheck1">
                  <label class="form-check-label" for="exampleCheck1">Bon état Visuel</label>  
                </div>
      
                <br/>
      
                <div class="row">
-                   <button type="submit" class="btn btn-primary">Demander une estimation !</button>
+                   <button type="submit" class="btn btn-primary" (click)="submit()">Demander une estimation !</button>
                </div>
                
             </div>

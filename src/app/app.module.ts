@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { FormulaireComponent } from './formulaire/formulaire.component';
     FormulaireComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

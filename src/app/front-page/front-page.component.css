@@ -1,4 +1,4 @@
-.image {
+/*.image {
 	background-image: url(../images/lake-louise.jpg);
     background-color: #f9f9f9;
     background-position: 50% 20%;
@@ -14,7 +14,7 @@
     z-index: 0;
     overflow: hidden;
     
-}
+}*/
 
 @media (max-width: 767px) {
 	.image {
