@@ -22,7 +22,7 @@ export class FormulaireService {
   /** POST: ajoute un nouveau clien au serveur */
   addClient (client: Client): Observable<Client> {
     return this.http.post<Client>(this.serverURL, client, httpOptions).pipe(
-      tap((client: Client) => console.log(`added hero w/ id=${client.id}`))/*,
+      tap((client: Client) => console.log(`added client w/ id=${client.id}`))/*,
       catchError(this.handleError<Hero>('addHero'))*/
     );
   }

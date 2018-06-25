@@ -6,6 +6,11 @@ app.all('*', function(req, res, next) {
     next();
 });
 
+app.get('/', function(req, res){
+    console.log("j'suis dans le term frr!");
+    console.log(req.params);
+});
+
 /*app.get('/popular', function(req, res){
     var page = (req.query["page"]) ? req.query["page"] : 1;
     page = (req.query["page"] > 1000) ? 1000 : req.query["page"];

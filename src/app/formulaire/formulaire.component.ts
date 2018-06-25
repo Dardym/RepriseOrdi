@@ -30,8 +30,9 @@ export class FormulaireComponent implements OnInit {
   }
 
   submit(): void {
-
-    console.log(this.client);
+    
+    this.formulaireService.addClient(this.client)
+      .subscribe(() => console.log(this.client));
   }
 
 
