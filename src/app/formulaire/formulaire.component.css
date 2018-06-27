@@ -1,0 +1,20 @@
+.formulaire-container {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  h2{
+    font-family: 'Google Sans',arial,sans-serif;
+    padding-bottom: 0;
+    padding-top: 16px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3333;
+    margin-bottom: 0;
+    margin-top: 0;
+}
