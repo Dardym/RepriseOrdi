@@ -1,7 +1,15 @@
-     <div >
+     
+     <div class="form-explication-container" fxFlexOrder="2" fxLayoutAlign="center">
+      <div class="from-container" fxFlex="100">
+        <div class="form-title" fxLayout="row">
+          <div fxFlexOffset="5">
+              Formulaire de Renseignement
+          </div>
+          
+        </div>
+
         <form [formGroup]="clientForm" (ngSubmit)="onFormSubmit(clientForm.value)">
-            <div>
-              <div class="formulaire-container">
+              <div class="perso-container" >
 
                   <h2>Informations personnelles</h2>
 
@@ -22,9 +30,7 @@
                    </mat-error>
               </mat-form-field>
 
-            </div>
-
-              <div class="formulaire-container">
+            
 
                 <h2>Votre ordinateur: </h2>
 
@@ -60,12 +66,12 @@
                       </mat-error>
                 </div>
                 <br/>
-                <div class="button-row">
+                <div class="button-row" fxLayoutAlign="center"  >
                     <button mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une estimation</button>
-                    </div>
-          </div>
+                  </div>
         </form>
       </div>
+    </div>
              
 
   <!--

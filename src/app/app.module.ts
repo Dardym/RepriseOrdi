@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {
   MatInputModule,
@@ -22,6 +23,9 @@ import {
 
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { FrontPageComponent } from './front-page/front-page.component';
+import { FormContainerComponent } from './form-container/form-container.component';
 
 const appRoutes: Routes = [
   {
@@ -39,7 +43,10 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     FormulaireComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent,
+    FrontPageComponent,
+    FormContainerComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -58,7 +65,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatGridListModule
+    MatGridListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

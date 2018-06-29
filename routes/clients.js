@@ -6,7 +6,6 @@ var serializer = require('../serializer/serializer.js')
 
 /* GET ALL ClientS */
 router.get('/', function(req, res, next) {
-  console.log("j'suis dans le get de base");
   
   /*Client.find(function (err, products) {
     if (err) return next(err);
@@ -25,6 +24,7 @@ router.get('/:id', function(req, res, next) {
 
 /* SAVE Client */
 router.post('/', function(req, res, next) {
+
   req.body.ordinateur = {
     marque: req.body.marque,
     modele: req.body.modele,
@@ -32,6 +32,7 @@ router.post('/', function(req, res, next) {
     visuel: req.body.visuel,
     fonctionnel: req.body.fonctionnel
   }
+
   Client.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);

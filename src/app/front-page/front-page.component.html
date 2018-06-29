@@ -1,11 +1,19 @@
-   <!--
-   <div class="image">
-        <div class="text-accueil" style="text-align: center">
-            <label style="text-align: center" >On reprend vos ordis jusqu'à 150 euros !</label>
+<div class="front-container" [style.width.px]="screenWidth" [style.height.px]="screenHeight" fxLayout="column" >
+        <app-header></app-header>
+
+        <div class="text-container"fxLayout="row" fxFlex="75">
+            <div class=text fxFlex="50" >
+                On reprend vos pc jusqu'à 150 euros !
+            </div>
+            
         </div>
 
-        <div class="row justify-content-center">
-            <button class="btn btn-primary" type="button">scroll</button>
+        <div class="button-container">
+                <div class="button-scroll" fxFlexAlign="end center" >
+                        <button mat-button mat-raised-button color="primary">Demander une offre !</button>
+                </div>
         </div>
-    </div> -->
+        
+
+</div>
     

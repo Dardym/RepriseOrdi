@@ -22,21 +22,6 @@ export class FormulaireComponent implements OnInit {
   complet:boolean=false;
   fonctionnel:boolean=false;
   visuel:boolean=false;
-  
-
-  /*@Input() client: Client = {
-    id: 0,
-    nom: '',
-    email: '',
-    ordinateur : {
-      modele: '',
-      marque: '',
-      complet: false,
-      fonctionnel: false,
-      visuel: false
-    }
-
-  }*/
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder, private formulaireService : FormulaireService) { }
 

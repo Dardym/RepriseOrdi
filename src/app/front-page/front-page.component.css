@@ -16,9 +16,49 @@
     
 }*/
 
-@media (max-width: 767px) {
-	.image {
-	    background-size: cover;
-	}
+.front-container{
+    display: flex;
+    background-image: url(../images/laptop.jpg);
+    background-size: cover;
 }
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.button-scroll{
+    padding: 3%;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: White;
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 center;
+    border-radius: 10px;
+    height: 75%;   
+    padding: 10px;
+    text-align: center;
+}
+
+
 

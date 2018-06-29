@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HostListener } from "@angular/core";
+
 
 
 @Component({
@@ -8,7 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontPageComponent implements OnInit {
 
-  constructor() { }
+  screenHeight: any;
+  screenWidth: any;
+
+  @HostListener('window:resize', ['$event'])
+    onResize(event?) {
+      this.screenHeight = window.innerHeight;
+      this.screenWidth = window.innerWidth;
+      console.log(this.screenHeight);
+      console.log(this.screenWidth);
+      
+  }
+
+  constructor() { 
+    this.onResize();
+  }
 
   ngOnInit() {
   }
