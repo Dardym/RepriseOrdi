@@ -19,7 +19,8 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatCheckboxModule,
-  MatGridListModule } from "@angular/material";
+  MatGridListModule,
+  MatRadioModule } from "@angular/material";
 
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FooterComponent } from './footer/footer.component';
@@ -66,6 +67,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatCheckboxModule,
     MatGridListModule,
+    MatRadioModule,
     FlexLayoutModule
   ],
   providers: [],

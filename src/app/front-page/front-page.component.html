@@ -1,19 +1,20 @@
-<div class="front-container" [style.width.px]="screenWidth" [style.height.px]="screenHeight" fxLayout="column" >
-        <app-header></app-header>
+<div class="front-container" [style.width.px]="screenWidth" [style.height.px]="screenHeight" fxLayout="column">
 
-        <div class="text-container"fxLayout="row" fxFlex="75">
-            <div class=text fxFlex="50" >
-                On reprend vos pc jusqu'à 150 euros !
-            </div>
-            
+        <app-header fxFlexLayout="column" fxLayout="column" fxFlex="7"></app-header>
+
+        <div class="text-container" fxLayout="row" fxFlex="60">
+                <div class=text fxFlex="50">
+                        On reprend vos pc jusqu'à 150 euros !
+                </div>
+
         </div>
 
         <div class="button-container">
-                <div class="button-scroll" fxFlexAlign="end center" >
-                        <button mat-button mat-raised-button color="primary">Demander une offre !</button>
+
+                <div class="button-scroll" fxFlexAlign="end center">
+                        <button (click)="scrollToBottom(1000)" mat-button mat-raised-button color="primary">Demander une offre !</button>
                 </div>
         </div>
-        
+
 
 </div>
-    

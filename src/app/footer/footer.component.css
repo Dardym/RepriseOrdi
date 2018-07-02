@@ -1,0 +1,15 @@
+footer{
+    display: flex;
+    padding: 12px;
+    font-size: 12px;
+    margin-top: 40px;
+    background-color: #3f51b5;
+    position: relative;
+    bottom: 0; 
+    left: 0; 
+    right: 0;
+}
+
+.docs-footer-logo,.docs-footer-version, .docs-footer-copyright {
+    padding: 1%;
+}

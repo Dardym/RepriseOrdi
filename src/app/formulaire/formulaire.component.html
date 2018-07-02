@@ -1,175 +1,94 @@
-     
-     <div class="form-explication-container" fxFlexOrder="2" fxLayoutAlign="center">
-      <div class="from-container" fxFlex="100">
-        <div class="form-title" fxLayout="row">
-          <div fxFlexOffset="5">
-              Formulaire de Renseignement
-          </div>
-          
-        </div>
+<div class="form-container">
+  <form [formGroup]="clientForm" (ngSubmit)="onFormSubmit(clientForm.value)" fxFlex="100">
 
-        <form [formGroup]="clientForm" (ngSubmit)="onFormSubmit(clientForm.value)">
-              <div class="perso-container" >
-
-                  <h2>Informations personnelles</h2>
-
-                  <mat-form-field appearance="legacy" class="example-full-width" >
-                      <mat-label>Email</mat-label>
-                      <input type="email" matInput type="email" placeholder="Adresse Email" formControlName="email">
-                      <mat-hint>Nous ne dévoilerons votre adresse à personne.</mat-hint>
-                      <mat-error>
-                       <span *ngIf="!clientForm.get('email').valid && clientForm.get('email').touched">Veuillez saisir une adresse email</span>
-                     </mat-error>
-                   </mat-form-field>
-               
-              <mat-form-field appearance="legacy" class="example-full-width">
-                  <mat-label>Nom Complet</mat-label>
-                    <input matInput placeholder="Nom et Prénom" formControlName="nom">
-                    <mat-error>
-                     <span *ngIf="!clientForm.get('nom').valid && clientForm.get('nom').touched">Veuillez saisir votre nom</span>
-                   </mat-error>
-              </mat-form-field>
-
-            
-
-                <h2>Votre ordinateur: </h2>
-
-                    <mat-form-field appearance="legacy" class="example-full-width">
-                        <mat-label>Marque</mat-label>
-                          <input matInput placeholder="Asus, Apple, Dell..." formControlName="marque">
-                          <mat-error>
-                           <span *ngIf="!clientForm.get('marque').valid && clientForm.get('marque').touched">Veuillez indiquer la marque de votre ordinateur</span>
-                         </mat-error>
-                      </mat-form-field>
-      
-                    <mat-form-field appearance="legacy" class="example-full-width">
-                      <mat-label>Modèle</mat-label>
-                        <input matInput placeholder="Asus, Apple, Dell..." formControlName="modele">
-                        <mat-error>
-                         <span *ngIf="!clientForm.get('modele').valid && clientForm.get('modele').touched">Veuillez indiquer le modèle de votre ordinateur</span>
-                       </mat-error>
-                    </mat-form-field>
-      
-                    <mat-checkbox formControlName="complet">Votre ordinateur est il complet ?</mat-checkbox>
-                      <mat-error>
-                        <span *ngIf="!clientForm.get('complet').valid && clientForm.get('complet').touched">Veuillez indiquer si votre ordinateur est complet ou non</span>
-                      </mat-error>
-      
-                    <mat-checkbox formControlName="fonctionnel">Votre ordinateur est il en bon état fonctionnel ?</mat-checkbox>
-                      <mat-error>
-                        <span *ngIf="!clientForm.get('fonctionnel').valid && clientForm.get('fonctionnel').touched">Veuillez indiquer si votre ordinateur est en bon état fonctionnel</span>
-                      </mat-error>
-      
-                    <mat-checkbox formControlName="visuel">Votre ordinateur est il en bon état visuel ?</mat-checkbox>
-                      <mat-error>
-                        <span *ngIf="!clientForm.get('visuel').valid && clientForm.get('visuel').touched">Veuillez indiquer si votre ordinateur est en bon état visuel</span>
-                      </mat-error>
-                </div>
-                <br/>
-                <div class="button-row" fxLayoutAlign="center"  >
-                    <button mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une estimation</button>
-                  </div>
-        </form>
+    <div class="form-title">
+      <div fxFlexOffset="5">
+        Formulaire de Renseignement
       </div>
     </div>
-             
 
-  <!--
-<div class="row">
-        <form>
-            <div>
-              <h2>Informations personnelles</h2>
-               <div class="form-group">
-                   <label for="exampleInputEmail1">Adresse Email</label>
-                   <input [(ngModel)]="client.email" type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                   <small id="emailHelp" class="form-text text-muted">Nous ne dévoilerons votre adresse à personne.</small>
-                 </div>
-                 <div class="form-group">
-                   <label for="exampleInputPassword1">Nom et Prénom</label>
-                   <input [(ngModel)]="client.nom" type="texte" name="name" class="form-control" id="exampleInputPassword1" placeholder="Nom et Prénom">
-                 </div>
-            </div>
-             
-            <div>
-               <h2>Votre ordinateur: </h2>
-               <div class="form-group">
-                   <label for="exampleInputPassword1">Marque</label>
-                   <input [(ngModel)]="client.ordinateur.marque" name="marque" type="text" class="form-control" id="exampleInputPassword1" placeholder="Asus, Apple, Dell...">
-               </div>
-               <div class="form-group">
-                   <label for="exampleInputPassword1">Modèle</label>
-                   <input [(ngModel)]="client.ordinateur.modele" name="modele" type="text" class="form-control" id="exampleInputPassword1" placeholder="Modèle">
-               </div>
-               <div class="form-check">
-                 <input [(ngModel)]="client.ordinateur.complet" name="complet" type="checkbox" class="form-check-input" id="exampleCheck1">
-                 <label class="form-check-label" for="exampleCheck1">Complet</label>
-               </div>
-               <div class="form-check">
-                 <input [(ngModel)]="client.ordinateur.fonctionnel" name="fonctionnel" type="checkbox" class="form-check-input" id="exampleCheck1">
-                 <label class="form-check-label" for="exampleCheck1">Bon état fonctionnel</label>
-               </div>
-               <div class="form-check">
-                 <input [(ngModel)]="client.ordinateur.visuel" name="visuel" type="checkbox" class="form-check-input" id="exampleCheck1">
-                 <label class="form-check-label" for="exampleCheck1">Bon état Visuel</label>  
-               </div>
-     
-               <br/>
-     
-               <div class="row">
-                   <button type="submit" class="btn btn-primary" (click)="submit()">Demander une estimation !</button>
-               </div>
-               
-            </div>
-             
-           </form>
-     </div>
+    <div class="perso-container">
 
-     <form [formGroup]="clientForm" (ngSubmit)="onFormSubmit(clientForm.value)">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Nom Prénom" formControlName="nom"
-               [errorStateMatcher]="matcher">
+      <h2>Informations personnelles</h2>
+
+      <mat-form-field appearance="legacy" class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput type="email" placeholder="Adresse Email" formControlName="email">
+        <mat-hint>Nous ne dévoilerons votre adresse à personne.</mat-hint>
         <mat-error>
-          <span *ngIf="!clientForm.get('nom').valid && clientForm.get('nom').touched">Veuillez entrer votre nom</span>
+          <span *ngIf="!clientForm.get('email').valid && clientForm.get('email').touched">Veuillez saisir une adresse email</span>
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input type="email" matInput placeholder="Email" formControlName="email"
-               [errorStateMatcher]="matcher">
+
+      <mat-form-field appearance="legacy" class="example-full-width">
+        <mat-label>Nom Complet</mat-label>
+        <input matInput placeholder="Nom et Prénom" formControlName="nom">
         <mat-error>
-          <span *ngIf="!clientForm.get('email').valid && clientForm.get('email').touched">Veuillez entrer une adresse email</span>
+          <span *ngIf="!clientForm.get('nom').valid && clientForm.get('nom').touched">Veuillez saisir votre nom</span>
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Marque" formControlName="marque"
-               [errorStateMatcher]="matcher">
+
+
+      <h2>Votre ordinateur: </h2>
+
+      <mat-form-field appearance="legacy" class="example-full-width">
+        <mat-label>Marque</mat-label>
+        <input matInput placeholder="Asus, Apple, Dell..." formControlName="marque">
         <mat-error>
           <span *ngIf="!clientForm.get('marque').valid && clientForm.get('marque').touched">Veuillez indiquer la marque de votre ordinateur</span>
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Modele" formControlName="modele"
-               [errorStateMatcher]="matcher"></textarea>
+
+      <mat-form-field appearance="legacy" class="example-full-width">
+        <mat-label>Modèle</mat-label>
+        <input matInput placeholder="Asus, Apple, Dell..." formControlName="modele">
         <mat-error>
-          <span *ngIf="!clientForm.get('modele').valid && clientForm.get('modele').touched">Veuillez indiquer le modele de votre ordinateur</span>
+          <span *ngIf="!clientForm.get('modele').valid && clientForm.get('modele').touched">Veuillez indiquer le modèle de votre ordinateur</span>
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Publisher" formControlName="publisher"
-               [errorStateMatcher]="matcher">
-        <mat-error>
-          <span *ngIf="!clientForm.get('publisher').valid && clientForm.get('publisher').touched">Please enter Publisher</span>
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Published Year" formControlName="published_year"
-               [errorStateMatcher]="matcher">
-        <mat-error>
-          <span *ngIf="!clientForm.get('published_year').valid && clientForm.get('published_year').touched">Please enter Published Year</span>
-        </mat-error>
-      </mat-form-field>
-      <div class="button-row">
-        <button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+
+      <mat-checkbox formControlName="complet" ngModel required>Votre ordinateur est il complet ?</mat-checkbox>
+      <mat-error>
+        <span *ngIf="!clientForm.get('complet').valid && clientForm.get('complet').touched">Veuillez indiquer si votre ordinateur est complet ou non</span>
+      </mat-error>
+
+      <mat-checkbox formControlName="fonctionnel">Votre ordinateur est il en bon état fonctionnel ?</mat-checkbox>
+      <mat-error>
+        <span *ngIf="!clientForm.get('fonctionnel').valid && clientForm.get('fonctionnel').touched">Veuillez indiquer si votre ordinateur est en bon état fonctionnel</span>
+      </mat-error>
+
+      <mat-checkbox formControlName="visuel">Votre ordinateur est il en bon état visuel ?</mat-checkbox>
+      <mat-error>
+        <span *ngIf="!clientForm.get('visuel').valid && clientForm.get('visuel').touched">Veuillez indiquer si votre ordinateur est en bon état visuel</span>
+      </mat-error>
+
+      <div class="button-container">
+        <button mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une estimation</button>
       </div>
-    </form>
--->   
-     
+
+    </div>
+
+
+
+  </form>
+
+
+
+</div>
+
+
+<div class="information-container">
+
+  <div class="form-title" fxLayout="row">
+    <div fxFlexOffset="5">
+      Comment ça marche ?
+    </div>
+  </div>
+
+  <div class="information">
+    Pour recevoir une offre de reprise de la part de notre équipe, veuillez renseigner vos coordonnées ainsi que les caractéristiques
+    de votre ordinateur. Une offre de reprise pour votre ordinateur vous sera alors envoyé par email par l'un de nos conseillers
+    dans les prochains jours. En cliquant sur le bouton "obtenir une offre", vous ne vous engagez en RIEN si ce n'est à revevoir
+    une proposition de reprise, vous pourrez par la suite accepter ou refuser l'offre que nous vous ferons.
+  </div>
+</div>
