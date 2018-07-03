@@ -3,10 +3,11 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Client = require('../models/Client.js');
 var serializer = require('../serializer/serializer.js')
+var emailAction = require('../action/emailAction');
 
 /* GET ALL ClientS */
-router.get('/', function(req, res, next) {
-  
+router.get('/formulaire', function(req, res, next) {
+  res.send('../src/app/app.component.html');
   /*Client.find(function (err, products) {
     if (err) return next(err);
     console.log("je passe le if");
@@ -37,6 +38,9 @@ router.post('/', function(req, res, next) {
     if (err) return next(err);
     res.json(post);
   });
+  console.log("j'entre dans dans nodemailer");
+  emailAction.exec();
+  console.log("je sors de nodemailer");
 });
 
 /* UPDATE Client */
@@ -53,6 +57,16 @@ router.delete('/:id', function(req, res, next) {
     if (err) return next(err);
     res.json(post);
   });
+});
+
+/*DEFAULT REDERICT*/
+router.get('/',function (req, res) {
+  res.redirect('/formulaire');
+});
+
+/*DEFAULT REDIRECT*/
+router.get('*',function (req, res) {
+  res.redirect('/');
 });
 
 module.exports = router;

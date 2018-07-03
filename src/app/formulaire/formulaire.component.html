@@ -47,7 +47,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-checkbox formControlName="complet" ngModel required>Votre ordinateur est il complet ?</mat-checkbox>
+      <mat-checkbox formControlName="complet" ngModel>Votre ordinateur est il complet ?</mat-checkbox>
       <mat-error>
         <span *ngIf="!clientForm.get('complet').valid && clientForm.get('complet').touched">Veuillez indiquer si votre ordinateur est complet ou non</span>
       </mat-error>

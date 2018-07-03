@@ -2,15 +2,15 @@
   <div class="docs-footer-list" fxFlex="100" fxLayout="row" fxLayoutGap="2" fxLayout.xs="column">
 
     <div  class="docs-footer-logo" fxFlex="33" fxLayoutAlign="center">
-        <button mat-button mat-raised-button color="primary">Qui sommes nous ?</button>
+        <button (click)="redirectQui()" mat-button mat-raised-button color="primary">Qui sommes nous ?</button>
     </div>
 
     <div  class="docs-footer-version" fxFlex="33" fxLayoutAlign="center">
-        <button mat-button mat-raised-button color="primary">Mentions Légales</button>
+        <button (click)="redirectLegale()" mat-button mat-raised-button color="primary">Mentions Légales</button>
     </div>
 
     <div  class="docs-footer-copyright" fxFlex="33" fxLayout="column" fxLayoutAlign="center center">
-        <button mat-button mat-raised-button color="primary">Nous contacter</button>
+        <button (click)="redirectContacts()" mat-button mat-raised-button color="primary">Nous contacter</button>
     </div>
 
   </div>

@@ -27,6 +27,11 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { FormContainerComponent } from './form-container/form-container.component';
+import { ValidationPageComponent } from './validation-page/validation-page.component';
+import { QuiComponent } from './qui/qui.component';
+import { LegaleComponent } from './legale/legale.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +52,12 @@ const appRoutes: Routes = [
     FooterComponent,
     HeaderComponent,
     FrontPageComponent,
-    FormContainerComponent
+    FormContainerComponent,
+    ValidationPageComponent,
+    QuiComponent,
+    LegaleComponent,
+    ContactsComponent,
+    AdminPanelComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
