@@ -1,0 +1,44 @@
+.form-title{
+    display: flex;
+    font-family: 'Google Sans',arial,sans-serif;
+    padding-bottom: 0;
+    padding-top: 16px;
+    font-size: 24px;
+    line-height: 1.3333;
+}
+
+.information-container{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,.03);
+  box-shadow: 0 2px 2px rgba(0,0,0,.24),0 0 2px rgba(0,0,0,.12);
+  margin: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  
+}
+
+.form-title{
+  display: flex;
+  align-content: left;
+  align-items: left;
+  justify-content: left;
+  padding-bottom: 2%;
+  color: rgba(0,0,0,.54);
+  background: rgba(0,0,0,.03);
+  background-size: cover;
+}
+.information{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Google Sans',arial,sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  padding: 5%;
+}
+
+:host {
+    flex:1;
+}

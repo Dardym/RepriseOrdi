@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -33,18 +33,6 @@ import { LegaleComponent } from './legale/legale.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
-const appRoutes: Routes = [
-  {
-    path: 'formulaire',
-    component: FormulaireComponent,
-    data: { title: 'Formulaire' }
-  },
-  { path: '',
-    redirectTo: '/formulaire',
-    pathMatch: 'full'
-  }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +48,7 @@ const appRoutes: Routes = [
     AdminPanelComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

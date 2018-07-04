@@ -1,15 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-        <div class="main-container" fxLayout="column"  >
-               <div   fxLayoutAlign="center" fxLayout="stretch" >
-                    <app-front-page></app-front-page>
-                </div>
-                    <app-form-container></app-form-container>
-            
-                    <app-footer fxFlex="100" fxLayoutAlign="end none"  ></app-footer>
-            
-        </div>
-
-        
-
-
-
+<div class="main-container" fxLayout="column">
+    <app-header fxFlexLayout="column" fxLayout="column"></app-header>
+    <router-outlet></router-outlet>
+    <!--<app-front-page fxLayoutAlign="center" fxLayout="stretch"></app-front-page>
+                    <app-form-container></app-form-container> -->
+    <app-footer fxLayoutAlign="end none" ></app-footer>
+</div>

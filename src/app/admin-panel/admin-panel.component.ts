@@ -16,6 +16,7 @@ export class AdminPanelComponent implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
+    
   }
 
 }

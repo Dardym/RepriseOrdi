@@ -1,25 +1,29 @@
 var nodemailer = require('nodemailer');
 
-class emailAction {
 
-  constructor() {
-    this.transporter = nodemailer.createTransport({
+ var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'maxime.dardy@gmail.com',
-        pass: 'BDYyUojPJVX00670089'
+        user: 'maxime@touchedeclavier.com',
+        pass: 'BDYyUojPJVX0touche'
       }
     });
-
-    this.mailOptions = {
-      from: 'maxime.dardy@gmail.com',
-      to: 'maxime@touchedeclavier.com',
-      subject: 'Sending Email using Node.js',
-      text: 'That was easy!'
-    };
-	}
+	
   
-  exec(){
+   var exec = function(data) {
+     console.log(data);
+
+    var mailOptions = {
+      from: 'maxime@touchedeclavier.com',
+      to: data.email,
+      subject: 'Demande de reprise de ' + data.nom,
+      text: "Marque de l'ordinateur: " + data.ordinateur.marque + "\n" +
+      "Modele de l'ordinateur: " + data.ordinateur.modele + "\n" +
+      "Complet: " + data.complet + "\n" +
+      "fonctionnel: " + data.fonctionnel + "\n" +
+      "Bon état visuel: " + data.visuel + "\n"  
+    };
+
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
@@ -28,6 +32,6 @@ class emailAction {
       }
     }); 
   }
-}
 
-module.exports = emailAction;
+
+exports.exec = exec;

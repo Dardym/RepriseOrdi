@@ -8,8 +8,13 @@ footer{
     bottom: 0; 
     left: 0; 
     right: 0;
+    max-height: 100px;
 }
 
 .docs-footer-logo,.docs-footer-version, .docs-footer-copyright {
     padding: 1%;
+}
+
+:host {
+    flex:0 0;
 }

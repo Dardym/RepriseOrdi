@@ -14,8 +14,8 @@ export class FooterComponent implements OnInit {
   }
 
   redirectQui(){
-    this.router.navigateByUrl('qui');
-    this.router.navigate(['/qui']);
+    this.router.navigateByUrl('/qui');
+    //this.router.navigate(['/qui']);
   }
   
   redirectLegale(){
