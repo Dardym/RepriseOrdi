@@ -69,3 +69,7 @@ form{
   font-weight: 400;
   padding: 5%;
 }
+
+:host {
+  flex:1 1 100%;
+}

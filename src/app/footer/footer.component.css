@@ -11,7 +11,7 @@ footer{
     max-height: 100px;
 }
 
-.docs-footer-logo,.docs-footer-version, .docs-footer-copyright {
+.docs-footer-logo, .docs-footer-version, .docs-footer-copyright {
     padding: 1%;
 }
 

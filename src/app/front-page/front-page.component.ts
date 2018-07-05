@@ -25,6 +25,13 @@ export class FrontPageComponent implements OnInit {
   }
 
   scrollToBottom(scrollDuration) {
+
+    var limit = Math.max(
+      document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight
+    );
+
     var H = this.screenHeight;
     var W = this.screenWidth;
     var cosParameter = H / 2,
@@ -34,7 +41,7 @@ export class FrontPageComponent implements OnInit {
         
         scrollCount += Math.PI / (scrollDuration / (newTimestamp - oldTimestamp));
         if (scrollCount <= Math.PI) window.scrollTo(0,0);
-        if ( Math.round(window.scrollY-H) === 0) return;
+        if ( Math.round(window.scrollY-H) === 0 || window.scrollY === limit) return;
         window.scrollTo(0, Math.round(cosParameter - cosParameter * Math.cos(scrollCount)));
         oldTimestamp = newTimestamp;
         window.requestAnimationFrame(step);

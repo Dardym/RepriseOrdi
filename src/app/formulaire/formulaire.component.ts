@@ -41,15 +41,13 @@ export class FormulaireComponent implements OnInit {
   onFormSubmit(form:NgForm) {
     this.api.postClient(form)
       .subscribe(res => {
-        this.router.navigate(['validation']);
+        this.router.navigate(['/validation']);
           if(res.params.valide){
             alert("Votre demande a bien été prise en compte!");
             
           }else{
             alert("Désolé, nous n'avons pas pu valider votre demande");
           }
-          //Pour rediriger et faire un truc jolie
-          /*this.router.navigate(['/book-details', id]);*/
         }, (err) => {
           console.log(err);
         });

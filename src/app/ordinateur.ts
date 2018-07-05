@@ -4,4 +4,4 @@ export class Ordinateur {
     complet: boolean;
     fonctionnel: boolean;
     visuel: boolean;
-  }
+}

@@ -1,28 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
-var Client = require('../models/Client.js');
-var serializer = require('../serializer/serializer.js')
+var clientService = require('../service/clientService.js');
 var emailAction = require('../action/emailAction');
-'use strict';
-nodemailer = require('nodemailer');
 
 /* GET ALL ClientS */
-router.get('/formulaire', function (req, res, next) {
-  res.send('../src/app/app.component.html');
-  /*Client.find(function (err, products) {
+router.get('/', function (req, res, next) {
     if (err) return next(err);
-    console.log("je passe le if");
     res.json(products);
-  });*/
 });
 
 /* GET SINGLE Client BY ID */
 router.get('/:id', function (req, res, next) {
-  Client.findById(req.params.id, function (err, post) {
+  clientService.findById(req.params.id).then(function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
+  //});
 });
 
 /* SAVE Client */
@@ -38,18 +31,18 @@ router.post('/', function (req, res, next) {
 
 
 
-  Client.create(req.body, function (err, post) {
+  clientService.create(req.body).then(function (err, post) {
     if (err) return next(err);
     emailAction.exec(req.body);
     res.json(post);
-  });
+    });
 
   
 });
 
 /* UPDATE Client */
 router.put('/:id', function (req, res, next) {
-  Client.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+  clientService.update(req.params.id, req.body).then(function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
@@ -57,10 +50,10 @@ router.put('/:id', function (req, res, next) {
 
 /* DELETE Client */
 router.delete('/:id', function (req, res, next) {
-  Client.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  clientService._delete(req.params.id, req.body).then(function (err, post) {
     if (err) return next(err);
     res.json(post);
-  });
+  }); 
 });
 
 /*DEFAULT REDERICT*/
