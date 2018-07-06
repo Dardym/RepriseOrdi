@@ -1,10 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { ApiService } from '../api.service';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormulaireService } from '../formulaire-service.service';
-import { Client } from '../client';
-import { Ordinateur } from '../ordinateur';
+import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs/operators';
+ 
+import { Admin } from '../metier/admin';
+import { AdminService } from '../services/admin-service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -13,10 +11,28 @@ import { Ordinateur } from '../ordinateur';
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor(private router: Router, private api: ApiService) { }
-
-  ngOnInit() {
-    
-  }
+  admins: Admin[] = [];
+ 
+  currentUser: Admin;
+ 
+    constructor(private adminService: AdminService) {
+        this.currentUser = JSON.parse(localStorage.getItem('currentAdmin'));
+    }
+ 
+    ngOnInit() {
+        this.loadAllUsers();
+    }
+ 
+    /*deleteUser(id: number) {
+        this.adminService.delete(id).pipe(first()).subscribe(() => { 
+            this.loadAllUsers() 
+        });
+    }*/
+ 
+    private loadAllUsers() {
+        this.adminService.getAll().pipe(first()).subscribe(admins => { 
+            this.admins = admins; 
+        });
+    }
 
 }

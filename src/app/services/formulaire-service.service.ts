@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Client} from './client';
+import {Client} from '../metier/client';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class FormulaireService {
 
-  private serverURL = 'localhost:3000';
+  private serverURL = 'localhost:3000/apiClient';
 
   constructor(private http: HttpClient) { }
 
@@ -22,8 +22,7 @@ export class FormulaireService {
   /** POST: ajoute un nouveau clien au serveur */
   addClient (client: Client): Observable<Client> {
     return this.http.post<Client>(this.serverURL, client, httpOptions).pipe(
-      tap((client: Client) => console.log(`added client w/ id=${client.id}`))/*,
-      catchError(this.handleError<Hero>('addHero'))*/
+      tap((client: Client) => console.log(`added client w/ id=${client.id}`))
     );
   }
 

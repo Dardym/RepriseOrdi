@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormulaireService } from '../formulaire-service.service';
-import { Client } from '../client';
-import { Ordinateur } from '../ordinateur';
+import { FormulaireService } from '../services/formulaire-service.service';
+import { Client } from '../metier/client';
+import { Ordinateur } from '../metier/ordinateur';
 
 @Component({
   selector: 'app-formulaire',

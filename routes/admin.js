@@ -1,7 +1,7 @@
-const config = require('config.json');
+const config = require('../config.json');
 const express = require('express');
 const router = express.Router();
-const adminService = require('../adminservice');
+const adminService = require('../service/adminservice');
  
 // routes
 router.post('/authenticate', authenticate);

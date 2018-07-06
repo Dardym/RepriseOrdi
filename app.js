@@ -3,7 +3,9 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var apiRouter = require('./routes/clients');
+const jwt = require('./helpers/jwt');
+var apiClientRouter = require('./routes/clients');
+var apiAdminRouter = require('./routes/admin')
 
 var app = express();
 
@@ -15,9 +17,11 @@ mongoose.connect('mongodb://localhost/RepriseOrdi', { promiseLibrary: require('b
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(jwt());
 app.use(express.static(path.join(__dirname, 'dist/RepriseOrdi')));
 app.use('/', express.static(path.join(__dirname, 'dist/RepriseOrdi')));
-app.use('/api', apiRouter);
+app.use('/apiClient', apiClientRouter);
+app.use('/apiAdmin', apiAdminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

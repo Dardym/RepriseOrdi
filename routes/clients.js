@@ -5,8 +5,8 @@ var emailAction = require('../action/emailAction');
 
 /* GET ALL ClientS */
 router.get('/', function (req, res, next) {
-    if (err) return next(err);
-    res.json(products);
+    /*if (err) return next(err);
+    res.json(products);*/
 });
 
 /* GET SINGLE Client BY ID */

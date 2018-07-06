@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -32,6 +32,9 @@ import { QuiComponent } from './qui/qui.component';
 import { LegaleComponent } from './legale/legale.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { LoginComponent } from './login/login.component';
+import { ErrorInterceptor } from './helper/error-interceptor';
+import { JwtInterceptor } from './helper/jwt-interceptor';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     QuiComponent,
     LegaleComponent,
     ContactsComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
@@ -68,7 +72,10 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     MatRadioModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
