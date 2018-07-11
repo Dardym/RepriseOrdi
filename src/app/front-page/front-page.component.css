@@ -1,6 +1,6 @@
 .front-container{
     display: flex;
-    background-image: url(../images/laptop.jpg);
+    background-image: url(../../assets/images/laptop.jpg);
     background-size: cover;
 }
 
@@ -14,7 +14,18 @@
 
 .button-scroll{
     padding: 3%;
+    display: flex;
 }
+
+.buttons{
+    height: 100px;
+    width: 200px;
+    border-radius: 55px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 
 .text-container{
     display: flex;
@@ -44,6 +55,13 @@
 
 :host {
     flex:1 1 100%;
+}
+
+.text-button{
+    display: flex;
+    font-family: 'Google Sans',arial,sans-serif;
+    font-size: 18px;
+    line-height: 1.3333;
 }
 
 

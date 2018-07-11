@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class FormulaireService {
 
-  private serverURL = 'localhost:3000/apiClient';
+  private serverURL = '/apiClient';
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class FormulaireService {
   /** POST: ajoute un nouveau clien au serveur */
   addClient (client: Client): Observable<Client> {
     return this.http.post<Client>(this.serverURL, client, httpOptions).pipe(
-      tap((client: Client) => console.log(`added client w/ id=${client.id}`))
+      tap((client: Client) => console.log('added client'))
     );
   }
 

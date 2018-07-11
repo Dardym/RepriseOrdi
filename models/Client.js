@@ -9,7 +9,8 @@ var ClientSchema = new mongoose.Schema({
       complet: Boolean,
       fonctionnel: Boolean,
       visuel: Boolean
-    }
+    },
+    etat: String
     
   });
 

@@ -5,8 +5,10 @@ var emailAction = require('../action/emailAction');
 
 /* GET ALL ClientS */
 router.get('/', function (req, res, next) {
-    /*if (err) return next(err);
-    res.json(products);*/
+  ClientService.getAll().then(function (err, client) {
+    if (err) return next(err);
+    res.json(client);
+  });
 });
 
 /* GET SINGLE Client BY ID */
@@ -56,14 +58,9 @@ router.delete('/:id', function (req, res, next) {
   }); 
 });
 
-/*DEFAULT REDERICT*/
-router.get('/', function (req, res) {
-  res.redirect('/formulaire');
-});
-
 /*DEFAULT REDIRECT*/
-router.get('*', function (req, res) {
-  res.redirect('/');
+router.get('*', function (req, res, next) {
+  res.sendFile(path.resolve('../src/index.html'));
 });
 
 

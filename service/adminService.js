@@ -1,8 +1,7 @@
 const config = require('../config.json');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
 const db = require('../helpers/db');
 const Admin = db.Admin;
+const bcrypt = require('bcrypt');
  
 module.exports = {
     authenticate,
@@ -10,19 +9,25 @@ module.exports = {
     getById,
     create,
     update,
-    delete: _delete
+    delete: _delete,
+    logout
 };
  
-async function authenticate({ email, password }) {
-    const admin = await Admin.findOne({ email });
-    if (admin && bcrypt.compareSync(password, admin.mdp)) {
-        const { mdp, ...adminWithoutMdp } = admin.toObject();
-        const token = jwt.sign({ sub: admin.id }, config.secret);
-        return {
-            ...adminWithoutMdp,
-            token
-        };
+async function authenticate(email, password) {
+
+    var admin = await Admin.findOne({email: email});
+    if (admin === null) {
+        var err = new Error('utilisateur introuvable');
+        err.status = 450;
+        throw err;
     }
+    const match = await bcrypt.compare(password, admin.mdp);
+    if(!match){
+        var err = new Error('mauvais mot de passe');
+        err.status=451;
+        throw err;
+    }
+    return await admin ;
 }
  
 async function getAll() {
@@ -34,29 +39,37 @@ async function getById(id) {
 }
  
 async function create(adminParam) {
+    console.log("test create");
     // validate
     if (await Admin.findOne({ email: adminParam.email })) {
-        throw 'Username "' + userParam.username + '" is already taken';
+        var err = new Error('email'+ adminParam.email + 'déjà utilisé');
+        err.status = 453;
+        throw err;
     }
- 
-    const user = new User(userParam);
- 
+    const admin = new Admin(adminParam);
+    console.log(admin);
     // hash password
-    if (userParam.password) {
-        user.hash = bcrypt.hashSync(userParam.password, 10);
+    if (adminParam.mdp) {
+        admin.mdp = bcrypt.hashSync(adminParam.mdp, 10);
     }
  
     // save user
-    await user.save();
+    await admin.save();
 }
  
 async function update(id, userParam) {
     const user = await User.findById(id);
  
     // validate
-    if (!user) throw 'User not found';
+    if (!user){
+        var err = new Error('User not found');
+        err.status = 452;
+        throw err;
+    } 
     if (user.username !== userParam.username && await User.findOne({ username: userParam.username })) {
-        throw 'Username "' + userParam.username + '" is already taken';
+        var err = new Error('email déjà utilisé');
+        err.status = 453;
+        throw err;
     }
  
     // hash password if it was entered
@@ -72,4 +85,12 @@ async function update(id, userParam) {
  
 async function _delete(id) {
     await User.findByIdAndRemove(id);
+}
+
+async function logout(){
+    console.log("dans le adminservice");
+    var err = new Error('utilisateur introuvable');
+    err.status = 450;
+    throw err;
+    //return await true;
 }

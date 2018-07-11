@@ -14,16 +14,16 @@ export class FooterComponent implements OnInit {
   }
 
   redirectQui(){
-    this.router.navigateByUrl('/qui');
+    this.router.navigate(['/client-panel/qui']);
     //this.router.navigate(['/qui']);
   }
   
   redirectLegale(){
-    this.router.navigate(['/legale']);
+    this.router.navigate(['/client-panel/legale']);
   }
 
   redirectContacts(){
-    this.router.navigate(['/contacts']);
+    this.router.navigate(['/client-panel/contacts']);
   }
 
 }

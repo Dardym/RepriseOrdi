@@ -8,6 +8,49 @@
     </div>
 
     <div class="perso-container">
+      <div class="input-container" fxLayout="column">
+
+      <h2>Votre ordinateur: </h2>
+
+      <mat-form-field appearance="legacy" class="example-full-width">
+        <mat-label>Marque</mat-label>
+        <input matInput placeholder="Asus, Apple, Dell..." formControlName="marque">
+        <mat-error>
+          <span *ngIf="!clientForm.get('marque').valid && clientForm.get('marque').touched">Veuillez indiquer la marque de votre ordinateur</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy" class="example-full-width">
+        <mat-label>Modèle</mat-label>
+        <input matInput placeholder="Asus, Apple, Dell..." formControlName="modele">
+        <mat-error>
+          <span *ngIf="!clientForm.get('modele').valid && clientForm.get('modele').touched">Veuillez indiquer le modèle de votre ordinateur</span>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="radio-container">
+        <label class="radio-label">Votre ordinateur est il complet ? (Il possède tous ses composants: clavier, écran, dalle, touches...)</label>
+        <mat-radio-group formControlName="complet" ngModel required>
+          <mat-radio-button value="true">oui</mat-radio-button>
+          <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="radio-container">
+        <label class="radio-label">Votre ordinateur est il fonctionnel ?</label>
+        <mat-radio-group formControlName="fonctionnel" ngModel required>
+          <mat-radio-button value="true">oui</mat-radio-button>
+          <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="radio-container">
+        <label class="radio-label">Votre ordinateur est il en bon état visuel ? (Pas d'écran cassé, de fissure dans la coque...)</label>
+        <mat-radio-group formControlName="visuel" ngModel required>
+          <mat-radio-button value="true">oui</mat-radio-button>
+          <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+        </mat-radio-group>
+      </div>
 
       <h2>Informations personnelles</h2>
 
@@ -29,24 +72,8 @@
       </mat-form-field>
 
 
-      <h2>Votre ordinateur: </h2>
 
-      <mat-form-field appearance="legacy" class="example-full-width">
-        <mat-label>Marque</mat-label>
-        <input matInput placeholder="Asus, Apple, Dell..." formControlName="marque">
-        <mat-error>
-          <span *ngIf="!clientForm.get('marque').valid && clientForm.get('marque').touched">Veuillez indiquer la marque de votre ordinateur</span>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="legacy" class="example-full-width">
-        <mat-label>Modèle</mat-label>
-        <input matInput placeholder="Asus, Apple, Dell..." formControlName="modele">
-        <mat-error>
-          <span *ngIf="!clientForm.get('modele').valid && clientForm.get('modele').touched">Veuillez indiquer le modèle de votre ordinateur</span>
-        </mat-error>
-      </mat-form-field>
-
+      <!--
       <mat-checkbox formControlName="complet" ngModel>Votre ordinateur est il complet ?</mat-checkbox>
       <mat-error>
         <span *ngIf="!clientForm.get('complet').valid && clientForm.get('complet').touched">Veuillez indiquer si votre ordinateur est complet ou non</span>
@@ -61,9 +88,15 @@
       <mat-error>
         <span *ngIf="!clientForm.get('visuel').valid && clientForm.get('visuel').touched">Veuillez indiquer si votre ordinateur est en bon état visuel</span>
       </mat-error>
+    -->
 
-      <div class="button-container">
-        <button mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une estimation</button>
+        <div class="button-container">
+          <button mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une estimation</button>
+        </div>
+      </div>
+
+      <div class="image-formulaire">
+          <img src="../../assets/images/desktop-1389979.png" style="width:80%;">
       </div>
 
     </div>
@@ -71,6 +104,8 @@
 
 
   </form>
+
+  
 
 
 
@@ -91,4 +126,33 @@
     dans les prochains jours. En cliquant sur le bouton "obtenir une offre", vous ne vous engagez en RIEN si ce n'est à revevoir
     une proposition de reprise, vous pourrez par la suite accepter ou refuser l'offre que nous vous ferons.
   </div>
+
+
+<mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+           FAQ1
+          </mat-panel-title>
+          <mat-panel-description>
+            Résumé de la question
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    La réponse tout en long
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+             FAQ2
+            </mat-panel-title>
+            <mat-panel-description>
+              Résumé de la question
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      La réponse tout en long
+        </mat-expansion-panel>
+    </mat-accordion>
+
+  
+
 </div>

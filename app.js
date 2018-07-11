@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-const jwt = require('./helpers/jwt');
 var apiClientRouter = require('./routes/clients');
-var apiAdminRouter = require('./routes/admin')
+var apiAdminRouter = require('./routes/admin');
+var session = require('express-session');
+const config = require('./config.json');
+var MongoStore = require('connect-mongo')(session);
 
 var app = express();
 
@@ -14,10 +16,18 @@ mongoose.connect('mongodb://localhost/RepriseOrdi', { promiseLibrary: require('b
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 
+app.use(session({
+  secret: config.secret,
+  resave: true,
+  saveUninitialized: false,
+  stor: new MongoStore({
+    mongooseConnection: mongoose.connection
+  })
+}));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(jwt());
 app.use(express.static(path.join(__dirname, 'dist/RepriseOrdi')));
 app.use('/', express.static(path.join(__dirname, 'dist/RepriseOrdi')));
 app.use('/apiClient', apiClientRouter);

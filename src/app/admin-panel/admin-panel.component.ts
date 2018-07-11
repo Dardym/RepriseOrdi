@@ -3,6 +3,8 @@ import { first } from 'rxjs/operators';
  
 import { Admin } from '../metier/admin';
 import { AdminService } from '../services/admin-service';
+import { AuthenticationService } from '../services/authentification.service';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
@@ -15,7 +17,7 @@ export class AdminPanelComponent implements OnInit {
  
   currentUser: Admin;
  
-    constructor(private adminService: AdminService) {
+    constructor(private router:Router, private adminService: AdminService, private authenticationService: AuthenticationService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentAdmin'));
     }
  
@@ -34,5 +36,18 @@ export class AdminPanelComponent implements OnInit {
             this.admins = admins; 
         });
     }
+
+    onLogOut(): void{
+
+        console.log("le bouton logout");
+        this.authenticationService.logout()
+          .pipe(first())
+          .subscribe(
+              () => {
+                this.router.navigate(['/login']);
+                  
+              });
+    }
+
 
 }
