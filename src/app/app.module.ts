@@ -21,7 +21,8 @@ import {
   MatFormFieldModule,
   MatCheckboxModule,
   MatGridListModule,
-  MatRadioModule } from "@angular/material";
+  MatRadioModule,
+  MatButtonToggleModule } from "@angular/material";
 
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FooterComponent } from './footer/footer.component';
@@ -76,6 +77,7 @@ import { ClientListeComponent } from './client-liste/client-liste.component';
     MatGridListModule,
     MatRadioModule,
     MatExpansionModule,
+    MatButtonToggleModule,
     FlexLayoutModule
   ],
   providers: [

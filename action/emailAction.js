@@ -21,7 +21,9 @@ var nodemailer = require('nodemailer');
       "Modele de l'ordinateur: " + data.ordinateur.modele + "\n" +
       "Complet: " + data.complet + "\n" +
       "fonctionnel: " + data.fonctionnel + "\n" +
-      "Bon état visuel: " + data.visuel + "\n"  
+      "Bon état visuel: " + data.visuel + "\n"  +
+      "Description: " + data.description+ "\n"+
+      "Nous vous proposons une offre de reprise de: " + data.prix
     };
 
     transporter.sendMail(mailOptions, function(error, info){

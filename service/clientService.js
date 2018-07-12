@@ -6,7 +6,8 @@ module.exports = {
     getById,
     create,
     update,
-    delete: _delete
+    delete: _delete,
+    sendPrix
 };
  
 async function getAll() {
@@ -14,7 +15,11 @@ async function getAll() {
 }
  
 async function getById(id) {
-    return await Admin.findById(id);
+    return await Client.findById(id);
+}
+
+async function getByEmail(email) {
+    return await Client.find().select(email);
 }
  
 async function create(clientParam) {
@@ -35,4 +40,11 @@ async function update(id, clientParam) {
  
 async function _delete(id) {
     await Client.findByIdAndRemove(id);
+}
+
+async function sendPrix(data){
+    var client = await Client.getByEmail(data.email);
+    client.etat = data.client.etat;
+    await Client.update(client.id,client);
+    await emailAction.exec(data)
 }

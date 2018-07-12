@@ -35,7 +35,7 @@ router.post('/', function (req, res, next) {
 
   clientService.create(req.body).then(function (err, post) {
     if (err) return next(err);
-    emailAction.exec(req.body);
+    //emailAction.exec(req.body);
     res.json(post);
     });
 
@@ -61,6 +61,14 @@ router.delete('/:id', function (req, res, next) {
 /*DEFAULT REDIRECT*/
 router.get('*', function (req, res, next) {
   res.sendFile(path.resolve('../src/index.html'));
+});
+
+/*ENVOYER LE PRIX*/
+router.get('/envoie-prix',function(req,res,next){
+  clientService.sendPrix(req.body).then(function(err, post) {
+    if (err) return next(err);
+    res.json(post);
+  }); 
 });
 
 

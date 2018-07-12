@@ -1,7 +1,7 @@
 <div class="list-container">
   <mat-accordion>
-    <mat-expansion-panel *ngFor="let client of listeClients">
-      <mat-expansion-panel-header>
+    <mat-expansion-panel class="client" *ngFor="let client of listeClients">
+      <mat-expansion-panel-header class="client-header">
         <mat-panel-title>
           <div class="info nom">
             {{client.nom}}
@@ -9,46 +9,73 @@
 
         </mat-panel-title>
         <mat-panel-description>
-          <div>
+          <div class="client-email">
             {{client.email}}
+          </div>
+
+          <div class={{client.etat}} >
           </div>
 
         </mat-panel-description>
       </mat-expansion-panel-header>
 
       <div class="panel-info">
+          <mat-card>
         <div class="ordi-info">
-          ordinateur :
-          <br/>
-          <ul>
-            <li>
-              marque: {{client.ordinateur.marque}}
-            </li>
-            <li>
-              modele: {{client.ordinateur.modele}}
-            </li>
-            <li>fonctionnel: {{client.ordinateur.fonctionnel}}</li>
-            <li>visuel: {{client.ordinateur.visuel}}</li>
-            <li>complet: {{client.ordinateur.complet}}</li>
+              <div>
+                  ordinateur :
+                  <br/>
+                  <ul>
+                    <li>
+                      marque: {{client.ordinateur.marque}}
+                    </li>
+                    <li>
+                      modele: {{client.ordinateur.modele}}
+                    </li>
+                    <li>fonctionnel: {{client.ordinateur.fonctionnel}}</li>
+                    <li>visuel: {{client.ordinateur.visuel}}</li>
+                    <li>complet: {{client.ordinateur.complet}}</li>
+                  </ul>
+              </div>
+              <div class="description-container">
+                Description: <br/>
+                {{client.ordinateur.description}}
+              </div>
+        </div>
+      </mat-card>
+        <div class="prix-form">
+          <form [formGroup]="offreForm" (ngSubmit)="test()">
+            <div>
+              <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Prix</mat-label>
+                <input matInput placeholder="Offre de reprise" formControlName="prix">
+                <mat-icon matSuffix>euro_symbol</mat-icon>
+              </mat-form-field>
+            </div>
 
-          </ul>
+            <div>
+              <button class="mail-button" mat-button type="submit" mat-raised-button color="primary">
+                <mat-icon>send</mat-icon>
+                envoyer un mail
+              </button>
 
+            </div>
 
+          </form>
 
 
 
         </div>
 
-        <form [formGroup]="offreForm" (ngSubmit)="onFormSubmit(clientForm.value)" fxFlex="100">
-        
-              <mat-form-field appearance="legacy" class="example-full-width">
-                <mat-label>Prix</mat-label>
-                <input matInput placeholder="Offre de reprise" formControlName="prix">
-              </mat-form-field>
-            </form>
+        <div class="etat-form">
+          <mat-button-toggle-group [(ngModel)]="client.etat" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="traite">Traitée</mat-button-toggle>
+            <mat-button-toggle value="enCours">En cours</mat-button-toggle>
+            <mat-button-toggle value="nouveau">Nouveau</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
 
 
-        <button mat-button type="submit" mat-raised-button color="primary">envoyer un mail</button>
       </div>
 
 

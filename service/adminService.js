@@ -2,6 +2,7 @@ const config = require('../config.json');
 const db = require('../helpers/db');
 const Admin = db.Admin;
 const bcrypt = require('bcrypt');
+var emailAction = require('../action/emailAction');
  
 module.exports = {
     authenticate,

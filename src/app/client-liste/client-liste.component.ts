@@ -19,7 +19,8 @@ export class ClientListeComponent implements OnInit {
         'modele': 'unmodele',
         'fonctionnel': 'true',
         'visuel': 'true',
-        'complet': 'true'
+        'complet': 'true',
+        'description': 'Ceci est la description détaillé de mon problème.'
       },
       'etat': 'nouveau'
     },
@@ -31,9 +32,10 @@ export class ClientListeComponent implements OnInit {
         'modele': 'unmodele',
         'fonctionnel': 'false',
         'visuel': 'true',
-        'complet': 'false'
+        'complet': 'false',
+        'description': 'Ceci est la description détaillé de mon problème.'
       },
-      'etat': 'en cours'
+      'etat': 'enCours'
     },
     {
       'nom':'Pierre Baraquant',
@@ -43,7 +45,8 @@ export class ClientListeComponent implements OnInit {
         'modele': 'unmodele',
         'fonctionnel': 'false',
         'visuel': 'true',
-        'complet': 'false'
+        'complet': 'false',
+        'description': 'Ceci est la description détaillé de mon problème.'
       },
       'etat': 'traite'
     }

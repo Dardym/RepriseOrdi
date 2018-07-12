@@ -15,7 +15,65 @@
     flex-direction: row;
   }
   .ordi-info{
-    flex:1 1 100%;
+    flex:1 1 50%;
     display: flex;
     flex-direction: row;
+  }
+
+  .client{
+      /*background-color: #7AFAB0;
+      background-color: #00B1FF;
+      background-color: #d14836;
+      color: white !important;
+      */
+  }
+
+
+  .nouveau, .traite, .enCours{
+      /*background-color: #7AFAB0;
+      background-color: #00B1FF;
+      background-color: #d14836;
+      color: white !important;
+      */
+      display: flex;
+      border-radius:50%;
+      width:25px;
+      height:25px;
+  }
+  .client-email{
+    flex: 60%;
+  }
+
+  .prix-form{
+      flex: 1 1 25%;
+      justify-content: center;
+      align-items: center;
+      margin-left: 2%;
+  }
+
+  .etat-form{
+    flex: 1 1 25%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mail-button, .description-container{
+      margin-left: 3%;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nouveau{
+    background-color: #00B1FF;
+  }
+
+  .traite{
+    background-color: #7AFAB0;
+  }
+
+  .enCours{
+    background-color: #d14836;
   }
