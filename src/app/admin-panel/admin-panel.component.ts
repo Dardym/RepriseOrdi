@@ -23,6 +23,7 @@ export class AdminPanelComponent implements OnInit {
  
     ngOnInit() {
         this.loadAllUsers();
+        this.router.navigate(['/admin-panel/client-liste']);
     }
  
     /*deleteUser(id: number) {

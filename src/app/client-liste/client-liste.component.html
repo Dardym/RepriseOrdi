@@ -1,32 +1,57 @@
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Personal data
-      </mat-panel-title>
-      <mat-panel-description>
-        Type your name and age
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+<div class="list-container">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let client of listeClients">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="info nom">
+            {{client.nom}}
+          </div>
 
-    <mat-form-field>
-      <input matInput placeholder="First name">
-    </mat-form-field>
+        </mat-panel-title>
+        <mat-panel-description>
+          <div>
+            {{client.email}}
+          </div>
 
-    <mat-form-field>
-      <input matInput placeholder="Age">
-    </mat-form-field>
-  </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Self aware panel
-      </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
-  </mat-expansion-panel>
-</mat-accordion>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="panel-info">
+        <div class="ordi-info">
+          ordinateur :
+          <br/>
+          <ul>
+            <li>
+              marque: {{client.ordinateur.marque}}
+            </li>
+            <li>
+              modele: {{client.ordinateur.modele}}
+            </li>
+            <li>fonctionnel: {{client.ordinateur.fonctionnel}}</li>
+            <li>visuel: {{client.ordinateur.visuel}}</li>
+            <li>complet: {{client.ordinateur.complet}}</li>
+
+          </ul>
+
+
+
+
+
+        </div>
+
+        <form [formGroup]="offreForm" (ngSubmit)="onFormSubmit(clientForm.value)" fxFlex="100">
+        
+              <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Prix</mat-label>
+                <input matInput placeholder="Offre de reprise" formControlName="prix">
+              </mat-form-field>
+            </form>
+
+
+        <button mat-button type="submit" mat-raised-button color="primary">envoyer un mail</button>
+      </div>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

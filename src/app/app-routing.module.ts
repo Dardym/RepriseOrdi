@@ -23,9 +23,9 @@ const routes: Routes = [
     { path: 'contacts', component: ContactsComponent}
   ]},
   { path: 'login', component: LoginComponent },
-  { path: 'admin-panel', component: AdminPanelComponent,canActivate:[AuthGuard], children:[
-    { path: '', redirectTo: 'client-liste', pathMatch: 'full'},
-    { path: 'client-liste', component: ClientListeComponent}
+  { path: 'admin-panel', component: AdminPanelComponent, /*canActivate:[AuthGuard],*/ children:[
+    { path: '', redirectTo: 'admin-panel', pathMatch: 'full'/*, canActivate:[AuthGuard]*/},
+    { path: 'client-liste', component: ClientListeComponent/*, canActivate:[AuthGuard]*/}
   ]}
   // otherwise redirect to home
   //{ path: '**', redirectTo: 'client-panel', pathMatch:'full'}

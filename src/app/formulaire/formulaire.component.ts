@@ -39,6 +39,7 @@ export class FormulaireComponent implements OnInit {
   }
 
   onFormSubmit(form:NgForm) {
+    console.log(form);
     this.api.postClient(form)
       .subscribe(res => {
         this.router.navigate(['/validation']);

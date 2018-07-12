@@ -10,18 +10,55 @@ import { Client } from '../metier/client'
 })
 export class ClientListeComponent implements OnInit {
 
-  listClient: any;
+  listeClients: any = [
+    {
+      'nom':'maxime dardy',
+      'email': 'maxime@touchedeclavier.com',
+      'ordinateur':{
+        'marque': 'asus',
+        'modele': 'unmodele',
+        'fonctionnel': 'true',
+        'visuel': 'true',
+        'complet': 'true'
+      },
+      'etat': 'nouveau'
+    },
+    {
+      'nom':'Pierre Baraquant',
+      'email': 'tocardu36@hotmail.fre',
+      'ordinateur':{
+        'marque': 'asus',
+        'modele': 'unmodele',
+        'fonctionnel': 'false',
+        'visuel': 'true',
+        'complet': 'false'
+      },
+      'etat': 'en cours'
+    },
+    {
+      'nom':'Pierre Baraquant',
+      'email': 'tocardu36@hotmail.fre',
+      'ordinateur':{
+        'marque': 'asus',
+        'modele': 'unmodele',
+        'fonctionnel': 'false',
+        'visuel': 'true',
+        'complet': 'false'
+      },
+      'etat': 'traite'
+    }
+  ];
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    
-    this.listClient = this.apiService.getClients();
+    /*
+    this.listeClients = this.apiService.getClients();
 
-    for(var i=0;i<this.listClient.length;i++){
-      console.log(this.listClient);
+    for(var i=0;i<this.listeClients.length;i++){
+      console.log(this.listeClients);
     }
-
+    */
   }
 
 }

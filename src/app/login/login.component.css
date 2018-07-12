@@ -1,0 +1,71 @@
+.form-title{
+    display: flex;
+    font-family: 'Google Sans',arial,sans-serif;
+    padding-bottom: 0;
+    padding-top: 16px;
+    font-size: 24px;
+    line-height: 1.3333;
+}
+
+.perso-container{
+  padding-top: 1% !important;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  flex:1;
+  max-width: 100%;
+  max-height: 100%;
+  
+}
+
+.image-formulaire{
+  display: flex;
+  flex:1 1 50%;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+form{
+  flex-direction: column;
+  display: flex;
+  flex:1;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.form-container{
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,.03);
+  box-shadow: 0 2px 2px rgba(0,0,0,.24),0 0 2px rgba(0,0,0,.12);
+  margin: 10px;
+  max-width: 33%;
+}
+
+.form-title{
+  display: flex;
+  align-content: left;
+  align-items: left;
+  justify-content: left;
+  padding-bottom: 2%;
+  color: rgba(0,0,0,.54);
+  background: rgba(0,0,0,.03);
+  background-size: cover;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:5%;
+}
+
+:host {
+  display: flex;
+  flex:1 1 100%;
+  justify-content: center;
+  align-items: center;
+
+}
