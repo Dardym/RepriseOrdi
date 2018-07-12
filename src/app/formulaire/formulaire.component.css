@@ -119,3 +119,8 @@ form{
   flex: 1 1 66%;
   padding-bottom: 2%;
 }
+
+.description-container{
+  display: flex;
+  flex-direction: column;
+}

@@ -7,10 +7,13 @@ module.exports = {
     create,
     update,
     delete: _delete,
-    sendPrix
+    sendPrix,
+    getByEmail
 };
  
 async function getAll() {
+    console.log("je suis dans le getALL");
+    console.log(Client.find().select());
     return await Client.find();
 }
  
@@ -23,6 +26,7 @@ async function getByEmail(email) {
 }
  
 async function create(clientParam) {
+    clientParam.etat = "nouveau";
     const client = new Client(clientParam);
  
     // save user

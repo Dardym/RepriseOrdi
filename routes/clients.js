@@ -5,10 +5,13 @@ var emailAction = require('../action/emailAction');
 
 /* GET ALL ClientS */
 router.get('/', function (req, res, next) {
-  ClientService.getAll().then(function (err, client) {
-    if (err) return next(err);
-    res.json(client);
-  });
+  console.log("je suis dans le get /");
+  clientService.getAll()
+    .then(function (client) {
+      res.json(client);
+    })
+    .catch(err => next(err));
+ 
 });
 
 /* GET SINGLE Client BY ID */
@@ -22,14 +25,16 @@ router.get('/:id', function (req, res, next) {
 
 /* SAVE Client */
 router.post('/', function (req, res, next) {
-
+  console.log("je suis dans le post");
   req.body.ordinateur = {
     marque: req.body.marque,
     modele: req.body.modele,
     complet: req.body.complet,
     visuel: req.body.visuel,
-    fonctionnel: req.body.fonctionnel
+    fonctionnel: req.body.fonctionnel,
+    description: req.body.description
   }
+  console.log(req.body);
 
 
 

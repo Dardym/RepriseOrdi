@@ -8,11 +8,14 @@ var ClientSchema = new mongoose.Schema({
       modele: String,
       complet: Boolean,
       fonctionnel: Boolean,
-      visuel: Boolean
+      visuel: Boolean,
+      description: String
     },
     etat: String
     
   });
+
+  //ClientSchema.set('toJSON', { virtuals: true });
 
   module.exports = mongoose.model('Client', ClientSchema);
 

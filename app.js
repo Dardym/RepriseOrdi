@@ -30,8 +30,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist/RepriseOrdi')));
 app.use('/', express.static(path.join(__dirname, 'dist/RepriseOrdi')));
-app.use('/apiClient', apiClientRouter);
+
 app.use('/apiAdmin', apiAdminRouter);
+app.use('/apiClient', apiClientRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

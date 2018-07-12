@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from '../services/api.service'
 import { Client } from '../metier/client'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-client-liste',
@@ -10,7 +11,7 @@ import { Client } from '../metier/client'
 })
 export class ClientListeComponent implements OnInit {
 
-  listeClients: any = [
+  listeClients: /*Observable*/any = [
     {
       'nom':'maxime dardy',
       'email': 'maxime@touchedeclavier.com',
@@ -55,13 +56,9 @@ export class ClientListeComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    /*
     this.listeClients = this.apiService.getClients();
 
-    for(var i=0;i<this.listeClients.length;i++){
-      console.log(this.listeClients);
-    }
-    */
+    console.log(this.listeClients);
   }
 
 }

@@ -22,6 +22,7 @@ export class FormulaireComponent implements OnInit {
   complet:boolean=false;
   fonctionnel:boolean=false;
   visuel:boolean=false;
+  description:string="";
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder, private formulaireService : FormulaireService) { }
 
@@ -33,7 +34,8 @@ export class FormulaireComponent implements OnInit {
       'modele' : [null, Validators.required],
       'complet' : [false, Validators.required],
       'fonctionnel' : [false, Validators.required],
-      'visuel' : [false, Validators.required]
+      'visuel' : [false, Validators.required],
+      'description' : [null, Validators.required]
       
     });
   }
