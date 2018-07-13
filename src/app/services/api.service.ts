@@ -40,19 +40,32 @@ export class ApiService {
       );
   }
   
-  updateClient(data): Observable<any> {
-    return this.http.put(apiUrl, data, httpOptions)
+  updateClient(id,data): Observable<any> {
+    const url = `${apiUrl}/${id}`;
+    data = {etat: data};
+    return this.http.put(url, data, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
   
-  deleteClient(id: string): Observable<{}> {
+  deleteClient(id: string): Observable<any> {
     const url = `${apiUrl}/${id}`;
+    console.log(url);
     return this.http.delete(url, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
+  }
+
+  postOffre(offre: number, email:string): Observable<any> {
+    const url = apiUrl+'/sendOffre';
+    const data = {offre: offre, email :email};
+    console.log(data);
+    return this.http.post(url, data , httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
   }
 
   //ERROR HANDLER CLIENT SIDE//

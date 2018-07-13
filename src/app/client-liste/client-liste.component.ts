@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service'
 import { Client } from '../metier/client'
 import { Observable } from 'rxjs';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormulaireService } from '../services/formulaire-service.service';
+import { nodeValue } from '../../../node_modules/@angular/core/src/view';
 
 @Component({
   selector: 'app-client-liste',
@@ -11,8 +15,9 @@ import { Observable } from 'rxjs';
 })
 export class ClientListeComponent implements OnInit {
 
-  listeClients: /*Observable*/any = [
-    {
+  offreForm: FormGroup;
+  listeClients: any = [
+    /*{
       'nom':'maxime dardy',
       'email': 'maxime@touchedeclavier.com',
       'ordinateur':{
@@ -23,7 +28,8 @@ export class ClientListeComponent implements OnInit {
         'complet': 'true',
         'description': 'Ceci est la description détaillé de mon problème.'
       },
-      'etat': 'nouveau'
+      'etat': 'nouveau',
+      'offre': '0'
     },
     {
       'nom':'Pierre Baraquant',
@@ -50,15 +56,52 @@ export class ClientListeComponent implements OnInit {
         'description': 'Ceci est la description détaillé de mon problème.'
       },
       'etat': 'traite'
-    }
+    }*/
   ];
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    this.listeClients = this.apiService.getClients();
-
-    console.log(this.listeClients);
+    this.maj();
+    
   }
+
+  onFormSubmit(offre,email){
+
+    this.apiService.postOffre(offre,email)
+      .subscribe(res => {
+        console.log("mail envoyé" + res);
+        this.maj();
+        }, (err) => {
+          console.log(err);
+        });
+
+  }
+
+  maj(){
+    this.apiService.getClients()
+    .subscribe(res => {
+      this.listeClients = res;
+      console.log(this.listeClients);
+    }, err => {
+      console.log(err);
+    });
+    this.listeClients.forEach(element => {
+      element.proposition="";
+    });
+    
+  }
+
+  saveEtat(id,etat){
+    this.apiService.updateClient(id,etat)
+    .subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+    
+  }
+
+
 
 }

@@ -124,3 +124,7 @@ form{
   display: flex;
   flex-direction: column;
 }
+
+.offre-cours{
+  margin-top: 5%;
+}

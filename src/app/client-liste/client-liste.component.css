@@ -20,21 +20,7 @@
     flex-direction: row;
   }
 
-  .client{
-      /*background-color: #7AFAB0;
-      background-color: #00B1FF;
-      background-color: #d14836;
-      color: white !important;
-      */
-  }
-
-
   .nouveau, .traite, .enCours{
-      /*background-color: #7AFAB0;
-      background-color: #00B1FF;
-      background-color: #d14836;
-      color: white !important;
-      */
       display: flex;
       border-radius:50%;
       width:25px;
@@ -52,9 +38,10 @@
   }
 
   .etat-form{
+    display: flex;
     flex: 1 1 25%;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   .mail-button, .description-container{

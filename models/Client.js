@@ -11,7 +11,9 @@ var ClientSchema = new mongoose.Schema({
       visuel: Boolean,
       description: String
     },
-    etat: String
+    etat: String,
+    date: { type: Date, default: Date.now },
+    offre: { type: Number, default: 0 }
     
   });
 

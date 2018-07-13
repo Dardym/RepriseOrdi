@@ -13,66 +13,98 @@
             {{client.email}}
           </div>
 
-          <div class={{client.etat}} >
+          <div class="date">
+            {{client.date}}
+          </div>
+
+          <div class={{client.etat}}>
           </div>
 
         </mat-panel-description>
       </mat-expansion-panel-header>
 
       <div class="panel-info">
-          <mat-card>
-        <div class="ordi-info">
-              <div>
-                  ordinateur :
-                  <br/>
-                  <ul>
-                    <li>
-                      marque: {{client.ordinateur.marque}}
-                    </li>
-                    <li>
-                      modele: {{client.ordinateur.modele}}
-                    </li>
-                    <li>fonctionnel: {{client.ordinateur.fonctionnel}}</li>
-                    <li>visuel: {{client.ordinateur.visuel}}</li>
-                    <li>complet: {{client.ordinateur.complet}}</li>
-                  </ul>
-              </div>
-              <div class="description-container">
-                Description: <br/>
-                {{client.ordinateur.description}}
-              </div>
-        </div>
-      </mat-card>
+        <mat-card>
+          <div class="ordi-info">
+            <div>
+              ordinateur :
+              <br/>
+              <ul>
+                <li>
+                  marque: {{client.ordinateur.marque}}
+                </li>
+                <li>
+                  modele: {{client.ordinateur.modele}}
+                </li>
+                <li>fonctionnel: {{client.ordinateur.fonctionnel}}</li>
+                <li>visuel: {{client.ordinateur.visuel}}</li>
+                <li>complet: {{client.ordinateur.complet}}</li>
+              </ul>
+            </div>
+            <div class="description-container">
+              Description:
+              <br/> {{client.ordinateur.description}}
+            </div>
+          </div>
+        </mat-card>
         <div class="prix-form">
-          <form [formGroup]="offreForm" (ngSubmit)="test()">
-            <div>
-              <mat-form-field appearance="legacy" class="example-full-width">
-                <mat-label>Prix</mat-label>
-                <input matInput placeholder="Offre de reprise" formControlName="prix">
-                <mat-icon matSuffix>euro_symbol</mat-icon>
-              </mat-form-field>
-            </div>
 
-            <div>
-              <button class="mail-button" mat-button type="submit" mat-raised-button color="primary">
-                <mat-icon>send</mat-icon>
-                envoyer un mail
-              </button>
+          <!--<div>
+                
+                  <mat-label>Prix</mat-label>
+                  <input matInput placeholder="Offre de reprise" [(ngModel)]="client.offre">
+                  <mat-icon matSuffix>euro_symbol</mat-icon>
+                  <mat-error>
+                    <span *ngIf="!offreForm.get('prix').valid && offreForm.get('prix').touched">Veuillez indiquer un prix de reprise</span>
+                  </mat-error>
+            </div>-->
+          
 
-            </div>
+          <div>
+            <mat-form-field appearance="legacy" class="example-full-width">
+              <mat-label>Offre</mat-label>
+              <input class="champ-offre" matInput placeholder="Offre de reprise" [(ngModel)]="client.proposition">
+              <mat-icon matSuffix>euro_symbol</mat-icon>
+              <mat-error>
+                <span *ngIf="!client.proposition">Veuillez indiquer un prix de reprise</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
 
-          </form>
+          <div>
+            <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="onFormSubmit(client.proposition,client.email)"
+              mat-raised-button color="primary">
+              <mat-icon>send</mat-icon>
+              envoyer un mail
+            </button>
+          </div>
 
+          <br/>
 
+          <div class="offre-cours">
+            <mat-label>Offre en cours: {{client.offre}}</mat-label>
+          </div>
 
         </div>
 
         <div class="etat-form">
-          <mat-button-toggle-group [(ngModel)]="client.etat" name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle value="traite">Traitée</mat-button-toggle>
-            <mat-button-toggle value="enCours">En cours</mat-button-toggle>
-            <mat-button-toggle value="nouveau">Nouveau</mat-button-toggle>
-          </mat-button-toggle-group>
+
+          <div>
+            <mat-button-toggle-group [(ngModel)]="client.etat" name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="traite">Traitée</mat-button-toggle>
+              <mat-button-toggle value="enCours">En cours</mat-button-toggle>
+              <mat-button-toggle value="nouveau">Nouveau</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+
+          <div>
+            <button class="mail-button" mat-button (click)="saveEtat(client._id,client.etat)" mat-raised-button color="primary">
+              <mat-icon>done</mat-icon>
+              sauvegarder
+            </button>
+          </div>
+
+
         </div>
 
 

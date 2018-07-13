@@ -20,7 +20,7 @@
             
                     <mat-form-field appearance="legacy" class="example-full-width">
                         <mat-label>Mot de passe</mat-label>
-                        <input matInput formControlName="password">
+                        <input type="password" matInput formControlName="password">
                         <mat-error>
                             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                                 <div *ngIf="f.password.errors.required">Mot de passe manquant.</div>

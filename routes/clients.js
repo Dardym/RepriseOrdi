@@ -5,10 +5,19 @@ var emailAction = require('../action/emailAction');
 
 /* GET ALL ClientS */
 router.get('/', function (req, res, next) {
-  console.log("je suis dans le get /");
   clientService.getAll()
     .then(function (client) {
       res.json(client);
+    })
+    .catch(err => next(err));
+ 
+});
+
+router.post('/sendOffre',function (req, res, next) {
+  console.log(req.body);
+  clientService.sendOffre(req.body.offre, req.body.email)
+    .then(function () {
+      res.json();
     })
     .catch(err => next(err));
  
@@ -49,10 +58,11 @@ router.post('/', function (req, res, next) {
 
 /* UPDATE Client */
 router.put('/:id', function (req, res, next) {
-  clientService.update(req.params.id, req.body).then(function (err, post) {
-    if (err) return next(err);
+  clientService.update(req.params.id, req.body)
+  .then(function ( post) {
     res.json(post);
-  });
+  })
+  .catch(err => next(err));
 });
 
 /* DELETE Client */
@@ -66,14 +76,6 @@ router.delete('/:id', function (req, res, next) {
 /*DEFAULT REDIRECT*/
 router.get('*', function (req, res, next) {
   res.sendFile(path.resolve('../src/index.html'));
-});
-
-/*ENVOYER LE PRIX*/
-router.get('/envoie-prix',function(req,res,next){
-  clientService.sendPrix(req.body).then(function(err, post) {
-    if (err) return next(err);
-    res.json(post);
-  }); 
 });
 
 
