@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { ClientPanelComponent } from './client-panel/client-panel.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { ClientListeComponent } from './client-liste/client-liste.component';
+import { EmailComponent } from './email/email.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'client-panel', pathMatch: 'full'},
@@ -23,9 +24,10 @@ const routes: Routes = [
     { path: 'contacts', component: ContactsComponent}
   ]},
   { path: 'login', component: LoginComponent },
-  { path: 'admin-panel', component: AdminPanelComponent, /*canActivate:[AuthGuard],*/ children:[
-    { path: '', redirectTo: 'admin-panel', pathMatch: 'full'/*, canActivate:[AuthGuard]*/},
-    { path: 'client-liste', component: ClientListeComponent/*, canActivate:[AuthGuard]*/}
+  { path: 'admin-panel', component: AdminPanelComponent, canActivate:[AuthGuard], children:[
+    { path: '', redirectTo: 'admin-panel', pathMatch: 'full', canActivate:[AuthGuard]},
+    { path: 'client-liste', component: ClientListeComponent, canActivate:[AuthGuard]},
+    { path: 'email', component: EmailComponent, canActivate:[AuthGuard]}
   ]}
   // otherwise redirect to home
   //{ path: '**', redirectTo: 'client-panel', pathMatch:'full'}

@@ -10,8 +10,7 @@ module.exports = {
     getById,
     create,
     update,
-    delete: _delete,
-    logout
+    delete: _delete
 };
  
 async function authenticate(email, password) {
@@ -40,7 +39,6 @@ async function getById(id) {
 }
  
 async function create(adminParam) {
-    console.log("test create");
     // validate
     if (await Admin.findOne({ email: adminParam.email })) {
         var err = new Error('email'+ adminParam.email + 'déjà utilisé');
@@ -48,7 +46,6 @@ async function create(adminParam) {
         throw err;
     }
     const admin = new Admin(adminParam);
-    console.log(admin);
     // hash password
     if (adminParam.mdp) {
         admin.mdp = bcrypt.hashSync(adminParam.mdp, 10);
@@ -86,12 +83,4 @@ async function update(id, userParam) {
  
 async function _delete(id) {
     await User.findByIdAndRemove(id);
-}
-
-async function logout(){
-    console.log("dans le adminservice");
-    var err = new Error('utilisateur introuvable');
-    err.status = 450;
-    throw err;
-    //return await true;
 }

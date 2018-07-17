@@ -1,0 +1,22 @@
+.modif-email-container{
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: column;
+    align-content: center;
+}
+
+:host{
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: row;
+}
+
+.input-email{
+    flex:1 1 100%;
+    min-width: 100%;
+}
+
+.mail-input{
+    flex: 1 1 100%;
+    min-height: 400px;
+}

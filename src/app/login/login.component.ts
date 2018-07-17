@@ -53,9 +53,7 @@ export class LoginComponent implements OnInit {
           .pipe(first())
           .subscribe(
               () => {
-                    
-                    this.router.navigate(['/admin-panel']);
-                  
+                this.router.navigate(['/admin-panel']);  
               },
               error => {
                   this.error = error;

@@ -3,10 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service'
 import { Client } from '../metier/client'
+import {MatDialog} from '@angular/material';
 import { Observable } from 'rxjs';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormulaireService } from '../services/formulaire-service.service';
 import { nodeValue } from '../../../node_modules/@angular/core/src/view';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-client-liste',
@@ -17,7 +19,7 @@ export class ClientListeComponent implements OnInit {
 
   offreForm: FormGroup;
   listeClients: any = [
-    /*{
+    {
       'nom':'maxime dardy',
       'email': 'maxime@touchedeclavier.com',
       'ordinateur':{
@@ -43,6 +45,7 @@ export class ClientListeComponent implements OnInit {
         'description': 'Ceci est la description détaillé de mon problème.'
       },
       'etat': 'enCours'
+
     },
     {
       'nom':'Pierre Baraquant',
@@ -56,33 +59,26 @@ export class ClientListeComponent implements OnInit {
         'description': 'Ceci est la description détaillé de mon problème.'
       },
       'etat': 'traite'
-    }*/
+
+    }
   ];
 
-  constructor(private apiService: ApiService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(public dialog: MatDialog, private apiService: ApiService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.maj();
-    
   }
 
   onFormSubmit(offre,email){
-
-    this.apiService.postOffre(offre,email)
-      .subscribe(res => {
-        console.log("mail envoyé" + res);
-        this.maj();
-        }, (err) => {
-          console.log(err);
-        });
-
+    console.log("dans le onformsubmit");
+    console.log(offre);
+    this.openDialog(offre,email);
   }
 
   maj(){
     this.apiService.getClients()
     .subscribe(res => {
       this.listeClients = res;
-      console.log(this.listeClients);
     }, err => {
       console.log(err);
     });
@@ -95,12 +91,38 @@ export class ClientListeComponent implements OnInit {
   saveEtat(id,etat){
     this.apiService.updateClient(id,etat)
     .subscribe(res => {
-      console.log(res);
+      console.log("état sauvegardé: " + res);
     }, err => {
       console.log(err);
     });
     
   }
+
+  openDialog(offre,email) {
+    console.log("dans le openDialog");
+    console.log(offre);
+    const dialogRef = this.dialog.open(DialogComponent, {
+      height: '350px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+
+        console.log("j'envoie");
+        this.apiService.postOffre(offre,email)
+        .subscribe(res => {
+          console.log("mail envoyé" + res);
+          this.maj();
+          }, (err) => {
+            console.log(err);
+          });
+
+      }else{
+        console.log("j'envoie pas");
+      }
+    });
+  }
+
 
 
 

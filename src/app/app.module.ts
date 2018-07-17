@@ -22,6 +22,7 @@ import {
   MatCheckboxModule,
   MatGridListModule,
   MatRadioModule,
+  MatDialogModule,
   MatButtonToggleModule } from "@angular/material";
 
 import { FormulaireComponent } from './formulaire/formulaire.component';
@@ -38,6 +39,8 @@ import { LoginComponent } from './login/login.component';
 import { ClientPanelComponent } from './client-panel/client-panel.component';
 import { HeaderAdminComponent } from './header-admin/header-admin.component';
 import { ClientListeComponent } from './client-liste/client-liste.component';
+import { EmailComponent } from './email/email.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,9 @@ import { ClientListeComponent } from './client-liste/client-liste.component';
     LoginComponent,
     ClientPanelComponent,
     HeaderAdminComponent,
-    ClientListeComponent
+    ClientListeComponent,
+    EmailComponent,
+    DialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -78,8 +83,10 @@ import { ClientListeComponent } from './client-liste/client-liste.component';
     MatRadioModule,
     MatExpansionModule,
     MatButtonToggleModule,
+    MatDialogModule,
     FlexLayoutModule
   ],
+  entryComponents: [ClientListeComponent, DialogComponent],
   providers: [
   ],
   bootstrap: [AppComponent]

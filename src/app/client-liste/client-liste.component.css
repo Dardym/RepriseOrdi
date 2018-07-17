@@ -27,7 +27,7 @@
       height:25px;
   }
   .client-email{
-    flex: 60%;
+    flex: 10%;
   }
 
   .prix-form{
@@ -63,4 +63,12 @@
 
   .enCours{
     background-color: #d14836;
+  }
+
+  .date{
+    flex: 1 1;
+  }
+
+  .ordi-card{
+    flex: 1 1 auto;
   }

@@ -14,7 +14,7 @@
           </div>
 
           <div class="date">
-            {{client.date}}
+              {{client.date | date: 'dd/MM/yyyy'}}
           </div>
 
           <div class={{client.etat}}>
@@ -24,25 +24,25 @@
       </mat-expansion-panel-header>
 
       <div class="panel-info">
-        <mat-card>
+        <mat-card class="ordi-card">
           <div class="ordi-info">
             <div>
               ordinateur :
               <br/>
               <ul>
                 <li>
-                  marque: {{client.ordinateur.marque}}
+                  marque : {{client.ordinateur.marque}}
                 </li>
                 <li>
-                  modele: {{client.ordinateur.modele}}
+                  modele : {{client.ordinateur.modele}}
                 </li>
-                <li>fonctionnel: {{client.ordinateur.fonctionnel}}</li>
-                <li>visuel: {{client.ordinateur.visuel}}</li>
-                <li>complet: {{client.ordinateur.complet}}</li>
+                <li>fonctionnel : {{client.ordinateur.fonctionnel}}</li>
+                <li>visuel : {{client.ordinateur.visuel}}</li>
+                <li>complet : {{client.ordinateur.complet}}</li>
               </ul>
             </div>
             <div class="description-container">
-              Description:
+              Description :
               <br/> {{client.ordinateur.description}}
             </div>
           </div>
@@ -72,12 +72,20 @@
           </div>
 
           <div>
+              <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="openDialog(client.proposition,client.email)"
+                mat-raised-button color="primary">
+                <mat-icon>send</mat-icon>
+                envoyer un mail
+              </button>
+            </div>
+
+         <!-- <div>
             <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="onFormSubmit(client.proposition,client.email)"
               mat-raised-button color="primary">
               <mat-icon>send</mat-icon>
               envoyer un mail
             </button>
-          </div>
+          </div>-->
 
           <br/>
 

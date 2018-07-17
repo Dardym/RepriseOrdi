@@ -1,0 +1,25 @@
+<div class="modif-email-container">
+    <mat-card>
+        <mat-card-title>Email envoyé</mat-card-title>
+
+        
+            <mat-form-field class="input-email">
+                  <textarea class="mail-input" matInput *ngIf="email"  placeholder="Le contenu du mail envoyé au client sera le suivant: " [(ngModel)]="email.texte">
+                  </textarea>
+            </mat-form-field>
+          
+       
+
+        <mat-card-actions>
+                <button class="save-mail-button" mat-button (click)="sauvegarderEmail()" mat-raised-button color="primary">
+                  <mat-icon>done</mat-icon>
+                  sauvegarder
+                </button>
+        </mat-card-actions>
+
+        <mat-card-subtitle>
+          N'oubliez pas d'utiliser "%offre%" dans le corps du message pour indiquer l'endroit où l'offre chiffrée sera insérée.
+        </mat-card-subtitle>
+
+    </mat-card>
+</div>

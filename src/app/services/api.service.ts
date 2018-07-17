@@ -51,7 +51,6 @@ export class ApiService {
   
   deleteClient(id: string): Observable<any> {
     const url = `${apiUrl}/${id}`;
-    console.log(url);
     return this.http.delete(url, httpOptions)
       .pipe(
         catchError(this.handleError)
@@ -61,7 +60,6 @@ export class ApiService {
   postOffre(offre: number, email:string): Observable<any> {
     const url = apiUrl+'/sendOffre';
     const data = {offre: offre, email :email};
-    console.log(data);
     return this.http.post(url, data , httpOptions)
     .pipe(
       catchError(this.handleError)

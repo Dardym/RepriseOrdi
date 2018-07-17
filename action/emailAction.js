@@ -10,20 +10,13 @@ var nodemailer = require('nodemailer');
     });
 	
   
-   var exec = function(client) {
-     console.log(client);
-
+   var exec = function(data) {
+    var texte = insererOffre(data.texte,data.offre);
     var mailOptions = {
       from: 'maxime@touchedeclavier.com',
-      to: client.email,
-      subject: 'Demande de reprise de ' + client.nom,
-      text: "Marque de l'ordinateur: " + client.ordinateur.marque + "\n" +
-      "Modele de l'ordinateur: " + client.ordinateur.modele + "\n" +
-      "Complet: " + client.ordinateur.complet + "\n" +
-      "fonctionnel: " + client.ordinateur.fonctionnel + "\n" +
-      "Bon état visuel: " + client.ordinateur.visuel + "\n"  +
-      "Description: " + client.ordinateur.description+ "\n"+
-      "Nous vous proposons une offre de reprise de: " + client.offre
+      to: data.client.email,
+      subject: 'Demande de reprise de ' + data.client.nom,
+      text: texte
     };
 
     transporter.sendMail(mailOptions, function(error, info){
@@ -33,6 +26,12 @@ var nodemailer = require('nodemailer');
         console.log('Email sent: ' + info.response);
       }
     }); 
+  }
+
+  function insererOffre(texte,offre){
+    console.log(texte);
+    var res = texte.replace("%offre%",offre);
+    return res;
   }
 
 

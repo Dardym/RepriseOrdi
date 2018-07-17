@@ -3,11 +3,21 @@
                 <img class="le-logo" src="../../assets/images/logo-ombres.png">
         </a>
     
-        <a class="Logo-accueil" fxLayoutAlign="end center" fxLayout="row" [routerLink]="['/login']">
+        <a class="Logo-accueil" fxLayoutAlign="end center" fxLayout="row" [routerLink]="['/admin-panel/client-liste']">
             <span class="logo-text" fxLayout="row">
-                <span class="nom-site">Panneau d'administration</span>
+                <span class="nom-site">Liste Clients</span>
             </span>
         </a>
+
+        <a class="Logo-accueil" fxLayoutAlign="end center" fxLayout="row" [routerLink]="['/admin-panel/email']">
+            <span class="logo-text" fxLayout="row">
+                <span class="nom-site">Modifier l'email</span>
+            </span>
+        </a>
+
+        <div class="button-container">
+            <button mat-button type="button" mat-raised-button color="primary" (click)="logout()">se déconnecter</button>
+        </div>
         
     </div>
     

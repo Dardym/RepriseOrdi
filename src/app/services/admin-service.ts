@@ -4,23 +4,40 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 
 const httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  };
-const apiUrl = "localhost:3000/apiAdmin";
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
+const apiUrl = "/apiAdmin";
  
 @Injectable({ providedIn: 'root' })
 export class AdminService {
     constructor(private http: HttpClient) { }
 
     private extractData(res: Response) {
-        let body = res;
-        return body || { };
-      }
+      let body = res;
+      return body || { };
+    }
  
     getAll(): Observable<any> {
+      console.log("je suis dans le getAll");
         return this.http.get(apiUrl,httpOptions).pipe(
             map(this.extractData),
             catchError(this.handleError));
+    }
+
+    getEmail(): Observable<any>{
+      console.log("je suis dans le getEmail");
+      let url = apiUrl + "/email";
+      return this.http.get(url, httpOptions).pipe(
+        map(this.extractData),
+        catchError(this.handleError));
+    }
+    
+    saveEmail(texte){
+      console.log("je suis dans le sauvegarder service client");
+      let url = apiUrl+"/updateEmail";
+      return this.http.put(url,texte,httpOptions).pipe(
+        map(this.extractData),
+        catchError(this.handleError));
     }
 
     //ERROR HANDLER CLIENT SIDE//

@@ -2,21 +2,25 @@ const config = require('../config.json');
 const express = require('express');
 const router = express.Router();
 const adminService = require('../service/adminservice');
+const emailService = require('../service/emailService');
  
 // routes
 router.post('/authenticate', authenticate);
 router.post('/register', register);
+router.post('/createEmail', createEmail);
 router.get('/', getAll);
-router.get('/:id', getById);
+router.get('/admin/:id', getById);
 router.get('/current', getCurrent);
 router.get('/logout', my_logout);
-router.put('/:id', update);
+router.get('/email', getEmail);
+router.put('/admin/:id', update);
+router.put('/updateEmail', updateEmail);
 router.delete('/:id', _delete);
 
 
 // rewrite virtual urls to angular app to enable refreshing of internal pages
 router.get('*', function (req, res, next) {
-    res.sendFile(path.resolve('app/index.html'));
+    res.sendFile(path.resolve('../src/index.html'));
 });
  
 module.exports = router;
@@ -24,8 +28,7 @@ module.exports = router;
 function authenticate(req, res, next) {
     adminService.authenticate(req.body.email,req.body.password)
         .then(function(admin){
-            req.session.email = admin.email;
-            res.token = admin._id;
+            req.session.admin = admin;
             res.success = true;
             res.json({'success':true, 'admin':admin});
         })
@@ -69,14 +72,38 @@ function _delete(req, res, next) {
         .catch(err => next(err));
 }
 
+
+function createEmail(req, res, next){
+    emailService.create(req.body)
+    .then(() => res.json({}))
+    .catch(function(err){
+        console.log(err);
+        next(err);
+    });
+}
+
+function updateEmail(req, res, next){
+    emailService.update(req.body)
+    .then(() => res.json({}))
+    .catch(err => next(err));
+}
+
+function getEmail(req, res, next){
+    emailService.getEmail()
+    .then(function(email){
+        res.json(email);
+    } )
+    .catch(err => next(err));
+}
+
 function my_logout(req, res, next) {
-    console.log("je suis dans la fonction logout du router");
     try{
-        console.log(req);
-        console.log("je suis dans la fonction logout du router");
-        res.json({});
+        req.session.destroy();
+        res.json({success: "true"});
     }
     catch(err){
+        console.log(err);
+        res.json({success: "false"});
         next(err);
     }
     
@@ -87,7 +114,4 @@ function my_logout(req, res, next) {
         /*req.session.adminId ="";
         res.token = "";
         res.json({'success':true});*/
-   
-
-    
 }

@@ -14,7 +14,6 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/sendOffre',function (req, res, next) {
-  console.log(req.body);
   clientService.sendOffre(req.body.offre, req.body.email)
     .then(function () {
       res.json();
@@ -34,7 +33,6 @@ router.get('/:id', function (req, res, next) {
 
 /* SAVE Client */
 router.post('/', function (req, res, next) {
-  console.log("je suis dans le post");
   req.body.ordinateur = {
     marque: req.body.marque,
     modele: req.body.modele,
@@ -43,10 +41,6 @@ router.post('/', function (req, res, next) {
     fonctionnel: req.body.fonctionnel,
     description: req.body.description
   }
-  console.log(req.body);
-
-
-
   clientService.create(req.body).then(function (err, post) {
     if (err) return next(err);
     //emailAction.exec(req.body);
@@ -58,8 +52,8 @@ router.post('/', function (req, res, next) {
 
 /* UPDATE Client */
 router.put('/:id', function (req, res, next) {
-  clientService.update(req.params.id, req.body)
-  .then(function ( post) {
+  clientService.updates(req.params.id, req.body)
+  .then(function (post) {
     res.json(post);
   })
   .catch(err => next(err));
