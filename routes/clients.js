@@ -5,30 +5,52 @@ var path = require('path');
 
 /* GET ALL ClientS */
 router.get('/', function (req, res, next) {
-  clientService.getAll()
-    .then(function (client) {
-      res.json(client);
-    })
-    .catch(err => next(err));
- 
+  if (req.session.admin) {
+    clientService.getAll()
+      .then(function (client) {
+        res.json(client);
+      })
+      .catch(err => next(err));
+  } else {
+    var err = new Error('Non autorisé');
+    err.status = 401;
+    throw err;
+  }
 });
 
-router.post('/sendOffre',function (req, res, next) {
-  clientService.sendOffre(req.body.offre, req.body.email)
-    .then(function () {
-      res.json();
-    })
-    .catch(err => next(err));
- 
+
+
+router.post('/sendOffre', function (req, res, next) {
+  if (req.session.admin) {
+    clientService.sendOffre(req.body.offre, req.body.email)
+      .then(function () {
+        res.json();
+      })
+      .catch(err => next(err));
+  } else {
+    var err = new Error('Non autorisé');
+    err.status = 401;
+    throw err;
+  }
+
 });
 
 /* GET SINGLE Client BY ID */
 router.get('/:id', function (req, res, next) {
-  clientService.findById(req.params.id).then(function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  });
-  //});
+  if (req.session.admin) {
+
+    clientService.findById(req.params.id)
+    .then(function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    })
+    .catch(err => next(err));
+
+  } else {
+    var err = new Error('Non autorisé');
+    err.status = 401;
+    throw err;
+  }
 });
 
 /* SAVE Client */
@@ -41,30 +63,54 @@ router.post('/', function (req, res, next) {
     fonctionnel: req.body.fonctionnel,
     description: req.body.description
   }
-  clientService.create(req.body).then(function (err, post) {
-    if (err) return next(err);
-    //emailAction.exec(req.body);
-    res.json(post);
-    });
 
-  
+  if (req.session.admin) {
+
+    clientService.create(req.body).then(function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    })
+      .catch(err => next(err));
+
+  } else {
+    var err = new Error('Non autorisé');
+    err.status = 401;
+    throw err;
+  }
 });
 
 /* UPDATE Client */
 router.put('/:id', function (req, res, next) {
-  clientService.updates(req.params.id, req.body)
-  .then(function (post) {
-    res.json(post);
-  })
-  .catch(err => next(err));
-});
 
+  if (req.session.admin) {
+
+    clientService.updates(req.params.id, req.body)
+      .then(function (post) {
+        res.json(post)
+      })
+      .catch(err => next(err));
+
+  } else {
+    var err = new Error('Non autorisé');
+    err.status = 401;
+    throw err;
+  }
+});
 /* DELETE Client */
 router.delete('/:id', function (req, res, next) {
-  clientService._delete(req.params.id, req.body).then(function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  }); 
+  if (req.session.admin) {
+
+    clientService._delete(req.params.id, req.body).then(function (err, post) {
+      if (err) return next(err);
+      res.json(post);})
+      .catch(err => next(err));
+      
+  } else {
+  var err = new Error('Non autorisé');
+  err.status = 401;
+  throw err;
+}
+ 
 });
 
 router.get('*', (req, res) => {
