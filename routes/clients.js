@@ -64,19 +64,12 @@ router.post('/', function (req, res, next) {
     description: req.body.description
   }
 
-  if (req.session.admin) {
 
     clientService.create(req.body).then(function (err, post) {
       if (err) return next(err);
       res.json(post);
     })
       .catch(err => next(err));
-
-  } else {
-    var err = new Error('Non autorisé');
-    err.status = 401;
-    throw err;
-  }
 });
 
 /* UPDATE Client */
@@ -104,7 +97,7 @@ router.delete('/:id', function (req, res, next) {
       if (err) return next(err);
       res.json(post);})
       .catch(err => next(err));
-      
+
   } else {
   var err = new Error('Non autorisé');
   err.status = 401;
