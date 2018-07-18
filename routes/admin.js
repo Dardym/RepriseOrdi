@@ -1,7 +1,7 @@
 const config = require('../config.json');
 const express = require('express');
 const router = express.Router();
-const adminService = require('../service/adminservice');
+const adminService = require('../service/adminService');
 const emailService = require('../service/emailService');
 var path = require('path');
 
