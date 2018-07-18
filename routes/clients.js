@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var clientService = require('../service/clientService.js');
-var emailAction = require('../action/emailAction');
+var path = require('path');
 
 /* GET ALL ClientS */
 router.get('/', function (req, res, next) {
@@ -67,10 +67,10 @@ router.delete('/:id', function (req, res, next) {
   }); 
 });
 
-/*DEFAULT REDIRECT*/
-router.get('*', function (req, res, next) {
-  res.sendFile(path.resolve('../src/index.html'));
+router.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/RepriseOrdi/index.html'));
 });
+
 
 
 module.exports = router;

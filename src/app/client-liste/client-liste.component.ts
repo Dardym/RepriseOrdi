@@ -19,7 +19,7 @@ export class ClientListeComponent implements OnInit {
 
   offreForm: FormGroup;
   listeClients: any = [
-    {
+    /*{
       'nom':'maxime dardy',
       'email': 'maxime@touchedeclavier.com',
       'ordinateur':{
@@ -60,7 +60,7 @@ export class ClientListeComponent implements OnInit {
       },
       'etat': 'traite'
 
-    }
+    }*/
   ];
 
   constructor(public dialog: MatDialog, private apiService: ApiService, private formBuilder: FormBuilder, private router: Router) { }

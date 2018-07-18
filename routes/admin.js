@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 const adminService = require('../service/adminservice');
 const emailService = require('../service/emailService');
- 
+var path = require('path');
+
 // routes
 router.post('/authenticate', authenticate);
 router.post('/register', register);
@@ -17,11 +18,10 @@ router.put('/admin/:id', update);
 router.put('/updateEmail', updateEmail);
 router.delete('/:id', _delete);
 
+router.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/RepriseOrdi/index.html'));
+  });
 
-// rewrite virtual urls to angular app to enable refreshing of internal pages
-router.get('*', function (req, res, next) {
-    res.sendFile(path.resolve('../src/index.html'));
-});
  
 module.exports = router;
  

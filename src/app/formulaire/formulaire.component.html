@@ -77,25 +77,6 @@
         </mat-error>
       </mat-form-field>
 
-
-
-      <!--
-      <mat-checkbox formControlName="complet" ngModel>Votre ordinateur est il complet ?</mat-checkbox>
-      <mat-error>
-        <span *ngIf="!clientForm.get('complet').valid && clientForm.get('complet').touched">Veuillez indiquer si votre ordinateur est complet ou non</span>
-      </mat-error>
-
-      <mat-checkbox formControlName="fonctionnel">Votre ordinateur est il en bon état fonctionnel ?</mat-checkbox>
-      <mat-error>
-        <span *ngIf="!clientForm.get('fonctionnel').valid && clientForm.get('fonctionnel').touched">Veuillez indiquer si votre ordinateur est en bon état fonctionnel</span>
-      </mat-error>
-
-      <mat-checkbox formControlName="visuel">Votre ordinateur est il en bon état visuel ?</mat-checkbox>
-      <mat-error>
-        <span *ngIf="!clientForm.get('visuel').valid && clientForm.get('visuel').touched">Veuillez indiquer si votre ordinateur est en bon état visuel</span>
-      </mat-error>
-    -->
-
         <div class="button-container">
           <button mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une estimation</button>
         </div>
@@ -128,7 +109,7 @@
 
   <div class="information">
     Pour recevoir une offre de reprise de la part de notre équipe, veuillez renseigner vos coordonnées ainsi que les caractéristiques
-    de votre ordinateur. Une offre de reprise pour votre ordinateur vous sera alors envoyé par email par l'un de nos conseillers
+    de votre ordinateur. Une offre de reprise pour votre ordinateur vous sera alors envoyée par email par l'un de nos conseillers
     dans les prochains jours. En cliquant sur le bouton "obtenir une offre", vous ne vous engagez en RIEN si ce n'est à revevoir
     une proposition de reprise, vous pourrez par la suite accepter ou refuser l'offre que nous vous ferons.
   </div>

@@ -1,5 +1,6 @@
 <div class="menu-container" fxLayoutAlign="start center">
-        <a class="Logo-accueil" fxLayout="row" [routerLink]="['/']">
+    <div class="left-side">
+            <a class="Logo-accueil" fxLayout="row" [routerLink]="['/']">
                 <img class="le-logo" src="../../assets/images/logo-ombres.png">
         </a>
     
@@ -14,8 +15,10 @@
                 <span class="nom-site">Modifier l'email</span>
             </span>
         </a>
+    </div>
+        
 
-        <div class="button-container">
+        <div fxLayoutAlign="end center" class="button-container">
             <button mat-button type="button" mat-raised-button color="primary" (click)="logout()">se déconnecter</button>
         </div>
         
