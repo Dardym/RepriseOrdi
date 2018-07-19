@@ -37,15 +37,9 @@ function authenticate(req, res, next) {
 }
 
 function register(req, res, next) {
-    if (req.session.admin) {
         adminService.create(req.body)
         .then(() => res.json({}))
         .catch(err => next(err));
-    } else {
-        var err = new Error('Non autorisé');
-        err.status = 401;
-        throw err;
-    }
 }
 
 function getById(req, res, next) {
