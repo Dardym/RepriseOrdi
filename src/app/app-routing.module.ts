@@ -14,10 +14,10 @@ import { ClientListeComponent } from './client-liste/client-liste.component';
 import { EmailComponent } from './email/email.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'client-panel', pathMatch: 'full'},
-  {path: 'client-panel', component: ClientPanelComponent, children:[
-    { path: '', redirectTo: 'front-page', pathMatch: 'full'},
-    { path: 'front-page', component: FrontPageComponent },
+  //{path: '', redirectTo: 'client-panel', pathMatch: 'full'},
+  {path: '', component: ClientPanelComponent, children:[
+    //{ path: '', redirectTo: '', pathMatch: 'full'},
+    { path: '', component: FrontPageComponent },
     { path: 'validation', component: ValidationPageComponent},
     { path: 'qui', component: QuiComponent},
     { path: 'legale', component: LegaleComponent},
