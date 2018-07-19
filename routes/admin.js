@@ -109,18 +109,12 @@ function _delete(req, res, next) {
 
 
 function createEmail(req, res, next) {
-    if (req.session.admin) {
         emailService.create(req.body)
             .then(() => res.json({}))
             .catch(function (err) {
                 console.log(err);
                 next(err);
             });
-    } else {
-        var err = new Error('Non autorisé');
-        err.status = 401;
-        throw err;
-    }
 
 }
 
