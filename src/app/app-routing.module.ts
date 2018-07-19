@@ -16,7 +16,7 @@ import { EmailComponent } from './email/email.component';
 const routes: Routes = [
 
   {path: '', component: ClientPanelComponent, children:[
-    { path: '**', redirectTo: '', pathMatch:'full'},
+    //{ path: '**', redirectTo: '', pathMatch:'full'},
     { path: '', component: FrontPageComponent },
     { path: 'validation', component: ValidationPageComponent},
     { path: 'qui', component: QuiComponent},
