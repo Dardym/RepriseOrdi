@@ -30,6 +30,10 @@
     flex: 10%;
   }
 
+  .client-header{
+    flex: 33%;
+  }
+
   .prix-form{
       flex: 1 1 25%;
       justify-content: center;
@@ -71,4 +75,7 @@
 
   .ordi-card{
     flex: 1 1 auto;
+  }
+  .mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
+    flex: 1 1;
   }

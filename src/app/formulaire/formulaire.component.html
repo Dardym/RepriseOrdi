@@ -83,12 +83,9 @@
       
         <div class="error">
           <mat-error>
-            <span *ngIf="error">L'adresse email que vous avez indiqué est déjà utilisée.</span>
+            <span *ngIf="!(error=='null')">{{error}}</span>
           </mat-error>
         </div>
-        
-
-        
 
       </div>
 

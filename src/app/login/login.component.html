@@ -1,6 +1,6 @@
 <div class="form-container">
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
 
         <div class="form-title">
             <div style="margin-left:3%;">Login</div>
@@ -8,31 +8,37 @@
         </div>
 
         <div class="perso-container">
-                <mat-form-field appearance="legacy" class="example-full-width">
-                        <mat-label>Email</mat-label>
-                        <input matInput formControlName="username">
-                        <mat-error>
-                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                                <div *ngIf="f.username.errors.required">Veuillez indiquer votre adresse email.</div>
-                            </div>
-                        </mat-error>
-                    </mat-form-field>
-            
-                    <mat-form-field appearance="legacy" class="example-full-width">
-                        <mat-label>Mot de passe</mat-label>
-                        <input type="password" matInput formControlName="password">
-                        <mat-error>
-                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                <div *ngIf="f.password.errors.required">Mot de passe manquant.</div>
-                            </div>
-                        </mat-error>
-                    </mat-form-field>
+            <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="username">
+                <mat-error>
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Veuillez indiquer votre adresse email.</div>
+                    </div>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Mot de passe</mat-label>
+                <input type="password" matInput formControlName="password">
+                <mat-error>
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Mot de passe manquant.</div>
+                    </div>
+                </mat-error>
+            </mat-form-field>
         </div>
 
         <div class="button-container">
             <button mat-button type="submit" [disabled]="!loginForm.valid" mat-raised-button color="primary">Se connecter</button>
         </div>
-    
 
-</form>
+        <div class="error">
+            <mat-error>
+                <span *ngIf="!(error=='null')">{{error}}</span>
+            </mat-error>
+        </div>
+
+
+    </form>
 </div>

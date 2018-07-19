@@ -13,7 +13,7 @@ import {ValidationDialogComponent} from '../validation-dialog/validation-dialog.
 })
 export class FormulaireComponent implements OnInit {
 
-  error: boolean = false;
+  error: string = null;
 
   clientForm: FormGroup;
   nom: string = '';
@@ -44,11 +44,15 @@ export class FormulaireComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     this.api.postClient(form)
       .subscribe(res => {
-        this.error = false;
+        this.error = null;
         this.openDialog();
         this.router.navigate(['/']);
       }, (err) => {
-        this.error = true;
+        if(err == 453){
+          this.error = "L'adresse email que vous avez indiqué est déjà utilisée.";
+        }else{
+          this.error = "Désolé, une erreur est survenue, merci de réessayer ultérieurement.";
+        }
         console.log(err);
       });
   }

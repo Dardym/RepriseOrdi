@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-  error = '';
+  error = null;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -41,22 +41,29 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
       this.submitted = true;
-      console.log("je suis dans le bouton login");
       // stop here if form is invalid
       if (this.loginForm.invalid) {
           return;
       }
 
       this.loading = true;
-      console.log("je suis dans le bouton login");
       this.authenticationService.login(this.f.username.value, this.f.password.value)
           .pipe(first())
           .subscribe(
               () => {
+                this.error=null;
                 this.router.navigate(['/admin-panel']);  
               },
               error => {
-                  this.error = error;
+                  console.log(error.status);
+                  if(error.status == 450){
+                      this.error = "Utilisateur introuvable.";
+                  }
+                  else if(error.status == 451){
+                      this.error = "Mauvais mot de passe.";
+                  }else{
+                      this.error="Désolé, une erreur est survenue, veuillez réessayer ultérieurement."
+                  }
                   this.loading = false;
               });
     }
