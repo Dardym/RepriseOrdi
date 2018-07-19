@@ -21,6 +21,13 @@ async function getById(id) {
 }
 
 async function create(clientParam) {
+
+    if (await Client.findOne({ email: clientParam.email })) {
+        var err = new Error('email'+ clientParam.email + 'déjà utilisé');
+        err.status = 453;
+        throw err;
+    }
+    
     clientParam.etat = "nouveau";
     const client = new Client(clientParam);
 

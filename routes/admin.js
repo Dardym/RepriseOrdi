@@ -85,7 +85,10 @@ function update(req, res, next) {
     if (req.session.admin) {
         adminService.update(req.params.adminId, req.body)
             .then(() => res.json({}))
-            .catch(err => next(err));
+            .catch(err => {
+                res.json(err);
+                next(err)
+            });
     } else {
         var err = new Error('Non autorisé');
         err.status = 401;

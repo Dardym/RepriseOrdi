@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { FrontPageComponent } from './front-page/front-page.component';
-import { ValidationPageComponent} from './validation-page/validation-page.component';
 import { QuiComponent } from './qui/qui.component';
 import { LegaleComponent } from './legale/legale.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
   {path: '', component: ClientPanelComponent, children:[
     //{ path: '**', redirectTo: '', pathMatch:'full'},
     { path: '', component: FrontPageComponent },
-    { path: 'validation', component: ValidationPageComponent},
     { path: 'qui', component: QuiComponent},
     { path: 'legale', component: LegaleComponent},
     { path: 'contacts', component: ContactsComponent}

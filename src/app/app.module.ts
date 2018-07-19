@@ -30,7 +30,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { FormContainerComponent } from './form-container/form-container.component';
-import { ValidationPageComponent } from './validation-page/validation-page.component';
 import { QuiComponent } from './qui/qui.component';
 import { LegaleComponent } from './legale/legale.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -41,6 +40,7 @@ import { HeaderAdminComponent } from './header-admin/header-admin.component';
 import { ClientListeComponent } from './client-liste/client-liste.component';
 import { EmailComponent } from './email/email.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { ValidationDialogComponent } from './validation-dialog/validation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,6 @@ import { DialogComponent } from './dialog/dialog.component';
     HeaderComponent,
     FrontPageComponent,
     FormContainerComponent,
-    ValidationPageComponent,
     QuiComponent,
     LegaleComponent,
     ContactsComponent,
@@ -60,7 +59,8 @@ import { DialogComponent } from './dialog/dialog.component';
     HeaderAdminComponent,
     ClientListeComponent,
     EmailComponent,
-    DialogComponent
+    DialogComponent,
+    ValidationDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -86,7 +86,7 @@ import { DialogComponent } from './dialog/dialog.component';
     MatDialogModule,
     FlexLayoutModule
   ],
-  entryComponents: [ClientListeComponent, DialogComponent],
+  entryComponents: [ClientListeComponent, DialogComponent,FormulaireComponent,ValidationDialogComponent],
   providers: [
   ],
   bootstrap: [AppComponent]

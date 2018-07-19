@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service'
 import { Client } from '../metier/client'
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormulaireService } from '../services/formulaire-service.service';
@@ -69,56 +69,48 @@ export class ClientListeComponent implements OnInit {
     this.maj();
   }
 
-  onFormSubmit(offre,email){
-    console.log("dans le onformsubmit");
-    console.log(offre);
-    this.openDialog(offre,email);
+  onFormSubmit(offre, email) {
+    this.openDialog(offre, email);
   }
 
-  maj(){
+  maj() {
     this.apiService.getClients()
-    .subscribe(res => {
-      this.listeClients = res;
-    }, err => {
-      console.log(err);
-    });
+      .subscribe(res => {
+        this.listeClients = res;
+      }, err => {
+        console.log(err);
+      });
     this.listeClients.forEach(element => {
-      element.proposition="";
+      element.proposition = "";
     });
-    
+
   }
 
-  saveEtat(id,etat){
-    this.apiService.updateClient(id,etat)
-    .subscribe(res => {
-      console.log("état sauvegardé: " + res);
-    }, err => {
-      console.log(err);
-    });
-    
+  saveEtat(id, etat) {
+    this.apiService.updateClient(id, etat)
+      .subscribe(res => {
+        console.log("état sauvegardé: " + res);
+      }, err => {
+        console.log(err);
+      });
+
   }
 
-  openDialog(offre,email) {
-    console.log("dans le openDialog");
-    console.log(offre);
+  openDialog(offre, email) {
     const dialogRef = this.dialog.open(DialogComponent, {
       height: '350px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
-
-        console.log("j'envoie");
-        this.apiService.postOffre(offre,email)
-        .subscribe(res => {
-          console.log("mail envoyé" + res);
-          this.maj();
+      if (result) {
+        this.apiService.postOffre(offre, email)
+          .subscribe(res => {
+            this.maj();
           }, (err) => {
             console.log(err);
           });
-
-      }else{
-        console.log("j'envoie pas");
+      } else {
+        console.log("Envoie refusé.");
       }
     });
   }

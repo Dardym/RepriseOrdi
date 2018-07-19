@@ -65,11 +65,12 @@ router.post('/', function (req, res, next) {
   }
 
 
-    clientService.create(req.body).then(function (err, post) {
-      if (err) return next(err);
+    clientService.create(req.body).then(function (post) {
       res.json(post);
     })
-      .catch(err => next(err));
+      .catch(err =>{
+        next(err);
+      } );
 });
 
 /* UPDATE Client */
