@@ -22,9 +22,15 @@ app.use(session({
   secret: config.secret,
   resave: true,
   saveUninitialized: false,
+  proxy: prod,
   stor: new MongoStore({
     mongooseConnection: mongoose.connection
-  })
+  }),
+  cookie: {
+    secure: prod, //à activer en prod
+    httpOnly: true,
+    maxAge: 60 * 60 * 1000 * 3 //durée en millisecondes d'une session
+  }
 }));
 
 app.use(logger('dev'));

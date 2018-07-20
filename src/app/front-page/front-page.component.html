@@ -1,4 +1,4 @@
-<div class="front-container" [style.width.px]="screenWidth" [style.height.px]="screenHeight-76" fxLayout="column" fxLayoutAlign="center" >
+<div class="front-container" [style.width.px]="screenWidth" [style.height.px]="screenHeight-76" fxLayout="column" fxLayoutAlign="center">
 
         <div class="text-container" fxLayout="row" fxFlex="60">
                 <div class=text fxFlex="50">
@@ -11,9 +11,17 @@
 
                 <div class="button-scroll" fxFlexAlign="end center">
                         <button class="buttons" (click)="scrollToBottom(1000)" mat-button mat-raised-button color="primary">
-                                <p class="text-button">
-                                        Demander une offre !
-                                </p>
+                                
+                                <div class="button-content">
+                                        <p class="text-button">
+                                                Demander une offre
+                                        </p>
+                                        <mat-icon>arrow_downward</mat-icon>
+                                </div>
+
+
+
+
                         </button>
                 </div>
         </div>
