@@ -10,7 +10,7 @@ const config = require('./config.json');
 var MongoStore = require('connect-mongo')(session);
 var path = require('path');
 var router = express.Router();
-var prod = true;
+var prod = false;
 
 var app = express();
 
@@ -27,11 +27,11 @@ app.use(session({
   stor: new MongoStore({
     mongooseConnection: mongoose.connection
   }),
-  cookie: {
+  /*cookie: {
     secure: prod, //à activer en prod
     httpOnly: true,
     maxAge: 60 * 60 * 1000 * 3 //durée en millisecondes d'une session
-  }
+  }*/
 }));
 
 app.use(logger('dev'));
