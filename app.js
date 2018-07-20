@@ -10,6 +10,7 @@ const config = require('./config.json');
 var MongoStore = require('connect-mongo')(session);
 var path = require('path');
 var router = express.Router();
+var prod = true;
 
 var app = express();
 
