@@ -2,8 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { FormulaireService } from '../services/formulaire-service.service';
-import {MatDialog} from '@angular/material';
-import {ValidationDialogComponent} from '../validation-dialog/validation-dialog.component';
 import { AdminService } from '../services/admin-service';
 
 

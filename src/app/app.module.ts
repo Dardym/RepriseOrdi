@@ -42,6 +42,7 @@ import { EmailComponent } from './email/email.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { ValidationDialogComponent } from './validation-dialog/validation-dialog.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
+import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
     EmailComponent,
     DialogComponent,
     ValidationDialogComponent,
-    AddAdminComponent
+    AddAdminComponent,
+    ChangerMdpComponent
   ],
   imports: [
     AppRoutingModule,

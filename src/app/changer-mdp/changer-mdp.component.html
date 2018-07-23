@@ -1,0 +1,47 @@
+<div class="form-container">
+  <form [formGroup]="mdpForm" (ngSubmit)="onFormSubmit(mdpForm.value)" fxFlex="100">
+
+    <div class="form-title">
+      <div fxFlexOffset="5">
+        Changer mon mot de passe
+      </div>
+    </div>
+
+    <div class="perso-container">
+      <div class="input-container" fxLayout="column">
+
+        <mat-form-field appearance="legacy" class="example-full-width">
+          <mat-label>Mot de passe</mat-label>
+          <input type="password" matInput placeholder="Mot de passe" formControlName="mdp">
+          <mat-error>
+            <span *ngIf="!mdpForm.get('mdp').valid && mdpForm.get('mdp').touched">Veuillez saisir un mot de passe</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy" class="example-full-width">
+          <mat-label>Confirmer le mot de passe</mat-label>
+          <input type="password" matInput placeholder="Confirmer le mot de passe" formControlName="confmdp">
+          <mat-error>
+            <span *ngIf="!mdpForm.get('confmdp').valid && mdpForm.get('confmdp').touched">Veuillez resaisir votre mot de passe</span>
+          </mat-error>
+        </mat-form-field>
+
+
+
+        <div class="button-container">
+          <button mat-button type="submit" [disabled]="!mdpForm.valid" mat-raised-button color="primary">Changer mon mot de passe</button>
+        </div>
+
+        <div class="error">
+          <mat-error>
+            <span *ngIf="!(error=='null')">{{error}}</span>
+          </mat-error>
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

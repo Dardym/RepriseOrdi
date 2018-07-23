@@ -14,7 +14,7 @@ router.get('/admin/:id', getById);
 router.get('/current', getCurrent);
 router.get('/logout', my_logout);
 router.get('/email', getEmail);
-router.put('/admin/:id', update);
+router.put('/update', update);
 router.put('/updateEmail', updateEmail);
 router.delete('/:id', _delete);
 
@@ -82,8 +82,9 @@ function getCurrent(req, res, next) {
 }
 
 function update(req, res, next) {
+    console.log("router coté server");
     if (req.session.admin) {
-        adminService.update(req.params.adminId, req.body)
+        adminService.update(req.body.id, req.body)
             .then(() => res.json({}))
             .catch(err => {
                 res.json(err);

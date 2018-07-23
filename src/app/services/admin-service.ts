@@ -30,6 +30,14 @@ export class AdminService {
             catchError(this.handleError));
     }
 
+    update(data): Observable<any> {
+      console.log(data);
+      let url = apiUrl + "/update";
+        return this.http.put(url,data,httpOptions).pipe(
+            map(this.extractData),
+            catchError(this.handleError));
+    }
+
     getEmail(): Observable<any>{
       let url = apiUrl + "/email";
       return this.http.get(url, httpOptions).pipe(

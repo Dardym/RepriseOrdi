@@ -56,30 +56,32 @@ async function create(adminParam) {
     await admin.save();
 }
  
-async function update(id, userParam) {
-    const user = await User.findById(id);
+async function update(id, adminParam) {
+    console.log(adminParam);
+    const admin = await Admin.findById(id);
  
+    console.log(admin);
     // validate
-    if (!user){
+    if (!admin){
         var err = new Error('User not found');
         err.status = 452;
         throw err;
     } 
-    if (user.username !== userParam.username && await User.findOne({ username: userParam.username })) {
+    if (admin.email !== adminParam.email && await Admin.findOne({ email: adminParam.email })) {
         var err = new Error('email déjà utilisé');
         err.status = 453;
         throw err;
     }
  
     // hash password if it was entered
-    if (userParam.password) {
-        userParam.hash = bcrypt.hashSync(userParam.password, 10);
+    if (adminParam.mdp) {
+        adminParam.mdp = bcrypt.hashSync(adminParam.mdp, 10);
     }
  
     // copy userParam properties to user
-    Object.assign(user, userParam);
+    Object.assign(admin, adminParam);
  
-    await user.save();
+    await admin.save();
 }
  
 async function _delete(id) {
