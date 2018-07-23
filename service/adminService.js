@@ -57,10 +57,7 @@ async function create(adminParam) {
 }
  
 async function update(id, adminParam) {
-    console.log(adminParam);
     const admin = await Admin.findById(id);
- 
-    console.log(admin);
     // validate
     if (!admin){
         var err = new Error('User not found');

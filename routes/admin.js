@@ -82,7 +82,6 @@ function getCurrent(req, res, next) {
 }
 
 function update(req, res, next) {
-    console.log("router coté server");
     if (req.session.admin) {
         adminService.update(req.body.id, req.body)
             .then(() => res.json({}))

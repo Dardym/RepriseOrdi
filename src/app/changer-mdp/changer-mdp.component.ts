@@ -36,7 +36,6 @@ export class ChangerMdpComponent implements OnInit {
         "mdp": form.mdp,
         "id": curAdmin.id
       }
-      console.log(data);
       this.adminService.update(data)
         .subscribe(res => {
           this.error = null;

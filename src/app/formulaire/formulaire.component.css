@@ -20,7 +20,7 @@ h2, .form-title{
 
 .input-container{
   flex:1 1 50%;
-  width: 50%;
+  max-width: 50%;
 }
 .image-formulaire{
   display: flex;
@@ -63,9 +63,14 @@ form{
 
 .button-container{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top:5%;
+}
+
+.button-offre{
+  margin-bottom: 2%;
 }
 
 .information-container{
@@ -77,7 +82,7 @@ form{
   justify-content: center;
   align-items: center;
   font-family: 'Google Sans',arial,sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
   padding: 2% !important;
 }
@@ -137,4 +142,25 @@ form{
   line-height: 1.125;
   font-family: Roboto,"Helvetica Neue",sans-serif;
   min-height: 18px;
+}
+
+.sub-info{
+  font-weight: 400;
+  line-height: 1.125;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  text-align: left;
+  font-size: 75%;
+  color: rgba(0,0,0,.54);
+  font-style:italic;
+}
+
+.newsletter-check{
+  display: flex;
+  margin-right:2%;
+}
+
+.newsletter{
+  display: flex;
+  flex: 1 1 100%;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
 }

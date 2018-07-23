@@ -24,6 +24,7 @@ export class FormulaireComponent implements OnInit {
   fonctionnel: boolean = false;
   visuel: boolean = false;
   description: string = "";
+  newsletter: boolean = false;
 
   constructor(public dialog: MatDialog, private router: Router, private api: ApiService, private formBuilder: FormBuilder, private formulaireService: FormulaireService) { }
 

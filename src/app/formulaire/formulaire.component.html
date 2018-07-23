@@ -10,77 +10,88 @@
     <div class="perso-container">
       <div class="input-container" fxLayout="column">
 
-      <h2>Votre ordinateur: </h2>
+        <h2>Votre ordinateur: </h2>
 
-      <mat-form-field appearance="legacy" class="example-full-width">
-        <mat-label>Marque</mat-label>
-        <input matInput placeholder="Asus, Apple, Dell..." formControlName="marque">
-        <mat-error>
-          <span *ngIf="!clientForm.get('marque').valid && clientForm.get('marque').touched">Veuillez indiquer la marque de votre ordinateur</span>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="legacy" class="example-full-width">
-        <mat-label>Modèle</mat-label>
-        <input matInput placeholder="Asus, Apple, Dell..." formControlName="modele">
-        <mat-error>
-          <span *ngIf="!clientForm.get('modele').valid && clientForm.get('modele').touched">Veuillez indiquer le modèle de votre ordinateur</span>
-        </mat-error>
-      </mat-form-field>
-
-      <div class="radio-container">
-        <label class="radio-label">Votre ordinateur est il complet ? (Il possède tous ses composants: clavier, écran, dalle, touches...)</label>
-        <mat-radio-group formControlName="complet" ngModel required>
-          <mat-radio-button value="true">oui</mat-radio-button>
-          <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-        </mat-radio-group>
-      </div>
-
-      <div class="radio-container">
-        <label class="radio-label">Votre ordinateur est il fonctionnel ?</label>
-        <mat-radio-group formControlName="fonctionnel" ngModel required>
-          <mat-radio-button value="true">oui</mat-radio-button>
-          <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-        </mat-radio-group>
-      </div>
-
-      <div class="radio-container">
-        <label class="radio-label">Votre ordinateur est il en bon état visuel ? (Pas d'écran cassé, de fissure dans la coque...)</label>
-        <mat-radio-group formControlName="visuel" ngModel required>
-          <mat-radio-button value="true">oui</mat-radio-button>
-          <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-        </mat-radio-group>
-      </div>
-
-      <div class="description-container">
-        <mat-form-field>
-          <textarea matInput placeholder="Description, détails, autres.." formControlName="description"></textarea>
+        <mat-form-field appearance="legacy" class="example-full-width">
+          <mat-label>Marque</mat-label>
+          <input matInput placeholder="Asus, Apple, Dell..." formControlName="marque">
+          <mat-error>
+            <span *ngIf="!clientForm.get('marque').valid && clientForm.get('marque').touched">Veuillez indiquer la marque de votre ordinateur</span>
+          </mat-error>
         </mat-form-field>
-      </div>
 
-      <h2>Informations personnelles</h2>
+        <mat-form-field appearance="legacy" class="example-full-width">
+          <mat-label>Modèle</mat-label>
+          <input matInput placeholder="Aspire V7-581, A455LA.." formControlName="modele">
+          <mat-error>
+            <span *ngIf="!clientForm.get('modele').valid && clientForm.get('modele').touched">Veuillez indiquer le modèle de votre ordinateur</span>
+          </mat-error>
+        </mat-form-field>
 
-      <mat-form-field appearance="legacy" class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput type="email" placeholder="Adresse Email" formControlName="email">
-        <mat-hint>Nous ne dévoilerons votre adresse à personne.</mat-hint>
-        <mat-error>
-          <span *ngIf="!clientForm.get('email').valid && clientForm.get('email').touched">Veuillez saisir une adresse email</span>
-        </mat-error>
-      </mat-form-field>
+        <div class="radio-container">
+          <label class="radio-label">Votre ordinateur est il complet ?</label>
+          <mat-radio-group formControlName="complet" ngModel required>
+            <mat-radio-button value="true">oui</mat-radio-button>
+            <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+          </mat-radio-group>
+          <span class="sub-info">Il possède tous ses composants : clavier, écran, touches, batterie, chargeur…</span>
+        </div>
 
-      <mat-form-field appearance="legacy" class="example-full-width">
-        <mat-label>Nom Complet</mat-label>
-        <input matInput placeholder="Nom et Prénom" formControlName="nom">
-        <mat-error>
-          <span *ngIf="!clientForm.get('nom').valid && clientForm.get('nom').touched">Veuillez saisir votre nom</span>
-        </mat-error>
-      </mat-form-field>
+        <div class="radio-container">
+          <label class="radio-label">Votre ordinateur est il fonctionnel ?</label>
+          <mat-radio-group formControlName="fonctionnel" ngModel required>
+            <mat-radio-button value="true">oui</mat-radio-button>
+            <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="radio-container">
+          <label class="radio-label">Votre ordinateur est il en bon état visuel ?</label>
+          <mat-radio-group formControlName="visuel" ngModel required>
+            <mat-radio-button value="true">oui</mat-radio-button>
+            <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+          </mat-radio-group>
+          <span class="sub-info">Pas d'écran cassé, de fissure dans la coque...</span>
+        </div>
+
+        <div class="description-container">
+          <mat-form-field>
+            <textarea matInput placeholder="Description, détails… Dites-nous en un maximum sur l’état esthétique et fonctionnel de votre ordinateur"
+              formControlName="description"></textarea>
+          </mat-form-field>
+        </div>
+
+        <h2>Informations personnelles</h2>
+
+        <mat-form-field appearance="legacy" class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput type="email" placeholder="Adresse Email" formControlName="email">
+          <mat-hint>Nous ne divulguerons pas votre email.</mat-hint>
+          <mat-error>
+            <span *ngIf="!clientForm.get('email').valid && clientForm.get('email').touched">Veuillez saisir une adresse email</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy" class="example-full-width">
+          <mat-label>Nom Prénom</mat-label>
+          <input matInput placeholder="Nom Prénom" formControlName="nom">
+          <mat-error>
+            <span *ngIf="!clientForm.get('nom').valid && clientForm.get('nom').touched">Veuillez saisir votre nom</span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="newsletter">
+            <mat-checkbox class="newsletter-check" [(ngModel)]="newsletter" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+            <span>Je souhaite recevoir la newsletter (infos exclusives, offres…)
+                et je pourrai m’en désabonner à chaque mail en un seul clic.</span>
+        </div>
+        
 
         <div class="button-container">
-          <button mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une estimation</button>
+          <button class="button-offre" mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une offre</button>
+          <span class="sub-info">En cliquant sur le bouton "Obtenir une offre", vous ne vous engagez en rien !</span>
         </div>
-      
+
         <div class="error">
           <mat-error>
             <span *ngIf="!(error=='null')">{{error}}</span>
@@ -90,7 +101,7 @@
       </div>
 
       <div class="image-formulaire">
-          <img src="../../assets/images/desktop-1389979.png" style="width:80%;">
+        <img src="../../assets/images/desktop-1389979.png" style="width:80%;">
       </div>
 
     </div>
@@ -111,38 +122,63 @@
   </div>
 
   <div class="information">
-    Pour recevoir une offre de reprise de la part de notre équipe, veuillez renseigner vos coordonnées ainsi que les caractéristiques
-    de votre ordinateur. Une offre de reprise pour votre ordinateur vous sera alors envoyée par email par l'un de nos conseillers
-    dans les prochains jours. En cliquant sur le bouton "obtenir une offre", vous ne vous engagez en RIEN si ce n'est à revevoir
-    une proposition de reprise, vous pourrez par la suite accepter ou refuser l'offre que nous vous ferons.
+      Simple et rapide ! Remplissez les différents champs ci-dessous et recevez par mail une offre de reprise personnalisée.
+      Pour recevoir cette offre de reprise, veuillez vous assurer que vos coordonnées ainsi que le formulaire de renseignement soient bien remplis. N’hésitez pas à nous donner un maximum de détails dans la partie “Description, détails…”. Il vous suffira de répondre à l’email de notre équipe pour accepter ou refuser l’offre faite. Dans le cas d’une acceptation, nous vous donnerons les indications nécessaires pour nous faire parvenir l’ordinateur en question.      
   </div>
 
 
-<mat-accordion>
-      <mat-expansion-panel>
+  <mat-accordion>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          FAQ1
+        </mat-panel-title>
+        <mat-panel-description>
+            Qui paie l’envoi de mon ordinateur ?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Nous prenons en charge l’envoi de votre ordinateur. 
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          FAQ2
+        </mat-panel-title>
+        <mat-panel-description>
+            Comment être sûr que mon ordinateur arrive en bon état ?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Nous vous demanderons de suivre les conseils de cet article : https://blog.touchedeclavier.com/comment-bien-emballer-ordinateur-portable-envoi-postal/
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          FAQ3
+        </mat-panel-title>
+        <mat-panel-description>
+            Si je refuse, que se passe-t-il ?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Nous prendrons bien note de votre refus et n'insisterons pas davantage.
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-           FAQ1
+            FAQ4
           </mat-panel-title>
           <mat-panel-description>
-            Résumé de la question
+              Quel est le délais pour recevoir une offre de reprise ?
           </mat-panel-description>
         </mat-expansion-panel-header>
-    La réponse tout en long
+        Nous nous engageons à vous répondre en 2 jours ouvrés maximum.
       </mat-expansion-panel>
-      <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-             FAQ2
-            </mat-panel-title>
-            <mat-panel-description>
-              Résumé de la question
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-      La réponse tout en long
-        </mat-expansion-panel>
-    </mat-accordion>
 
-  
+  </mat-accordion>
+
+
 
 </div>
