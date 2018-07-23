@@ -40,6 +40,7 @@ async function getById(id) {
  
 async function create(adminParam) {
     // validate
+    console.log(adminParam);
     if (await Admin.findOne({ email: adminParam.email })) {
         var err = new Error('email'+ adminParam.email + 'déjà utilisé');
         err.status = 453;

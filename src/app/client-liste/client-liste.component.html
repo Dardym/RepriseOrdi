@@ -1,5 +1,6 @@
 <div class="list-container">
   <mat-accordion>
+
     <mat-expansion-panel class="client" *ngFor="let client of listeClients">
       <mat-expansion-panel-header class="client-header">
         <mat-panel-title>
@@ -13,7 +14,7 @@
           </div>
 
           <div class="date">
-              {{client.date | date: 'dd/MM/yyyy'}}
+            {{client.date | date: 'dd/MM/yyyy'}}
           </div>
 
           <div class={{client.etat}}>
@@ -57,7 +58,7 @@
                     <span *ngIf="!offreForm.get('prix').valid && offreForm.get('prix').touched">Veuillez indiquer un prix de reprise</span>
                   </mat-error>
             </div>-->
-          
+
 
           <div>
             <mat-form-field appearance="legacy" class="example-full-width">
@@ -71,14 +72,14 @@
           </div>
 
           <div>
-              <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="openDialog(client.proposition,client.email)"
-                mat-raised-button color="primary">
-                <mat-icon>send</mat-icon>
-                envoyer un mail
-              </button>
-            </div>
+            <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="openDialog(client.proposition,client.email)"
+              mat-raised-button color="primary">
+              <mat-icon>send</mat-icon>
+              envoyer un mail
+            </button>
+          </div>
 
-         <!-- <div>
+          <!-- <div>
             <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="onFormSubmit(client.proposition,client.email)"
               mat-raised-button color="primary">
               <mat-icon>send</mat-icon>
@@ -116,7 +117,6 @@
 
 
       </div>
-
 
     </mat-expansion-panel>
   </mat-accordion>

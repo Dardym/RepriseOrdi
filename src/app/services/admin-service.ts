@@ -18,14 +18,19 @@ export class AdminService {
     }
  
     getAll(): Observable<any> {
-      console.log("je suis dans le getAll");
         return this.http.get(apiUrl,httpOptions).pipe(
             map(this.extractData),
             catchError(this.handleError));
     }
 
+    register(admin): Observable<any> {
+      let url = apiUrl + "/register";
+        return this.http.post(url,admin,httpOptions).pipe(
+            map(this.extractData),
+            catchError(this.handleError));
+    }
+
     getEmail(): Observable<any>{
-      console.log("je suis dans le getEmail");
       let url = apiUrl + "/email";
       return this.http.get(url, httpOptions).pipe(
         map(this.extractData),
@@ -33,7 +38,6 @@ export class AdminService {
     }
     
     saveEmail(texte){
-      console.log("je suis dans le sauvegarder service client");
       let url = apiUrl+"/updateEmail";
       return this.http.put(url,texte,httpOptions).pipe(
         map(this.extractData),

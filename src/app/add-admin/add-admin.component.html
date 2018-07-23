@@ -1,0 +1,74 @@
+<div class="form-container">
+  <form [formGroup]="adminForm" (ngSubmit)="onFormSubmit(adminForm.value)" fxFlex="100">
+
+    <div class="form-title">
+      <div fxFlexOffset="5">
+        Ajouter un administrateur
+      </div>
+    </div>
+
+    <div class="perso-container">
+      <div class="input-container" fxLayout="column">
+
+          <mat-form-field appearance="legacy" class="example-full-width">
+              <mat-label>Nom</mat-label>
+              <input matInput placeholder="Nom" formControlName="lastName">
+              <mat-error>
+                <span *ngIf="!adminForm.get('lastName').valid && adminForm.get('lastName').touched">Veuillez saisir votre nom</span>
+              </mat-error>
+            </mat-form-field>
+      
+            <mat-form-field appearance="legacy" class="example-full-width">
+              <mat-label>Prénom</mat-label>
+              <input matInput placeholder="Prénom" formControlName="firstName">
+              <mat-error>
+                <span *ngIf="!adminForm.get('firstName').valid && adminForm.get('firstName').touched">Veuillez saisir votre prenom</span>
+              </mat-error>
+            </mat-form-field>
+
+      <mat-form-field appearance="legacy" class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput type="email" placeholder="Adresse Email" formControlName="email">
+        <mat-hint>Nous ne dévoilerons votre adresse à personne.</mat-hint>
+        <mat-error>
+          <span *ngIf="!adminForm.get('email').valid && adminForm.get('email').touched">Veuillez saisir une adresse email</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy" class="example-full-width">
+          <mat-label>Mot de passe</mat-label>
+          <input type="password" matInput placeholder="Mot de passe" formControlName="mdp">
+          <mat-error>
+            <span *ngIf="!adminForm.get('mdp').valid && adminForm.get('mdp').touched">Veuillez saisir un mot de passe</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy" class="example-full-width">
+            <mat-label>Confirmer le mot de passe</mat-label>
+            <input type="password" matInput placeholder="Confirmer le mot de passe" formControlName="confmdp">
+            <mat-error>
+              <span *ngIf="!adminForm.get('confmdp').valid && adminForm.get('confmdp').touched">Veuillez resaisir votre mot de passe</span>
+            </mat-error>
+          </mat-form-field>
+
+      
+
+        <div class="button-container">
+          <button mat-button type="submit" [disabled]="!adminForm.valid" mat-raised-button color="primary">Ajouter</button>
+        </div>
+      
+        <div class="error">
+          <mat-error>
+            <span *ngIf="!(error=='null')">{{error}}</span>
+          </mat-error>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </form>
+
+</div>

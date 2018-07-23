@@ -41,6 +41,7 @@ import { ClientListeComponent } from './client-liste/client-liste.component';
 import { EmailComponent } from './email/email.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { ValidationDialogComponent } from './validation-dialog/validation-dialog.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ValidationDialogComponent } from './validation-dialog/validation-dialog
     ClientListeComponent,
     EmailComponent,
     DialogComponent,
-    ValidationDialogComponent
+    ValidationDialogComponent,
+    AddAdminComponent
   ],
   imports: [
     AppRoutingModule,
@@ -84,6 +86,7 @@ import { ValidationDialogComponent } from './validation-dialog/validation-dialog
     MatExpansionModule,
     MatButtonToggleModule,
     MatDialogModule,
+    MatPaginatorModule,
     FlexLayoutModule
   ],
   entryComponents: [ClientListeComponent, DialogComponent,FormulaireComponent,ValidationDialogComponent],

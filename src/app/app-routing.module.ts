@@ -11,6 +11,7 @@ import { ClientPanelComponent } from './client-panel/client-panel.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { ClientListeComponent } from './client-liste/client-liste.component';
 import { EmailComponent } from './email/email.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 
 const routes: Routes = [
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'admin-panel', component: AdminPanelComponent, canActivate:[AuthGuard], children:[
     { path: '', redirectTo: 'admin-panel', pathMatch: 'full', canActivate:[AuthGuard]},
     { path: 'client-liste', component: ClientListeComponent, canActivate:[AuthGuard]},
-    { path: 'email', component: EmailComponent, canActivate:[AuthGuard]}
+    { path: 'email', component: EmailComponent, canActivate:[AuthGuard]},
+    { path: "add-admin", component: AddAdminComponent, canActivate:[AuthGuard]}
   ]},
   // otherwise redirect to home
   { path: '**', redirectTo: '', pathMatch:'full'}
