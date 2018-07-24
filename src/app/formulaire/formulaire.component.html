@@ -28,32 +28,35 @@
           </mat-error>
         </mat-form-field>
 
-        <div class="radio-container">
-          <label class="radio-label">Votre ordinateur est il complet ?</label>
-          <mat-radio-group formControlName="complet" ngModel required>
-            <mat-radio-button value="true">oui</mat-radio-button>
-            <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-          </mat-radio-group>
-          <span class="sub-info">Il possède tous ses composants : clavier, écran, touches, batterie, chargeur…</span>
+        <div>
+            <div class="radio-container">
+                <label class="radio-label">Votre ordinateur est il complet ?</label>
+                <mat-radio-group formControlName="complet" ngModel required>
+                  <mat-radio-button value="true">oui</mat-radio-button>
+                  <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+                </mat-radio-group>
+                <span class="sub-info">Il possède tous ses composants : clavier, écran, touches, batterie, chargeur…</span>
+              </div>
+      
+              <div class="radio-container">
+                <label class="radio-label">Votre ordinateur est il fonctionnel ?</label>
+                <mat-radio-group formControlName="fonctionnel" ngModel required>
+                  <mat-radio-button value="true">oui</mat-radio-button>
+                  <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+                </mat-radio-group>
+              </div>
+      
+              <div class="radio-container">
+                <label class="radio-label">Votre ordinateur est il en bon état visuel ?</label>
+                <mat-radio-group formControlName="visuel" ngModel required>
+                  <mat-radio-button value="true">oui</mat-radio-button>
+                  <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+                </mat-radio-group>
+                <span class="sub-info">Pas d'écran cassé, de fissure dans la coque...</span>
+              </div>
+      
         </div>
-
-        <div class="radio-container">
-          <label class="radio-label">Votre ordinateur est il fonctionnel ?</label>
-          <mat-radio-group formControlName="fonctionnel" ngModel required>
-            <mat-radio-button value="true">oui</mat-radio-button>
-            <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-          </mat-radio-group>
-        </div>
-
-        <div class="radio-container">
-          <label class="radio-label">Votre ordinateur est il en bon état visuel ?</label>
-          <mat-radio-group formControlName="visuel" ngModel required>
-            <mat-radio-button value="true">oui</mat-radio-button>
-            <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-          </mat-radio-group>
-          <span class="sub-info">Pas d'écran cassé, de fissure dans la coque...</span>
-        </div>
-
+        
         <div class="description-container">
           <mat-form-field>
             <textarea matInput placeholder="Description, détails… Dites-nous en un maximum sur l’état esthétique et fonctionnel de votre ordinateur"
@@ -132,7 +135,7 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          FAQ1
+          
         </mat-panel-title>
         <mat-panel-description>
             Qui paie l’envoi de mon ordinateur ?
@@ -144,7 +147,7 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          FAQ2
+          
         </mat-panel-title>
         <mat-panel-description>
             Comment être sûr que mon ordinateur arrive en bon état ?
@@ -156,7 +159,7 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          FAQ3
+          
         </mat-panel-title>
         <mat-panel-description>
             Si je refuse, que se passe-t-il ?
@@ -168,7 +171,7 @@
     <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            FAQ4
+            
           </mat-panel-title>
           <mat-panel-description>
               Quel est le délai pour recevoir une offre de reprise ?

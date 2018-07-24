@@ -67,6 +67,7 @@ form{
   justify-content: center;
   align-items: center;
   margin-top:5%;
+  flex: 1 1 100%;
 }
 
 .button-offre{
@@ -128,6 +129,7 @@ form{
 .description-container{
   display: flex;
   flex-direction: column;
+  flex: 1 1 100%;
 }
 
 .offre-cours{
@@ -157,12 +159,14 @@ form{
 .newsletter-check{
   display: flex;
   margin-right:2%;
+  
 }
 
 .newsletter{
   display: flex;
   flex: 1 1 100%;
   font-family: Roboto,"Helvetica Neue",sans-serif;
+  align-items: center;
 }
 
 .left-container{
