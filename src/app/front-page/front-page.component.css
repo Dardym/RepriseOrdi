@@ -1,9 +1,11 @@
 .front-container{
     display: flex;
     flex:1 1 100%;
-    background-image: url(../../assets/images/FrontPageSized.png);
+    background-image: url(../../assets/images/FrontPageSizedreverse.png);
     background-size: cover;
     background-repeat: inherit;
+    flex-direction: row-reverse;
+
     /*background-size: auto;*/
 }
 
@@ -33,14 +35,10 @@
 
 .text-container{
     display: flex;
-    flex-direction: column;
-    /*justify-content: center;*/
-    /*align-items: center;*/
     text-align: center;
     flex: 1 1;
-
-    /*pour le mode new*/
-    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
     max-width: 40%;
     
 }
@@ -96,3 +94,30 @@
     text-align: left;
 }
 
+@media screen and (max-width: 1000px) {
+    .front-container{
+        justify-content: center;
+        align-items: center !important;
+        background-image: url(../../assets/images/FrontPageXS.png);
+    }
+
+    .left-container{
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    .title-front{
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .text-container{
+        max-width: 100%;
+        margin: 0%;
+    }
+
+    .subtitle-front{
+        text-align: center;
+    }
+}
