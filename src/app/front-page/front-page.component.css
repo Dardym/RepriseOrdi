@@ -1,6 +1,7 @@
 .front-container{
     display: flex;
-    background-image: url(../../assets/images/laptop.jpg);
+    flex:1 1 100%;
+    background-image: url(../../assets/images/frontReprise.png);
     background-size: cover;
 }
 
@@ -30,27 +31,31 @@
 .text-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     text-align: center;
     flex: 1;
+
+    /*pour le mode new*/
+    margin-left: 5%;
+    max-width: 40%;
     
 }
 
 .text{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    flex: 1 1 100%;
     font-family: Roboto,"Helvetica Neue",sans-serif;
     font-size: 14px;
     font-weight: 500;
-    color: White;
-    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 center;
+    /*color: White;*/
+    /*background: rgba(0, 0, 0, 0.5) none repeat scroll 0 center;*/
     border-radius: 10px;
     height: 75%;   
     padding: 10px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 :host {
@@ -71,4 +76,20 @@
     align-items: center;
 }
 
+.title-front{
+    font-family: 'Google Sans',arial,sans-serif;
+    font-size:48px;
+    font-weight: 400;
+    line-height: 48px;
+    color: #424242;
+    text-align: left;
+}
+
+.subtitle-front{
+    margin-top: 5%;
+    color:rgb(66, 66, 66);
+    font-family: 'Google Sans',arial,sans-serif;
+    font-size:16px;
+    text-align: left;
+}
 

@@ -164,3 +164,10 @@ form{
   flex: 1 1 100%;
   font-family: Roboto,"Helvetica Neue",sans-serif;
 }
+
+.left-container{
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+  max-width: 40%;
+}

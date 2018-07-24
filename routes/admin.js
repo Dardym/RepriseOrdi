@@ -37,9 +37,16 @@ function authenticate(req, res, next) {
 }
 
 function register(req, res, next) {
+    if (req.session.admin) {
         adminService.create(req.body)
         .then(() => res.json({}))
         .catch(err => next(err));
+    } else {
+        var err = new Error('Non autorisé');
+        err.status = 401;
+        throw err;
+    }
+        
 }
 
 function getById(req, res, next) {
@@ -112,12 +119,19 @@ function _delete(req, res, next) {
 
 
 function createEmail(req, res, next) {
-        emailService.create(req.body)
-            .then(() => res.json({}))
-            .catch(function (err) {
-                console.log(err);
-                next(err);
-            });
+       
+            if (req.session.admin) {
+                emailService.create(req.body)
+                .then(() => res.json({}))
+                .catch(function (err) {
+                    console.log(err);
+                    next(err);
+                });
+            } else {
+                var err = new Error('Non autorisé');
+                err.status = 401;
+                throw err;
+            }
 
 }
 
