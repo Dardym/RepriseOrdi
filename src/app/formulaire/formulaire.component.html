@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="perso-container" fxLayout.xs="column">
+    <div class="perso-container" fxLayout.sm="column" fxLayout.xs="column">
       <div class="input-container" fxLayout="column">
 
         <h2>Votre ordinateur: </h2>
@@ -29,69 +29,75 @@
         </mat-form-field>
 
         <div>
-            <div class="radio-container">
-                <label class="radio-label">Votre ordinateur est il complet ?</label>
-                <mat-radio-group formControlName="complet" ngModel required>
-                  <mat-radio-button value="true">oui</mat-radio-button>
-                  <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-                </mat-radio-group>
-                <span class="sub-info">Il possède tous ses composants : clavier, écran, touches, batterie, chargeur…</span>
-              </div>
-      
-              <div class="radio-container">
-                <label class="radio-label">Votre ordinateur est il fonctionnel ?</label>
-                <mat-radio-group formControlName="fonctionnel" ngModel required>
-                  <mat-radio-button value="true">oui</mat-radio-button>
-                  <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-                </mat-radio-group>
-              </div>
-      
-              <div class="radio-container">
-                <label class="radio-label">Votre ordinateur est il en bon état visuel ?</label>
-                <mat-radio-group formControlName="visuel" ngModel required>
-                  <mat-radio-button value="true">oui</mat-radio-button>
-                  <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
-                </mat-radio-group>
-                <span class="sub-info">Pas d'écran cassé, de fissure dans la coque...</span>
-              </div>
-      
+          <div class="radio-container">
+            <label class="radio-label">Votre ordinateur est-il complet ?</label>
+            <span class="sub-info">Il possède tous ses composants : clavier, écran, touches, batterie, chargeur…</span>
+            <mat-radio-group formControlName="complet" ngModel required>
+              <mat-radio-button value="true">oui</mat-radio-button>
+              <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="radio-container">
+            <label class="radio-label">Votre ordinateur est-il fonctionnel ?</label>
+            <mat-radio-group formControlName="fonctionnel" ngModel required>
+              <mat-radio-button value="true">oui</mat-radio-button>
+              <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="radio-container">
+            <label class="radio-label">Votre ordinateur est-il en bon état visuel ?</label>
+            <span class="sub-info">Pas d'écran cassé, de fissure dans la coque...</span>
+            <mat-radio-group formControlName="visuel" ngModel required>
+              <mat-radio-button value="true">oui</mat-radio-button>
+              <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
         </div>
-        
+
         <div class="description-container">
           <mat-form-field>
-            <textarea matInput placeholder="Description, détails… Dites-nous en un maximum sur l’état esthétique et fonctionnel de votre ordinateur"
+            <textarea matInput placeholder="Dites-nous en un maximum sur son état esthétique et fonctionnel"
               formControlName="description"></textarea>
           </mat-form-field>
         </div>
 
-        <h2>Informations personnelles</h2>
-
-        <mat-form-field appearance="legacy" class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input type="email" matInput type="email" placeholder="Adresse Email" formControlName="email">
-          <mat-hint>Nous ne divulguerons pas votre email.</mat-hint>
-          <mat-error>
-            <span *ngIf="!clientForm.get('email').valid && clientForm.get('email').touched">Veuillez saisir une adresse email</span>
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="legacy" class="example-full-width">
-          <mat-label>Nom Prénom</mat-label>
-          <input matInput placeholder="Nom Prénom" formControlName="nom">
-          <mat-error>
-            <span *ngIf="!clientForm.get('nom').valid && clientForm.get('nom').touched">Veuillez saisir votre nom</span>
-          </mat-error>
-        </mat-form-field>
-
-        <div class="newsletter">
-            <mat-checkbox class="newsletter-check" [(ngModel)]="newsletter" [ngModelOptions]="{standalone: true}"></mat-checkbox>
-            <span>Je souhaite recevoir la newsletter (infos exclusives, offres…)
-                et je pourrai m’en désabonner à chaque mail en un seul clic.</span>
+        <div>
+          <h2>Informations personnelles</h2>
         </div>
         
 
+        <!--<div class="info-perso-sub">-->
+          <mat-form-field appearance="legacy" class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput type="email" placeholder="Adresse Email" formControlName="email">
+            <mat-hint>Nous ne divulguerons pas votre email.</mat-hint>
+            <mat-error>
+              <span *ngIf="!clientForm.get('email').valid && clientForm.get('email').touched">Veuillez saisir une adresse email</span>
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="legacy" class="example-full-width">
+            <mat-label>Nom Prénom</mat-label>
+            <input matInput placeholder="Nom Prénom" formControlName="nom">
+            <mat-error>
+              <span *ngIf="!clientForm.get('nom').valid && clientForm.get('nom').touched">Veuillez saisir votre nom</span>
+            </mat-error>
+          </mat-form-field>
+       <!-- </div>-->
+
+      <!-- <div class="validation-container">-->
+        <div class="newsletter">
+          <mat-checkbox class="newsletter-check" [(ngModel)]="newsletter" [ngModelOptions]="{standalone: true}"></mat-checkbox>
+          <span>Je souhaite recevoir la newsletter (infos exclusives, offres…) et je pourrai m’en désabonner à chaque mail en un
+            seul clic.</span>
+        </div>
+
+
         <div class="button-container">
-          <button class="button-offre" mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une offre</button>
+          <button (mouseenter) = "mouseEnter()" (mouseleave) ="mouseLeave()" class="button-offre" mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une offre</button>
           <span class="sub-info">En cliquant sur le bouton "Obtenir une offre", vous ne vous engagez en rien !</span>
         </div>
 
@@ -100,14 +106,17 @@
             <span *ngIf="!(error=='null')">{{error}}</span>
           </mat-error>
         </div>
+       </div>
 
-      </div>
+        
+
+       <!--</div>-->
 
       <div class="image-formulaire">
         <img src="../../assets/images/desktop-1389979.png" style="width:80%;">
       </div>
 
-    </div>
+   </div>
 
 
 
@@ -125,8 +134,11 @@
   </div>
 
   <div class="information">
-      Simple et rapide ! Remplissez les différents champs ci-dessous et recevez par mail une offre de reprise personnalisée.
-      Pour recevoir cette offre de reprise, veuillez vous assurer que vos coordonnées ainsi que le formulaire de renseignement soient bien remplis. N’hésitez pas à nous donner un maximum de détails dans la partie “Description, détails…”. Il vous suffira de répondre à l’email de notre équipe pour accepter ou refuser l’offre faite. Dans le cas d’une acceptation, nous vous donnerons les indications nécessaires pour nous faire parvenir l’ordinateur en question.      
+    Simple et rapide ! Remplissez les différents champs ci-dessous et recevez par mail une offre de reprise personnalisée. Pour
+    recevoir cette offre de reprise, veuillez vous assurer que vos coordonnées ainsi que le formulaire de renseignement soient
+    bien remplis. N’hésitez pas à nous donner un maximum de détails dans la partie “Description, détails…”. Il vous suffira
+    de répondre à l’email de notre équipe pour accepter ou refuser l’offre faite. Dans le cas d’une acceptation, nous vous
+    donnerons les indications nécessaires pour nous faire parvenir l’ordinateur en question.
   </div>
 
 
@@ -135,22 +147,25 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          
+
         </mat-panel-title>
         <mat-panel-description>
-            Qui paie l’envoi de mon ordinateur ?
+          Comment ça marche ?
         </mat-panel-description>
       </mat-expansion-panel-header>
-      Nous prenons en charge l’envoi de votre ordinateur. 
+      Simple et rapide ! Remplissez les différents champs ci-dessus et recevez par mail une offre de reprise personnalisée. Pour
+      recevoir la meilleure offre possible, n’hésitez pas à nous donner un maximum de détails dans la partie “Description".
+      Pour acceptez l'offre de reprise, il vous suffira d'utiliser le bon postal joint à l'offre de reprise et d'envoyer
+      votre PC Portable.
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          
+
         </mat-panel-title>
         <mat-panel-description>
-            Comment être sûr que mon ordinateur arrive en bon état ?
+          Comment être sûr que mon ordinateur arrive en bon état ?
         </mat-panel-description>
       </mat-expansion-panel-header>
       Nous vous demanderons de suivre les conseils de cet article : https://blog.touchedeclavier.com/comment-bien-emballer-ordinateur-portable-envoi-postal/
@@ -159,26 +174,75 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          
+
         </mat-panel-title>
         <mat-panel-description>
-            Si je refuse, que se passe-t-il ?
+          Combien de temps pour recevoir une offre de reprise ?
         </mat-panel-description>
       </mat-expansion-panel-header>
-      Nous prendrons bien note de votre refus et n'insisterons pas davantage.
+      Nous nous engageons à vous transmettre une offre de reprise sous 48 heures, hors week-end, après votre demande.
     </mat-expansion-panel>
 
     <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            
-          </mat-panel-title>
-          <mat-panel-description>
-              Quel est le délai pour recevoir une offre de reprise ?
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        Nous nous engageons à vous répondre en 2 jours ouvrés maximum.
-      </mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+        </mat-panel-title>
+        <mat-panel-description>
+          Si l'offre ne me convient pas, que faire ?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Vous n'avez rien à faire. Elle sera automatiquement annulée après 30 jours (durée de validité du bordereau de retour).
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+        </mat-panel-title>
+        <mat-panel-description>
+          Qui prend en charge l'envoi de mon PC portable ?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Nous prenons en charge à 100% l'envoi de votre PC Portable. Un bordereau prépayé Colissimo sera joint à votre offre de reprise.
+      Il vous suffira alors de le coller sur le colis et de le déposer dans le bureau de poste le plus proche de chez vous.
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+        </mat-panel-title>
+        <mat-panel-description>
+          Comment sécuriser l’envoi de mon PC portable ?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Nous vous demanderons de suivre les conseils de cet article.
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+        </mat-panel-title>
+        <mat-panel-description>
+          Sous combien de temps serai-je payé ?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Nous nous engageons à vous verser votre argent sous 10 jours maximum après réception de votre colis.
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+        </mat-panel-title>
+        <mat-panel-description>
+          Comment serai-je payé ?
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Vous serez payé par virement bancaire grâce au RIB que vous aurez fourni avec l'envoi de votre PC Portable.
+    </mat-expansion-panel>
 
   </mat-accordion>
 

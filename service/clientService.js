@@ -22,11 +22,11 @@ async function getById(id) {
 
 async function create(clientParam) {
 
-    if (await Client.findOne({ email: clientParam.email })) {
+    /*if (await Client.findOne({ email: clientParam.email })) {
         var err = new Error('email'+ clientParam.email + 'déjà utilisé');
         err.status = 453;
         throw err;
-    }
+    }*/
     
     clientParam.etat = "nouveau";
     const client = new Client(clientParam);
@@ -52,9 +52,9 @@ async function _delete(id) {
     await Client.findByIdAndRemove(id);
 }
 
-async function sendOffre(offre, email) {
+async function sendOffre(offre, id) {
     try {
-        var client = await Client.findOne({ email: email })
+        var client = await Client.findById(id);
         client.offre = offre;
         var clientParam = { offre: offre, etat: "enCours" };
         var texte = await emailService.getEmail();

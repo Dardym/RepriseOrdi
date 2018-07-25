@@ -19,10 +19,10 @@ router.get('/', function (req, res, next) {
 });
 
 
-
+/*ENVOI DE L OFFRE AU CLIENT */
 router.post('/sendOffre', function (req, res, next) {
   if (req.session.admin) {
-    clientService.sendOffre(req.body.offre, req.body.email)
+    clientService.sendOffre(req.body.offre, req.body.id)
       .then(function () {
         res.json();
       })
@@ -55,6 +55,7 @@ router.get('/:id', function (req, res, next) {
 
 /* SAVE Client */
 router.post('/', function (req, res, next) {
+
   req.body.ordinateur = {
     marque: req.body.marque,
     modele: req.body.modele,

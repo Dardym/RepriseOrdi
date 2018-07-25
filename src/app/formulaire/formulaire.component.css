@@ -17,9 +17,6 @@ h2, .form-title{
   
 }
 
-.input-container{
-  flex:1 1 50%;
-}
 .image-formulaire{
   display: flex;
   flex:1 1 50%;
@@ -52,6 +49,7 @@ form{
   color: rgba(0,0,0,.54);
   background: rgba(0,0,0,.03);
   background-size: cover;
+  flex: 1 1 auto;
 }
 
 .button-container{
@@ -61,10 +59,12 @@ form{
   align-items: center;
   margin-top:5%;
   flex: 1 1 100%;
+  min-height: 36px;
 }
 
 .button-offre{
   margin-bottom: 2%;
+  min-height: 36px;
 }
 
 .information-container{
@@ -127,6 +127,7 @@ form{
   display: flex;
   flex-direction: column;
   flex: 1 1 100%;
+  min-height: 10%;
 }
 
 .offre-cours{
@@ -171,4 +172,32 @@ form{
   flex: 1 1;
   flex-direction: column;
   max-width: 40%;
+}
+
+.info-perso-sub{
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+}
+
+.validation-container{
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+}
+.text-newsletter{
+  display: flex;
+  flex: 1 1 100%;
+}
+
+@media screen and (max-width: 1000px){
+  .image-formulaire{
+    flex:1 1;
+  }
+}
+
+@media screen and (min-width: 1000px){
+  .input-container{
+    flex:1 1 50%  ;
+  }
 }

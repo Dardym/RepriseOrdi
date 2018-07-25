@@ -69,8 +69,8 @@ export class ClientListeComponent implements OnInit {
     this.maj();
   }
 
-  onFormSubmit(offre, email) {
-    this.openDialog(offre, email);
+  onFormSubmit(offre, id) {
+    this.openDialog(offre, id);
   }
 
   maj() {
@@ -96,14 +96,14 @@ export class ClientListeComponent implements OnInit {
 
   }
 
-  openDialog(offre, email) {
+  openDialog(offre, id) {
     const dialogRef = this.dialog.open(DialogComponent, {
       height: '350px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.apiService.postOffre(offre, email)
+        this.apiService.postOffre(offre, id)
           .subscribe(res => {
             this.maj();
           }, (err) => {

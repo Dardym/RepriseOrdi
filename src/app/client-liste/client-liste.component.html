@@ -72,7 +72,7 @@
           </div>
 
           <div>
-            <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="openDialog(client.proposition,client.email)"
+            <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="openDialog(client.proposition,client._id)"
               mat-raised-button color="primary">
               <mat-icon>send</mat-icon>
               envoyer un mail

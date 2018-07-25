@@ -41,7 +41,9 @@
     "ngx-bootstrap": "^3.0.1",
     "nodemailer": "^4.6.7",
     "rxjs": "^6.0.0",
+    "sendinblue-api": "^1.0.8",
     "serve-favicon": "^2.5.0",
+    "sib-api-v3-sdk": "^7.0.1",
     "zenscroll": "^4.0.2",
     "zone.js": "^0.8.26"
   },

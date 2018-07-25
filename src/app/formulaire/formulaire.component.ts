@@ -37,7 +37,7 @@ export class FormulaireComponent implements OnInit {
       'complet': [false, Validators.required],
       'fonctionnel': [false, Validators.required],
       'visuel': [false, Validators.required],
-      'description': [null, Validators.required]
+      'description': [null]
 
     });
   }
@@ -68,6 +68,18 @@ export class FormulaireComponent implements OnInit {
       
       console.log("ça a marché ");
     });
+  }
+
+  mouseEnter(){
+    if(!this.clientForm.valid){
+      this.error = "Veuillez remplir tous les champs obligatoires."
+    }else{
+      this.error = null;
+    }
+  }
+
+  mouseLeave(){
+    
   }
 
 }
