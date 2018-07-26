@@ -10,8 +10,10 @@
     <div class="perso-container" fxLayout.sm="column" fxLayout.xs="column">
       <div class="input-container" fxLayout="column">
 
-        <h2>Votre ordinateur: </h2>
-
+        <div>
+            <h2>Votre ordinateur: </h2>
+        </div>
+        
         <mat-form-field appearance="legacy" class="example-full-width">
           <mat-label>Marque</mat-label>
           <input matInput placeholder="Asus, Apple, Dell..." formControlName="marque">
@@ -97,7 +99,7 @@
 
 
         <div class="button-container" >
-          <div (mouseenter) = "mouseEnter()" (mouseleave) ="mouseLeave()">
+          <div (mouseenter) = "mouseEnter()" (mouseleave) ="mouseLeave()" onclick = "void(0)">
               <button class="button-offre" mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une offre</button>
           </div>
           <span class="sub-info">En cliquant sur le bouton "Obtenir une offre", vous ne vous engagez en rien !</span>
@@ -145,33 +147,6 @@
 
 
   <mat-accordion>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-
-        </mat-panel-title>
-        <mat-panel-description>
-          Comment ça marche ?
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Simple et rapide ! Remplissez les différents champs ci-dessus et recevez par mail une offre de reprise personnalisée. Pour
-      recevoir la meilleure offre possible, n’hésitez pas à nous donner un maximum de détails dans la partie “Description".
-      Pour acceptez l'offre de reprise, il vous suffira d'utiliser le bon postal joint à l'offre de reprise et d'envoyer
-      votre PC Portable.
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-
-        </mat-panel-title>
-        <mat-panel-description>
-          Comment être sûr que mon ordinateur arrive en bon état ?
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Nous vous demanderons de suivre les conseils de cet article : https://blog.touchedeclavier.com/comment-bien-emballer-ordinateur-portable-envoi-postal/
-    </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>

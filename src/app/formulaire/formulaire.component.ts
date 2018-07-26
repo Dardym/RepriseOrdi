@@ -21,8 +21,8 @@ import {
     trigger('visibilityChanged', [
       state('true' , style({ opacity: 1, transform: 'scale(1.0) translate(0,25px)' })),
       state('false', style({ opacity: 0, transform: 'scale(1.0) translate(0,0)'  })),
-      transition('1 => 0', animate('150ms')),
-      transition('0 => 1', animate('150ms'))
+      transition('1 => 0', animate('200ms')),
+      transition('0 => 1', animate('200ms'))
     ])
   ]
 })
