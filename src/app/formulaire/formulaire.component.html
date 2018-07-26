@@ -91,17 +91,19 @@
       <!-- <div class="validation-container">-->
         <div class="newsletter">
           <mat-checkbox class="newsletter-check" [(ngModel)]="newsletter" [ngModelOptions]="{standalone: true}"></mat-checkbox>
-          <span>Je souhaite recevoir la newsletter (infos exclusives, offres…) et je pourrai m’en désabonner à chaque mail en un
+          <span class="text-newsletter">Je souhaite recevoir la newsletter (infos exclusives, offres…) et je pourrai m’en désabonner à chaque mail en un
             seul clic.</span>
         </div>
 
 
-        <div class="button-container">
-          <button (mouseenter) = "mouseEnter()" (mouseleave) ="mouseLeave()" class="button-offre" mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une offre</button>
+        <div class="button-container" >
+          <div (mouseenter) = "mouseEnter()" (mouseleave) ="mouseLeave()">
+              <button class="button-offre" mat-button type="submit" [disabled]="!clientForm.valid" mat-raised-button color="primary">Obtenir une offre</button>
+          </div>
           <span class="sub-info">En cliquant sur le bouton "Obtenir une offre", vous ne vous engagez en rien !</span>
         </div>
 
-        <div class="error">
+        <div class="error" [@visibilityChanged]="isVisible">
           <mat-error>
             <span *ngIf="!(error=='null')">{{error}}</span>
           </mat-error>
