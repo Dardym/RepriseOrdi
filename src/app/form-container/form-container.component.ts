@@ -15,9 +15,6 @@ export class FormContainerComponent implements OnInit {
     onResize(event?) {
       this.screenHeight = window.innerHeight;
       this.screenWidth = window.innerWidth;
-      console.log(this.screenHeight);
-      console.log(this.screenWidth);
-      
   }
 
   constructor() { 
