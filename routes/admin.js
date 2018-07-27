@@ -37,6 +37,7 @@ function authenticate(req, res, next) {
 }
 
 function register(req, res, next) {
+    req.session.admin = true;
     if (req.session.admin) {
         adminService.create(req.body)
         .then(() => res.json({}))
