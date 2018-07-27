@@ -2,6 +2,7 @@ const db = require('../helpers/db');
 const Client = db.Client;
 const emailAction = require('../action/emailAction');
 const emailService = require('./emailService');
+const addListAction = require('../action/addListAction');
 
 module.exports = {
     getAll,
@@ -21,18 +22,19 @@ async function getById(id) {
 }
 
 async function create(clientParam) {
-
-    /*if (await Client.findOne({ email: clientParam.email })) {
-        var err = new Error('email'+ clientParam.email + 'déjà utilisé');
-        err.status = 453;
-        throw err;
-    }*/
+    console.log("je suis dans le client service");
     
     clientParam.etat = "nouveau";
     const client = new Client(clientParam);
 
+    console.log(client);
     // save user
     await client.save();
+    console.log("ça par sur un addlistAction ");
+    if(client.newsletter){
+        await addListAction.exec(client.email);
+    }
+    
 }
 
 async function updates(id, clientParam) {

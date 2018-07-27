@@ -46,20 +46,26 @@
   // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
   //apiKey.apiKeyPrefix['api-key'] = "Token"
 
-  var apiInstance = new SibApiV3Sdk.SMTPApi();
+  
 
 
   var exec = function(data){
-    console.log("je rentre dans le exec");
+    var apiInstance = new SibApiV3Sdk.SMTPApi();
     var texte = insererOffre(data.texte,data.offre);
 
-    var sendSmtpEmailSender = new SibApiV3Sdk.SendSmtpEmailSender({
-      "email": "maxime@touchedeclavier.com"
+    var apiInstanceSender = new SibApiV3Sdk.SendersApi();
+
+    var opts = { 
+      'sender': new SibApiV3Sdk.CreateSender("hello","maxime@touchedeclavier.com") // CreateSender | sender's name
+    };
+
+    var sendSmtpEmailSender = apiInstanceSender.createSender(opts).then(function(data) {
+      console.log('API called successfully. Returned data: ' + data);
+    }, function(error) {
+      console.error(error);
     });
 
-    var sendSmtpEmailTo = new SibApiV3Sdk.SendSmtpEmailTo({
-      "email": "maxime@touchedeclavier.com"
-    })
+    var sendSmtpEmailTo = new SibApiV3Sdk.SendSmtpEmailTo("maxime@touchedeclavier.com");
     var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(
       {
         "sender" : sendSmtpEmailSender,
@@ -75,6 +81,7 @@
     }, function(error) {
       console.error(error);
     });
+
   }
 
 

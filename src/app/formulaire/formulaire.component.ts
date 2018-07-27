@@ -59,7 +59,8 @@ export class FormulaireComponent implements OnInit {
     });
   }
 
-  onFormSubmit(form: NgForm) {
+  onFormSubmit(form: any) {
+    form.newsletter =this.newsletter;
     this.api.postClient(form)
       .subscribe(res => {
         this.isVisible = false;
