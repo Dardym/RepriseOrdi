@@ -53,6 +53,7 @@
     var apiInstance = new SibApiV3Sdk.SMTPApi();
     var texte = insererOffre(data.texte,data.offre);
 
+    /*
     var apiInstanceSender = new SibApiV3Sdk.SendersApi();
 
     var opts = { 
@@ -63,19 +64,28 @@
       console.log('API called successfully. Returned data: ' + data);
     }, function(error) {
       console.error(error);
-    });
+    });*/
 
-    var sendSmtpEmailTo = new SibApiV3Sdk.SendSmtpEmailTo("maxime@touchedeclavier.com");
-    var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(
+    var sendSmtpEmailSender ={
+      'name': 'admin',
+      'email': 'maxime@touchedeclavier.com'
+    }
+     //var sendSmtpEmailTo = new SibApiV3Sdk.SendSmtpEmailTo("maxime@touchedeclavier.com");
+    /*var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(
       {
-        "sender" : sendSmtpEmailSender,
-        "to": [sendSmtpEmailTo],
+        'sender' : sendSmtpEmailSender,
+        "to": [{'name':'maxime', 'email': 'maxime@touchedeclavier.com'}],
         "textContent": texte,
         "subject": "reprise de votre ordinateur"
       }
-    ); // SendSmtpEmail | Values to send a transactional email
-    console.log("j'ai créé: " + sendSmtpEmail);
-
+    );*/ // SendSmtpEmail | Values to send a transactional email
+    var sendSmtpEmail =
+      {
+        'sender' : sendSmtpEmailSender,
+        "to": [{'name': data.client.nom, 'email': data.client.email}],
+        "htmlContent": texte,
+        "subject": "reprise de votre ordinateur"
+      };
     apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
       console.log('API called successfully. Returned data: ' + data);
     }, function(error) {

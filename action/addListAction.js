@@ -12,7 +12,9 @@ var apiInstance = new SibApiV3Sdk.ContactsApi();
 var listId = 23; // Number | Id of the list
 
 var exec = function(email){
-    var contactEmails = new SibApiV3Sdk.AddContactToList([email]); // AddContactToList | Emails addresses of the contacts
+    var contactEmails = {
+      "emails" : [email]
+    }  // AddContactToList | Emails addresses of the contacts
     console.log(contactEmails);
     apiInstance.addContactToList(listId, contactEmails).then(function(data) {
       console.log('API called successfully. Returned data: ' + data);
