@@ -30,17 +30,21 @@ async function create(texte) {
 }
  
 async function update(texte) {
-    const email = await Email.findOne();
-    // validate
-    if (!email){
-        var err = new Error("Aucun email n'est enregistrer");
-        err.status = 452;
-        throw err;
-    } 
- 
-    // copy userParam properties to user
-    Object.assign(email,texte);
-    await email.save();
+    try{
+        const email = await Email.findOne();
+        // validate
+        if (!email){
+           await create(texte);
+        } 
+     
+        // copy userParam properties to user
+        Object.assign(email,texte);
+        await email.save();
+    }
+    catch(err){
+        console.log(err);
+    }
+    
 }
  
 async function _delete(id) {
