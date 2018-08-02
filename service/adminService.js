@@ -2,7 +2,6 @@ const config = require('../config.json');
 const db = require('../helpers/db');
 const Admin = db.Admin;
 const bcrypt = require('bcrypt');
-var emailAction = require('../action/emailAction');
  
 module.exports = {
     authenticate,
@@ -24,7 +23,7 @@ async function authenticate(email, password) {
     const match = await bcrypt.compare(password, admin.mdp);
     if(!match){
         var err = new Error('mauvais mot de passe');
-        err.status=451;
+        err.status = 451;
         throw err;
     }
     return await admin ;

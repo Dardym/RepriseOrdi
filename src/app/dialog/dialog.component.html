@@ -1,10 +1,21 @@
+
+<!-- Le code quand on utilisait pas sendinblue, à voir pour afficher le template.. on peut récup le html !
 <h2 mat-dialog-title>Vous allez envoyer l'annonce suivante: </h2>
 <mat-dialog-content>
-  <div class="email">
+
       {{texte}}
-  </div>
+
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Annuler</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Envoyer</button>
 </mat-dialog-actions>
+-->
+
+<h2 class="validation-title" mat-dialog-title>Mail envoyé !</h2>
+<mat-dialog-content>
+  <div class="icon-container">
+    <img class="icon" src="../../assets/images/success.png">
+      <!-- <mat-icon class="check-icone">check_circle_outline</mat-icon>-->
+  </div>
+</mat-dialog-content>

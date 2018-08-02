@@ -70,7 +70,15 @@ export class ClientListeComponent implements OnInit {
   }
 
   onFormSubmit(offre, id) {
-    this.openDialog(offre, id);
+    console.log("Dans le onFormSubmit = offre: "+offre+" id: "+id);
+    this.apiService.postOffre(offre, id)
+          .subscribe(res => {
+            this.maj();
+            this.openDialog(offre, id);
+          }, (err) => {
+            console.log(err);
+          });
+    
   }
 
   maj() {
@@ -97,10 +105,14 @@ export class ClientListeComponent implements OnInit {
   }
 
   openDialog(offre, id) {
+    
+    console.log("Dans le opendialog = offre: "+offre+" id: "+id);
     const dialogRef = this.dialog.open(DialogComponent, {
-      height: '350px'
+      //height: '350px',
+      width: '400px'
     });
 
+/*
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.apiService.postOffre(offre, id)
@@ -109,10 +121,11 @@ export class ClientListeComponent implements OnInit {
           }, (err) => {
             console.log(err);
           });
-      } else {
-        console.log("Envoie refusé.");
-      }
-    });
+        
+      //} else {
+        //console.log("Envoie refusé.");
+      //}
+    });*/
   }
 
 

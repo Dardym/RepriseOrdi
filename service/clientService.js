@@ -3,6 +3,8 @@ const Client = db.Client;
 const emailAction = require('../action/emailAction');
 const emailService = require('./emailService');
 const addListAction = require('../action/addListAction');
+const generateRetourAction = require('../action/generateRetourAction');
+const updateEmailAction = require('../action/updateEmailAction');
 
 module.exports = {
     getAll,
@@ -10,7 +12,8 @@ module.exports = {
     create,
     updates,
     delete: _delete,
-    sendOffre
+    sendOffre,
+    getLabel
 };
 
 async function getAll() {
@@ -22,7 +25,6 @@ async function getById(id) {
 }
 
 async function create(clientParam) {
-    console.log("je suis dans le client service");
     
     clientParam.etat = "nouveau";
     const client = new Client(clientParam);
@@ -30,7 +32,6 @@ async function create(clientParam) {
     console.log(client);
     // save user
     await client.save();
-    console.log("ça par sur un addlistAction ");
     if(client.newsletter){
         await addListAction.exec(client.email);
     }
@@ -57,18 +58,26 @@ async function _delete(id) {
 async function sendOffre(offre, id) {
     try {
         var client = await Client.findById(id);
-        client.offre = offre;
         var clientParam = { offre: offre, etat: "enCours" };
-        var texte = await emailService.getEmail();
         var data = {
             client: client,
-            offre: offre,
-            texte: texte.texte
+            offre: offre
         }
         await updates(client.id, clientParam);
+        var url = await generateRetourAction.exec(data);
+        data = {
+            client: client,
+            offre: offre,
+            url: url.label
+        }
+        console.log(data);
         await emailAction.exec(data);
     }
     catch (err) {
         console.log(err);
     }
+}
+
+async function getLabel(data){
+    return await generateRetourAction.exec(data);
 }

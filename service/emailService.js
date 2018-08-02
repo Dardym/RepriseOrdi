@@ -2,17 +2,35 @@ const config = require('../config.json');
 const db = require('../helpers/db');
 const Email = db.Email;
 const bcrypt = require('bcrypt');
-var emailAction = require('../action/emailAction');
+const emailAction = require('../action/emailAction');
+const getEmailAction = require('../action/getEmailAction');
+const generateRetourAction = require('../action/generateRetourAction');
  
 module.exports = {
     getEmail,
     create,
     update,
-    delete: _delete
+    delete: _delete,
+    getEmailSendinblue,
+    getURLRetour
 };
  
 async function getEmail() {
     return await Email.findOne();
+}
+
+async function getEmailSendinblue() {
+    var ret = getEmailAction.exec();
+    console.log("Le html: "+ ret);
+    return await ret ;
+}
+
+
+async function getURLRetour(data) {
+    console.log("je suis dans url retour");
+    var ret = await generateRetourAction.exec(data);
+    await console.log("URL DE getURLRETOUR"+ret);
+    return await ret ;
 }
 
 async function create(texte) {

@@ -3,10 +3,13 @@ const express = require('express');
 const router = express.Router();
 const adminService = require('../service/adminService');
 const emailService = require('../service/emailService');
+const updateEmailAction = require('../action/updateEmailAction');
+const getEmailAction = require('../action/getEmailAction');
 var path = require('path');
 
 // routes
 router.post('/authenticate', authenticate);
+//router.post('/testLaPost', testLaPost); // pour les tests
 router.post('/register', register);
 router.post('/createEmail', createEmail);
 router.get('/', getAll);
@@ -14,6 +17,7 @@ router.get('/admin/:id', getById);
 router.get('/current', getCurrent);
 router.get('/logout', my_logout);
 router.get('/email', getEmail);
+router.get('/emailSiB', getEmailSiB);
 router.put('/update', update);
 router.put('/updateEmail', updateEmail);
 router.delete('/:id', _delete);
@@ -35,6 +39,34 @@ function authenticate(req, res, next) {
         .catch(err => next(err));
 
 }
+
+//////uniquement pour les test de l'api de lapost et autres
+/*
+function testLaPost(req, res, next) {
+    
+    console.log("je suis dans testLaPost");
+    console.log(req.body);
+    var html = getEmailAction.exec()
+    .then(function(html){
+
+        updateEmailAction.exec(html, req.body)
+        .then(function (url) {
+            console.log("je suis dans le then");
+            res.json(true);
+        })
+        .catch(err => next(err));
+    })
+    .catch(err => next(err));
+   
+    
+   getEmailAction.exec()
+   .then(function(ret){
+       console.log(ret)
+       res.json(true);
+   })
+   .catch(err => next(err));
+    
+}*/
 
 function register(req, res, next) {
     req.session.admin = true;
@@ -153,6 +185,22 @@ function getEmail(req, res, next) {
     if (req.session.admin) {
         emailService.getEmail()
             .then(function (email) {
+                res.json(email);
+            })
+            .catch(err => next(err));
+    } else {
+        var err = new Error('Non autorisé');
+        err.status = 401;
+        throw err;
+    }
+
+}
+
+function getEmailSiB(req, res, next) {
+    if (req.session.admin) {
+        emailService.getEmailSendinblue()
+            .then(function (email) {
+                console.log(email);
                 res.json(email);
             })
             .catch(err => next(err));

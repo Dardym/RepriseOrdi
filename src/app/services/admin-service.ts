@@ -39,7 +39,7 @@ export class AdminService {
     }
 
     getEmail(): Observable<any>{
-      let url = apiUrl + "/email";
+      let url = apiUrl + "/emailSiB";
       return this.http.get(url, httpOptions).pipe(
         map(this.extractData),
         catchError(this.handleError));

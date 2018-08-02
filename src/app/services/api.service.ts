@@ -57,9 +57,9 @@ export class ApiService {
       );
   }
 
-  postOffre(offre: number, email:string): Observable<any> {
+  postOffre(offre: number, id:Number): Observable<any> {
     const url = apiUrl+'/sendOffre';
-    const data = {offre: offre, email :email};
+    const data = {offre: offre, id :id};
     return this.http.post(url, data , httpOptions)
     .pipe(
       catchError(this.handleError)

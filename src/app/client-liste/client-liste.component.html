@@ -72,7 +72,7 @@
           </div>
 
           <div>
-            <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="openDialog(client.proposition,client._id)"
+            <button class="mail-button" mat-button [disabled]="!client.proposition" (click)="onFormSubmit(client.proposition,client._id)"
               mat-raised-button color="primary">
               <mat-icon>send</mat-icon>
               envoyer un mail
@@ -106,7 +106,7 @@
           </div>
 
           <div>
-            <button class="mail-button" mat-button (click)="saveEtat(client._id,client.etat)" mat-raised-button color="primary">
+            <button class="mail-button" mat-button (click)="saveEtat(client.id,client.etat)" mat-raised-button color="primary">
               <mat-icon>done</mat-icon>
               sauvegarder
             </button>

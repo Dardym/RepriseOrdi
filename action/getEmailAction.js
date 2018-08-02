@@ -1,3 +1,10 @@
+function insererOffre(texte,offre){
+    console.log(texte);
+    var res = texte.replace("%offre%",offre);
+    return res;
+  }
+
+  
   var SibApiV3Sdk = require('sib-api-v3-sdk');
 
   var defaultClient = SibApiV3Sdk.ApiClient.instance;
@@ -11,22 +18,21 @@
   
 
 
-  var exec = function(data){
+  var exec = function(){
+
     var apiInstance = new SibApiV3Sdk.SMTPApi();
 
-    var sendSmtpEmail =
-      {
-        "to": [{'name': data.client.nom, 'email': data.client.email}],
-        "templateId": 28,
-        "params": {'OFFRE': data.offre, 'BORDEREAU':data.url}
-      };
-      
-    apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
-      console.log('API called successfully. Returned data: ' + data);
+    var templateId = 28; // Number | id of the template
+
+    var html = apiInstance.getSmtpTemplate(templateId).then(function(data) {
+    console.log('API called successfully. Returned data: ' + data);
+    return data.htmlContent;
+
     }, function(error) {
-      console.error(error);
+    console.error(error);
     });
 
+    return html;
   }
 
 

@@ -1,3 +1,8 @@
+/////////////////////////////////////////////////
+//On se sert de sendinblue finalement pas de ça//
+/////////////////////////////////////////////////
+
+
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin-service';
 import { Observable } from "rxjs";

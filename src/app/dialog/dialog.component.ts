@@ -14,13 +14,12 @@ export class DialogComponent implements OnInit{
   constructor(private adminService:AdminService) {}
 
   ngOnInit(){
-    this.adminService.getEmail().subscribe(res => {
+    /*this.adminService.getEmail().subscribe(res => {
       console.log(res);
-      this.texte = res.texte;
-      console.log(this.texte);
+      this.texte = res;
     }, err => {
       console.log(err);
-    });
+    });*/
   }
 
 }
