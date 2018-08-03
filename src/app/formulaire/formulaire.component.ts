@@ -42,6 +42,7 @@ export class FormulaireComponent implements OnInit {
   visuel: boolean = false;
   description: string = "";
   newsletter: boolean = false;
+  donnees: boolean = false;
 
   constructor(public dialog: MatDialog, private router: Router, private api: ApiService, private formBuilder: FormBuilder, private formulaireService: FormulaireService) { }
 
@@ -54,6 +55,7 @@ export class FormulaireComponent implements OnInit {
       'complet': [false, Validators.required],
       'fonctionnel': [false, Validators.required],
       'visuel': [false, Validators.required],
+      'donnees': [false, Validators.required],
       'description': [null]
 
     });

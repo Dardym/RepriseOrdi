@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const emailAction = require('../action/emailAction');
 const getEmailAction = require('../action/getEmailAction');
 const generateRetourAction = require('../action/generateRetourAction');
+const notifEmailAction = require('../action/notifEmailAction');
  
 module.exports = {
     getEmail,
@@ -12,11 +13,16 @@ module.exports = {
     update,
     delete: _delete,
     getEmailSendinblue,
-    getURLRetour
+    getURLRetour,
+    sendEmailNotif
 };
  
 async function getEmail() {
     return await Email.findOne();
+}
+
+async function sendEmailNotif() {
+    return await notifEmailAction.exec();
 }
 
 async function getEmailSendinblue() {

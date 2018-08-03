@@ -27,8 +27,9 @@ async function getById(id) {
 async function create(clientParam) {
     
     clientParam.etat = "nouveau";
+    clientParam.numero =  await Client.count() + 1 ;
     const client = new Client(clientParam);
-
+    
     console.log(client);
     // save user
     await client.save();

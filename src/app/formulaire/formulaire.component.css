@@ -189,6 +189,13 @@ form{
   flex: 1 1 100%;
 }
 
+.donnees{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  margin-bottom: 3%;
+}
+
 @media screen and (max-width: 1000px){
   .image-formulaire{
     flex:1 1;

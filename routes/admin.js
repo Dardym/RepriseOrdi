@@ -18,6 +18,7 @@ router.get('/current', getCurrent);
 router.get('/logout', my_logout);
 router.get('/email', getEmail);
 router.get('/emailSiB', getEmailSiB);
+router.get('/notifEmail', notifEmail);
 router.put('/update', update);
 router.put('/updateEmail', updateEmail);
 router.delete('/:id', _delete);
@@ -38,6 +39,14 @@ function authenticate(req, res, next) {
         })
         .catch(err => next(err));
 
+}
+
+function notifEmail(req,res,next){
+    emailService.sendEmailNotif()
+        .then(function (admin) {
+            res.json(true);
+        })
+        .catch(err => next(err));
 }
 
 //////uniquement pour les test de l'api de lapost et autres

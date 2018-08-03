@@ -65,6 +65,15 @@
           </mat-form-field>
         </div>
 
+        <div class="donnees">
+          <label class="radio-label">Souhaitez-vous recevoir GRATUITEMENT une sauvegarde des données présentes sur votre ordinateur ?</label>
+          <mat-radio-group formControlName="donnees" ngModel required>
+            <mat-radio-button value="true">oui</mat-radio-button>
+            <mat-radio-button value="false" style="margin-left: 2px;">non</mat-radio-button>
+          </mat-radio-group>
+          <span class="sub-info">Nous ne garantissons pas le succès de cette opération qui dépendra de l'état du matériel reçu.</span>
+        </div>
+
         <div>
           <h2>Informations personnelles</h2>
         </div>
@@ -218,6 +227,33 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       Vous serez payé par virement bancaire grâce au RIB que vous aurez fourni avec l'envoi de votre PC Portable.
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Comment les données de mon ordinateur me seront transmises ?
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Vos données seront sauvegardées sur un disque dur externe que nous vous enverrons par voie postale. Nous garantissons le
+      respect de la confidentialité de vos données.
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Qu'allez-vous faire de mon PC portable ?
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Nous récupérons les éléments fonctionnels et en bon état pour leurs donner une seconde vie utile et respectueuse de l’environnement.
+      Les appareils qui fonctionnent peuvent aussi être remis en état. Le reste sera recyclé et éliminé dans des centres
+      spécialisés conformes à la réglementation.
     </mat-expansion-panel>
 
   </mat-accordion>

@@ -13,6 +13,10 @@
             {{client.email}}
           </div>
 
+          <div class="client-email">
+            Numéro d'offre: {{client.numero}}
+          </div>
+
           <div class="date">
             {{client.date | date: 'dd/MM/yyyy'}}
           </div>
@@ -39,6 +43,7 @@
                 <li>fonctionnel : {{client.ordinateur.fonctionnel}}</li>
                 <li>visuel : {{client.ordinateur.visuel}}</li>
                 <li>complet : {{client.ordinateur.complet}}</li>
+                <li>A demandé une récupération des données: {{client.donnees}}</li>
               </ul>
             </div>
             <div class="description-container">
