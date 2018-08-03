@@ -1,11 +1,19 @@
 <div class="menu-container" fxLayoutAlign="start center">
     <a class="Logo-accueil" fxLayout="row" [routerLink]="['']">
-            <img class="le-logo" src="../../assets/images/logo-ombres.png">
+        <img class="le-logo" src="../../assets/images/logo-ombres.png">
     </a>
+    <div class="button-container">
+            <button mat-button class="comment-button"  >
+                    Comment ça marche ?
+                </button>
+            
+                <button mat-button class="comment-button" >
+                   Obtenir une offre
+                </button>
+            
+                <button mat-button class="comment-button" (click)="sidenav.toggle()">
+                    Qui sommes nous ?
+                </button>
+    </div>
+    
 </div>
-
-
-
-
-
-

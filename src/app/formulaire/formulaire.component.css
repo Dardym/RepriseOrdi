@@ -1,11 +1,12 @@
-h2, .form-title{
-    display: flex;
-    font-family: 'Google Sans',arial,sans-serif;
-    padding-bottom: 0;
-    padding-top: 16px;
-    font-size: 24px;
-    line-height: 1.3333;
-    flex: 1 1;
+.form-title{
+  display: flex;
+  font-family: 'Google Sans',arial,sans-serif;
+  padding-bottom: 0;
+  padding-top: 16px;
+  font-size: 24px;
+  line-height: 1.3333;
+  flex: 1 1;
+  font-weight: bolder;
 }
 
 .perso-container{
@@ -46,9 +47,8 @@ form{
   align-items: left;
   justify-content: left;
   padding-bottom: 2%;
-  color: rgba(0,0,0,.54);
-  background: rgba(0,0,0,.03);
-  background-size: cover;
+
+
   flex: 1 1 auto;
 }
 
@@ -194,6 +194,26 @@ form{
   flex-direction: column;
   flex: 1 1 100%;
   margin-bottom: 3%;
+}
+
+h2{
+  font-weight: 100!important;
+  background-size: cover;
+  display: flex;
+  font-family: 'Google Sans',arial,sans-serif;
+  padding-bottom: 0;
+  font-size: 24px;
+  line-height: 1.3333;
+  flex: 1 1;
+  font-weight: bolder;
+  color: rgba(58, 58, 58, 0.78);
+  margin-left: 3% ;
+}
+
+.h2-container{
+  display: flex;
+  background: rgba(0,0,0,.03);
+  background-size: cover;
 }
 
 @media screen and (max-width: 1000px){

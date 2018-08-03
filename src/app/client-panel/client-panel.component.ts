@@ -8,6 +8,8 @@ import { Router,ActivatedRoute } from '@angular/router';
 })
 export class ClientPanelComponent implements OnInit {
 
+  opened: boolean;
+  
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {

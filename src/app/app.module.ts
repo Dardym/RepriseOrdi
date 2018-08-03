@@ -23,7 +23,8 @@ import {
   MatGridListModule,
   MatRadioModule,
   MatDialogModule,
-  MatButtonToggleModule } from "@angular/material";
+  MatButtonToggleModule,
+  MatSidenavModule} from "@angular/material";
 
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FooterComponent } from './footer/footer.component';
@@ -89,6 +90,7 @@ import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
     MatButtonToggleModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatSidenavModule,
     FlexLayoutModule
   ],
   entryComponents: [ClientListeComponent, DialogComponent,FormulaireComponent,ValidationDialogComponent],

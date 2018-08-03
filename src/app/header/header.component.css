@@ -38,3 +38,20 @@
     max-width: 200px;
     max-height: 70px;
 }
+
+.comment-button{
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+    flex: 1 1 20%;
+    min-height: 100%;
+    color: white;
+}
+
+.button-container{
+    flex-direction: row;
+    display: flex;
+    min-height: 100%;
+    flex: 1 1 50%;
+    max-width: 50%;
+}
