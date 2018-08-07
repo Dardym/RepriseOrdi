@@ -3,17 +3,31 @@
         <img class="le-logo" src="../../assets/images/logo-ombres.png">
     </a>
     <div class="button-container">
-            <button mat-button class="comment-button"  >
-                    Comment ça marche ?
-                </button>
-            
-                <button mat-button class="comment-button" >
-                   Obtenir une offre
-                </button>
-            
-                <button mat-button class="comment-button" (click)="sidenav.toggle()">
-                    Qui sommes nous ?
-                </button>
+
+        <button mat-button class="comment-button" (click)="scrollToForm()">
+            Obtenir une offre
+        </button>
+
+        <button mat-button class="comment-button" (click)="redirectContacts()">
+            Nous contacter
+        </button>
+
+        <button mat-button class="comment-button" (click)="scrollToFAQ()">
+            Comment ça marche ?
+        </button>
+
+        <button mat-button class="comment-button" (click)="redirectQui()">
+            Qui sommes nous ?
+        </button>
+
+
     </div>
-    
+
+    <div class="sidenav-container">
+                <button class="sidenav-button" mat-button (click)="toggleSidenav()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+    </div>
+
+
 </div>

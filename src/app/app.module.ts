@@ -44,6 +44,8 @@ import { DialogComponent } from './dialog/dialog.component';
 import { ValidationDialogComponent } from './validation-dialog/validation-dialog.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
+import{ SidenavService} from './services/sidenav.service';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
     DialogComponent,
     ValidationDialogComponent,
     AddAdminComponent,
-    ChangerMdpComponent
+    ChangerMdpComponent,
+    SidenavComponent
   ],
   imports: [
     AppRoutingModule,
@@ -94,8 +97,7 @@ import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
     FlexLayoutModule
   ],
   entryComponents: [ClientListeComponent, DialogComponent,FormulaireComponent,ValidationDialogComponent],
-  providers: [
-  ],
+  providers: [SidenavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

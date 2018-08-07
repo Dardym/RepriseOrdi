@@ -6,15 +6,11 @@ import {SidenavService} from '../services/sidenav.service';
 import { MatSidenavModule, MatSidenav } from '../../../node_modules/@angular/material';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
-  //providers: [SidenavService]
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.css']
 })
-
-//@ViewChild('sidenav') public myNav: MatSidenav;
-export class HeaderComponent implements OnInit {
-  //@Input() private sidenavRef: MatSidenav;
+export class SidenavComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private sidenavService: SidenavService) {
   }
@@ -24,6 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollToForm() {
+    this.sidenavService.close();
     let url:String = this.router.url;
     console.log(url);
     if(url == "/"){
@@ -43,15 +40,18 @@ export class HeaderComponent implements OnInit {
   }
 
   redirectQui() {
+    this.sidenavService.close();
     this.router.navigate(['/qui']);
     //this.router.navigate(['/qui']);
   }
 
   redirectContacts() {
+    this.sidenavService.close();
     this.router.navigate(['/contacts']);
   }
 
   scrollToFAQ(){
+    this.sidenavService.close();
     let url:String = this.router.url;
     console.log(url);
     if(url == "/"){

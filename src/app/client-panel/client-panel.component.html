@@ -1,4 +1,16 @@
+<app-header fxFlexLayout="column" fxLayout="column"></app-header>
+<mat-sidenav-container>
 
-          <app-header fxFlexLayout="column" fxLayout="column"></app-header>
-                <router-outlet></router-outlet>
-            <app-footer fxLayoutAlign="end"></app-footer>
+        
+    <mat-sidenav-content>
+        
+        <router-outlet></router-outlet>
+        <app-footer fxLayoutAlign="end"></app-footer>
+    </mat-sidenav-content>
+    <mat-sidenav #sidenav mode="over" position="end">
+        <app-sidenav></app-sidenav>
+    </mat-sidenav>
+
+
+
+</mat-sidenav-container>

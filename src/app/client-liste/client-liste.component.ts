@@ -9,6 +9,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { FormulaireService } from '../services/formulaire-service.service';
 import { nodeValue } from '../../../node_modules/@angular/core/src/view';
 import { DialogComponent } from '../dialog/dialog.component';
+import { MatSidenavModule } from '../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-client-liste',

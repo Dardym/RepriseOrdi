@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from "@angular/core";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-front-page',
@@ -25,7 +26,15 @@ export class FrontPageComponent implements OnInit {
   }
 
   scrollToBottom(scrollDuration) {
+    $('html, body').animate({
+      scrollTop: $("#ancre-form").offset().top
+  }, 1500);
 
+  //////////////////////////////////////////////
+  ////////Méthode sans Jquey #NRV///////////////
+  /////////////////////////////////////////////
+  
+  /*
     var limit = Math.max(
       document.body.scrollHeight, document.documentElement.scrollHeight,
       document.body.offsetHeight, document.documentElement.offsetHeight,
@@ -47,7 +56,8 @@ export class FrontPageComponent implements OnInit {
         window.requestAnimationFrame(step);
     }
     window.requestAnimationFrame(step);
-}
+    */
+  }
 }
 
 
