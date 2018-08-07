@@ -11,7 +11,16 @@ var apiInstance = new SibApiV3Sdk.ContactsApi();
 
 var listId = 23; // Number | Id of the list
 
-var exec = function (email) {
+var exec = function (client) {
+  var email = client.email;
+  var nomPrenom = data.client.nom.split(' ');
+    console.log(nomPrenom);
+    var nom = nomPrenom[0];
+    var prenom = nomPrenom[1];
+
+    if(nomPrenom.size>1){
+        prenom = nomPrenom[1];
+    }
 
   apiInstance.getContactInfo(email).then(function(contact) {
 
@@ -25,7 +34,8 @@ var exec = function (email) {
 
     apiInstance.createContact({
       'email': email,
-      'listIds': [listId]
+      'listIds': [listId],
+      'attributes': {'FNAME': prenom, 'LNAME': nom}
     }).then(function (data) {
       console.log('API called successfully. Returned data: ' + data);
     }, function (error) {

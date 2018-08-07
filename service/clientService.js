@@ -30,11 +30,10 @@ async function create(clientParam) {
     clientParam.numero =  await Client.count() + 1 ;
     const client = new Client(clientParam);
     
-    console.log(client);
     // save user
     await client.save();
     if(client.newsletter){
-        await addListAction.exec(client.email);
+        await addListAction.exec(client);
     }
     
 }

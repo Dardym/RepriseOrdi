@@ -26,19 +26,13 @@
     
         var mailOptions = {
             from: "hello@repriseordi.fr",
-            to: ["laura@touchedeclavier.com","flavien@touchedeclavier.com"],
+            to: ["hello@repriseordi.fr"],
             subject: "nouveau client !",
             html: "<p>Nouveau client sur reprise ordi ! Lien vers le back office: </p><a href='https://repriseordi.fr/login'>repriseordi.fr</a>"
         };
         console.log("je suis dans le exec");
         transporter.sendMail(mailOptions, function(err, info){
             transporter.close();
-            /*if(err) {
-                callback(err, info);
-            }
-            else {
-                callback(null, info);
-            }*/
         });
     }
 
