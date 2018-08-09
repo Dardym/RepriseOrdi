@@ -47,6 +47,7 @@ export class FormulaireComponent implements OnInit {
   constructor(public dialog: MatDialog, private router: Router, private api: ApiService, private formBuilder: FormBuilder, private formulaireService: FormulaireService) { }
 
   ngOnInit() {
+
     this.clientForm = this.formBuilder.group({
       'nom': [null, Validators.required],
       'email': [null, Validators.required],
@@ -57,8 +58,8 @@ export class FormulaireComponent implements OnInit {
       'visuel': [false, Validators.required],
       'donnees': [false, Validators.required],
       'description': [null]
-
     });
+    
   }
 
   onFormSubmit(form: any) {

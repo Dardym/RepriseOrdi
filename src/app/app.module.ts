@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { CreditCardDirectivesModule } from 'ng2-cc-library'
 
 import {
   MatInputModule,
@@ -24,7 +25,9 @@ import {
   MatRadioModule,
   MatDialogModule,
   MatButtonToggleModule,
-  MatSidenavModule} from "@angular/material";
+  MatSidenavModule,
+  MatDatepickerModule,
+  MatNativeDateModule} from "@angular/material";
 
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FooterComponent } from './footer/footer.component';
@@ -96,10 +99,13 @@ import { PayementComponent } from './payement/payement.component';
     MatDialogModule,
     MatPaginatorModule,
     MatSidenavModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    CreditCardDirectivesModule,
     FlexLayoutModule
   ],
   entryComponents: [ClientListeComponent, DialogComponent,FormulaireComponent,ValidationDialogComponent],
-  providers: [SidenavService],
+  providers: [SidenavService,MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

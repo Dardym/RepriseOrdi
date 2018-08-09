@@ -1,3 +1,123 @@
-<p>
-  payement works!
-</p>
+<div class="payment-container">
+
+  <div class="logo-info">
+    <div class="carte-logo">
+        <mat-card style="display: flex; flex-direction: column;">
+            <div class="logo">
+                <img class="le-logo" src="../../assets/images/logo-fond-blanc.png">
+              </div>
+              <div class="info">
+                Entrez vos coordonnées banquaires et recevez le montant de votre reprise directement sur votre compte !
+              </div>
+        </mat-card>
+    </div>
+    
+  </div>
+
+  <form class="form" [formGroup]="paymentForm" (ngSubmit)="onFormSubmit(paymentForm.value)">
+    <div class="adresse-container">
+      <mat-card>
+
+        <mat-card-title>
+          Adresse de Facturation
+        </mat-card-title>
+
+        <mat-card-content>
+          <div class="info-facturation">
+
+            <mat-form-field>
+              <input matInput placeholder="Nom Prénom" formControlName="nom">
+              <mat-error>
+                  <span *ngIf="!paymentForm.get('expirationDate').valid && paymentForm.get('expirationDate').touched">Veuillez indiquer votre nom</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error>
+                  <span *ngIf="!paymentForm.get('expirationDate').valid && paymentForm.get('expirationDate').touched">Veuillez indiquer votre email</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Adresse" formControlName="adresse">
+              <mat-error>
+                  <span *ngIf="!paymentForm.get('expirationDate').valid && paymentForm.get('expirationDate').touched">Veuillez indiquer une adresse de facturation</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Ville" formControlName="ville">
+              <mat-error>
+                  <span *ngIf="!paymentForm.get('expirationDate').valid && paymentForm.get('expirationDate').touched">Veuillez indiquer la ville où se situe votre adresse</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Code postal" formControlName="postal">
+              <mat-error>
+                  <span *ngIf="!paymentForm.get('expirationDate').valid && paymentForm.get('expirationDate').touched">Veuillez indiquer le code postal de votre ville</span>
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+
+    <div class="money-container">
+      <mat-card>
+        <mat-card-title>
+          Coordonnées banquaires
+        </mat-card-title>
+        <mat-card-content>
+
+          <div class="cardnumber-container">
+            <mat-icon>credit_card</mat-icon>
+            <mat-form-field style="margin-left: 2%; width: 60%;">
+              <input id="cc-number" type="tel" autocomplete="cc-number" ccNumber matInput placeholder="Numéro de carte" formControlName="creditCard">
+              <mat-error>
+                  <span *ngIf="!paymentForm.get('creditCard').valid && paymentForm.get('creditCard').touched">Votre numéro de carte n'est pas valide</span>
+              </mat-error>
+            </mat-form-field>
+            
+          </div>
+
+          <div class="cardinfo-container">
+            <mat-icon>calendar_today</mat-icon>
+            <div style="margin-right: 5%; margin-left: 2%;">
+
+              <mat-form-field>
+                <input id="cc-exp-date" type="tel" autocomplete="cc-exp" formControlName="expirationDate" ccExp class="carddate-input" matInput placeholder="MM/YY">
+                <mat-error>
+                    <span *ngIf="!paymentForm.get('expirationDate').valid && paymentForm.get('expirationDate').touched">Cette date n'est pas valide</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!--[matDatepicker]="picker" formControlName="cardNumber"-->
+            <div>
+              <mat-form-field>
+                <input id="cc-cvc" type="tel" autocomplete="off" formControlName="cvc" ccCvc class="cardcvc-input" matInput placeholder="Cryptogramme(3 chiffres)">
+                <mat-error>
+                    <span *ngIf="!paymentForm.get('cvc').valid && paymentForm.get('cvc').touched">Ce cryptogramme n'est pas valide (3 chiffres au dos de votre carte)</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="button-container">
+      <button  [disabled]="!paymentForm.valid" type="submit" mat-raised-button color="primary">
+        Recevoir mon argent !
+      </button>
+    </div>
+
+  </form>
+</div>

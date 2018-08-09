@@ -3,8 +3,7 @@ const express = require('express');
 const router = express.Router();
 const adminService = require('../service/adminService');
 const emailService = require('../service/emailService');
-const updateEmailAction = require('../action/updateEmailAction');
-const getEmailAction = require('../action/getEmailAction');
+const payementAction = require('../action/payementAction');
 var path = require('path');
 
 // routes
@@ -12,6 +11,7 @@ router.post('/authenticate', authenticate);
 //router.post('/testLaPost', testLaPost); // pour les tests
 router.post('/register', register);
 router.post('/createEmail', createEmail);
+router.post('/paiement',paiement);
 router.get('/', getAll);
 router.get('/admin/:id', getById);
 router.get('/current', getCurrent);
@@ -22,6 +22,7 @@ router.get('/notifEmail', notifEmail);
 router.put('/update', update);
 router.put('/updateEmail', updateEmail);
 router.delete('/:id', _delete);
+
 
 router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/RepriseOrdi/index.html'));
@@ -45,6 +46,15 @@ function notifEmail(req,res,next){
     emailService.sendEmailNotif()
         .then(function (admin) {
             res.json(true);
+        })
+        .catch(err => next(err));
+}
+
+function paiement(req,res,next){
+    console.log(req.body);
+    payementAction.exec(req.body.offre,req.body.token)
+        .then(function (rep) {
+            res.json(rep);
         })
         .catch(err => next(err));
 }

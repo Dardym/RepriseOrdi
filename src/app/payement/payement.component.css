@@ -1,0 +1,112 @@
+.info-facturation{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    align-items: center;
+    height: 100%;
+    max-height: 100vh;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.money-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 100%;
+    max-height: 100vh;
+    margin: 3%;
+    /*
+    
+    */
+    
+}
+
+.adresse-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 100%;
+    margin: 3%;
+
+    
+}
+
+:host {
+    flex:1 1 100%;
+    flex-direction: row;
+    height: 100vh;
+    width:100vw;
+    background-image: url(../../assets/images/PaymentPage.png);
+    background-size: cover;
+    background-repeat: inherit;
+    
+  }
+
+.payment-container{
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.button-container{
+    display: flex;
+    flex:  1 1 auto;
+    width: 100%;
+    margin:3%;
+}
+
+button{
+    width: 100% !important;
+}
+
+.cardnumber-container{
+    display: flex;
+    flex: 1 1 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+}
+.cardnumber-input{
+    display: flex;
+    flex: 1 1 100%;
+    min-width: 100%;
+}
+
+.cardinfo-container{
+    display: flex;
+    flex: 1 1 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+}
+
+.logo-info{
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.carte-logo{
+    display: flex;
+    flex: 1 1 50%;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    padding: 3%;
+}
+
+.le-logo{
+    width: 50%;
+}
