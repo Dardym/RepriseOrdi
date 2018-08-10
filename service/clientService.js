@@ -35,6 +35,7 @@ async function create(clientParam) {
     if(client.newsletter){
         await addListAction.exec(client);
     }
+    await emailService.sendEmailNotif();
     
 }
 

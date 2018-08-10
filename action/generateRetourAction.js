@@ -5,11 +5,11 @@ var exec = function (data) {
     var nomPrenom = data.client.nom.split(' ');
     console.log(nomPrenom);
     var nom = nomPrenom[0];
-    var prenom = nomPrenom[0]; 
+    var prenom = nomPrenom[1];
 
-    if(nomPrenom.size>1){
+    /*if(nomPrenom.size>1){
         prenom = nomPrenom[1];
-    }
+    }*/
 
     var param = {
 

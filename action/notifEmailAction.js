@@ -4,7 +4,7 @@
 
 
 
-    var exec = function(){
+    var exec = function(data){
 
         var transporter = nodemailer.createTransport(smtpTransport({
             host: "SSL0.OVH.NET", //mail.example.com (your server smtp)
@@ -27,10 +27,9 @@
         var mailOptions = {
             from: "hello@repriseordi.fr",
             to: ["hello@repriseordi.fr"],
-            subject: "nouveau client !",
-            html: "<p>Nouveau client sur reprise ordi ! Lien vers le back office: </p><a href='https://repriseordi.fr/login'>repriseordi.fr</a>"
+            subject: data.sujet,
+            html: data.html
         };
-        console.log("je suis dans le exec");
         transporter.sendMail(mailOptions, function(err, info){
             transporter.close();
         });

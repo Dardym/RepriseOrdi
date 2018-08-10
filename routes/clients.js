@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var clientService = require('../service/clientService.js');
+var emailService = require('../service/emailService');
 var path = require('path');
 
 /* GET ALL ClientS */
@@ -72,6 +73,18 @@ router.post('/', function (req, res, next) {
       .catch(err =>{
         next(err);
       } );
+});
+
+router.post('/contact', function(req,res,next){
+
+  emailService.sendEmailContact(req.body).then(function () {
+    res.json({"success":true});
+  })
+    .catch(err =>{
+      res.json({"success":false});
+      next(err);
+    } );
+
 });
 
 /* UPDATE Client */

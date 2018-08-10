@@ -74,3 +74,47 @@ justify-content: start;
 align-items: start;
 }
 
+.info-contact{
+  display: flex;
+  flex: 1 1 30%;
+  flex-direction: row;
+}
+
+.conctact-container{
+  display: flex;
+  flex-direction: column;
+  flex : 1 1 70%;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  padding: 4%;
+}
+
+.info-form{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  width: 30%;
+  height: 30%;
+}
+
+.message{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.le-message{
+  height: 100px;
+}
+
+.texte{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  margin-bottom: 2%;
+}

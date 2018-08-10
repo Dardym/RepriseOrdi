@@ -14,7 +14,8 @@ module.exports = {
     delete: _delete,
     getEmailSendinblue,
     getURLRetour,
-    sendEmailNotif
+    sendEmailNotif,
+    sendEmailContact
 };
  
 async function getEmail() {
@@ -22,7 +23,25 @@ async function getEmail() {
 }
 
 async function sendEmailNotif() {
-    return await notifEmailAction.exec();
+
+    let data = {
+        sujet: "Nouvelle demande de reprise !",
+        html: "<p>Nouveau client sur reprise ordi ! Lien vers le back office: </p><a href='https://repriseordi.fr/login'>repriseordi.fr</a>"
+    }
+
+    return await notifEmailAction.exec(data);
+}
+
+async function sendEmailContact(data){
+
+    let sujet = "Contact repriseordi.fr: " + data.sujet;
+    let html = "<p>Le client "+data.nom+" a envoyé le message suivant: " + data.message +" Vous pouvez lui répondra à l'adresse suivante: " + data.email;
+    let nData = {
+        sujet: sujet,
+        html: html
+    }
+
+    return await notifEmailAction.exec(nData);
 }
 
 async function getEmailSendinblue() {

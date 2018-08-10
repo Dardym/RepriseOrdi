@@ -1,36 +1,73 @@
 <div fxFlex="1 1 100%" fxLayout="column">
     <div class="information-container">
-    
+
         <div class="form-title" fxLayout="row">
-          <div fxFlexOffset="5">
-           Contacts
-          </div>
+            <div fxFlexOffset="5">
+                Contacts
+            </div>
         </div>
 
-        <div>
-            <h2>Telephone</h2>
-            <div class="information">
-                0 980 800 221
-            </div>
-          </div>
 
-          <div>
-              <h2>Email</h2>
-              <div class="information">
-                  hello@repriseordi.fr
-              </div>
-            </div>
+        <div class="conctact-container">
+            <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit(contactForm.value)">
+                <span class="texte">Pour nous contacer, composez le 0 980 800 221 ou remplissez ce formulaire.</span>
 
-            <div>
-                <h2>Adresse</h2>
-                <div class="information">
-                    INFORMASUR
-                    <br/> à BEL AIR CAMP
-                    <br/> 11 AVENUE DE BEL AIR
-                    <br/> 69100 VILLEURBANNE
+
+
+                <div class="info-form">
+
+                    <mat-form-field appearance="legacy" class="example-full-width">
+                        <mat-label>Nom</mat-label>
+                        <input matInput placeholder="Nom Prénom" formControlName="nom">
+                        <mat-error>
+                            <span *ngIf="!contactForm.get('nom').valid && contactForm.get('nom').touched">Veuillez indiquer votre nom</span>
+                        </mat-error>
+                    </mat-form-field>
+
+
+
+                    <mat-form-field appearance="legacy" class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" formControlName="email">
+                        <mat-error>
+                            <span *ngIf="!contactForm.get('email').valid && contactForm.get('email').touched">Veuillez indiquer votre adresse mail pour que nous puissions vous répondre.</span>
+                        </mat-error>
+                    </mat-form-field>
+
+
+
+
+                    <mat-form-field appearance="legacy" class="example-full-width">
+                        <mat-label>Sujet</mat-label>
+                        <input matInput placeholder="La raison pour laquelle vous nous contactez." formControlName="sujet">
+                        <mat-error>
+                            <span *ngIf="!contactForm.get('sujet').valid && contactForm.get('sujet').touched">Veuillez indiquer le sujet de votre message.</span>
+                        </mat-error>
+                    </mat-form-field>
                 </div>
-              </div>
-      
-        
-      </div>
+
+                <div class="message" >
+                    <mat-form-field appearance="outline" class="example-full-width" style="height: 100%;">
+                        <mat-label>message</mat-label>
+                        <textarea class="le-message" matInput placeholder="Votre message." formControlName="message"></textarea>
+                        <mat-error>
+                            <span *ngIf="!contactForm.get('message').valid && contactForm.get('message').touched">Veuillez remplir le champ message.</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+
+
+
+                <div class="button-container">
+                    
+                        <button class="button-offre" mat-button type="submit" [disabled]="!contactForm.valid" mat-raised-button color="primary">Envoyer</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
 </div>

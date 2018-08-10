@@ -27,7 +27,9 @@ import {
   MatButtonToggleModule,
   MatSidenavModule,
   MatDatepickerModule,
-  MatNativeDateModule} from "@angular/material";
+  MatNativeDateModule,
+  MatListModule
+} from "@angular/material";
 
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FooterComponent } from './footer/footer.component';
@@ -101,6 +103,7 @@ import { PayementComponent } from './payement/payement.component';
     MatSidenavModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatListModule,
     CreditCardDirectivesModule,
     FlexLayoutModule
   ],

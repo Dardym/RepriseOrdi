@@ -1,21 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HostListener } from "@angular/core";
 import * as $ from 'jquery';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+
 
 @Component({
   selector: 'app-front-page',
   templateUrl: './front-page.component.html',
-  styleUrls: ['./front-page.component.css']
+  styleUrls: ['./front-page.component.css'], animations: [
+    trigger('fade', [
+      state('inactive', style({ opacity: 1,transform: 'scale(1.0) translate(0,-15px)' })),
+      state('active', style({ opacity: 1,transform: 'scale(1.0) translate(0,0px)' })),
+      transition('* <=> *', [
+        animate(700)
+      ])
+    ])
+  ]
 })
 export class FrontPageComponent implements OnInit {
 
+  @Input() isOver: boolean = false;
+  @Input() state: string = "active";
+  mouseOver:boolean = false;
   screenHeight: any;
   screenWidth: any;
 
+
   @HostListener('window:resize', ['$event'])
-    onResize(event?) {
-      this.screenHeight = window.innerHeight;
-      this.screenWidth = window.innerWidth;
+  onResize(event?) {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
   }
 
   constructor() {
@@ -28,12 +48,35 @@ export class FrontPageComponent implements OnInit {
   scrollToBottom(scrollDuration) {
     $('html, body').animate({
       scrollTop: $("#ancre-form").offset().top
-  }, 1500);
+    }, 1500);
+  }
+
+  mouseEnter() {
+    
+    this.mouseOver = true;
+  }
+
+  mouseLeave() {
+    this.mouseOver = false;
+    let event;
+    this.onDone(event);
+  }
+
+  onDone($event) {
+    // call this function at the end of the previous animation.
+    // run it as many time as defined
+    if(!this.mouseOver){
+      this.state = this.state === 'active' ? 'inactive' : 'active';
+    }
+      
+
+    }
+  }
 
   //////////////////////////////////////////////
   ////////Méthode sans Jquey #NRV///////////////
   /////////////////////////////////////////////
-  
+
   /*
     var limit = Math.max(
       document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -57,8 +100,7 @@ export class FrontPageComponent implements OnInit {
     }
     window.requestAnimationFrame(step);
     */
-  }
-}
+
 
 
 

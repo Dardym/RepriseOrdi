@@ -16,7 +16,6 @@
   margin: 10px;
   max-width: 100%;
   max-height: 100%;
-  
 }
 
 .form-title{
@@ -31,14 +30,23 @@
 }
 .information{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Google Sans',arial,sans-serif;
-  font-size: 24px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
   font-weight: 400;
   padding: 5%;
+  flex-direction: column;
 }
 
 :host {
     flex:1;
 }
+
+.lien-button{
+  color: rgb(0, 0, 238);
+  cursor: pointer;
+  text-decoration-color: rgb(0, 0, 238);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+
+}
+

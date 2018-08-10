@@ -66,6 +66,15 @@ export class ApiService {
     );
   }
 
+  sendEmailContact(data:any): Observable<any> {
+    const url = apiUrl+'/Contact';
+    return this.http.post(url,data,httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  };
+
+
   //ERROR HANDLER CLIENT SIDE//
 
   private handleError(error: HttpErrorResponse) {

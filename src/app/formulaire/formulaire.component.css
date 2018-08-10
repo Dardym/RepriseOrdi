@@ -217,6 +217,12 @@ h2{
   background-size: cover;
 }
 
+h3{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 1000px){
   .image-formulaire{
     flex:1 1;
