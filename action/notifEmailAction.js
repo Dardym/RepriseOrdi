@@ -26,7 +26,7 @@
     
         var mailOptions = {
             from: "hello@repriseordi.fr",
-            to: ["hello@repriseordi.fr"],
+            to: ["maxime@touchedeclavier.com"],
             subject: data.sujet,
             html: data.html
         };
