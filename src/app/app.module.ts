@@ -107,7 +107,7 @@ import { PayementComponent } from './payement/payement.component';
     CreditCardDirectivesModule,
     FlexLayoutModule
   ],
-  entryComponents: [ClientListeComponent, DialogComponent,FormulaireComponent,ValidationDialogComponent],
+  entryComponents: [ClientListeComponent, DialogComponent,FormulaireComponent,ValidationDialogComponent,ContactsComponent,PayementComponent],
   providers: [SidenavService,MatNativeDateModule],
   bootstrap: [AppComponent]
 })

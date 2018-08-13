@@ -52,6 +52,13 @@ export class AdminService {
         catchError(this.handleError));
     }
 
+    sendPaymentInfo(data){
+      let url = apiUrl+"/paiement";
+      return this.http.post(url,data,httpOptions).pipe(
+        map(this.extractData),
+        catchError(this.handleError));
+    }
+
     //ERROR HANDLER CLIENT SIDE//
 
   private handleError(error: HttpErrorResponse) {

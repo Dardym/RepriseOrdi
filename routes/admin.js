@@ -51,9 +51,11 @@ function notifEmail(req,res,next){
 }
 
 function paiement(req,res,next){
+    console.log("dans le routing ta race");
     console.log(req.body);
-    payementAction.exec(req.body.offre,req.body.token)
+    payementAction.exec(req.body.data,req.body.offre,req.body.token)
         .then(function (rep) {
+            rep.success = true;
             res.json(rep);
         })
         .catch(err => next(err));

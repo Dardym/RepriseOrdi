@@ -85,7 +85,11 @@ export class FormulaireComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(ValidationDialogComponent, {
       height: '350px',
-      width: ''
+      width: '',
+      data:{
+        title:"Informations envoyés !",
+        texte:"Votre demande a bien été prise en compte. Vous allez être contacté sous peu par l'un de nos conseillés. Pensez à regarder vos mails !"
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
