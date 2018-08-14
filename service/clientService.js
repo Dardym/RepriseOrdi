@@ -21,11 +21,7 @@ async function getAll() {
 }
 
 async function getById(id) {
-    let client = await Client.findById(id);
-    console.log("après ce vieux bail là : "+ client);
-    if(!client){
-        throw err;
-    }
+    let client = await Client.findById(id); 
     return client;
 }
 

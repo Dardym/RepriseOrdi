@@ -16,7 +16,8 @@ var ClientSchema = new mongoose.Schema({
     offre: { type: Number, default: 0 },
     newsletter: Boolean,
     donnees: Boolean,
-    numero: Number
+    numero: Number,
+    paye: {type:Boolean, default:false}
     
   });
 

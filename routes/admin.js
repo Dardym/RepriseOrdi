@@ -51,14 +51,18 @@ function notifEmail(req,res,next){
 }
 
 function paiement(req,res,next){
-    console.log("dans le routing ta race");
-    console.log(req.body);
+    console.log("juste avant le payementAction");
     payementAction.exec(req.body.data,req.body.offre,req.body.token)
         .then(function (rep) {
+            console.log("dans le then");
             rep.success = true;
+            console.log(rep);
             res.json(rep);
         })
-        .catch(err => next(err));
+        .catch(function(err){
+            console.log("dans le carch");
+            //next(err)
+        });
 }
 
 //////uniquement pour les test de l'api de lapost et autres

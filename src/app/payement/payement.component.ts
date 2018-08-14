@@ -52,13 +52,20 @@ export class PayementComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params) => {
       this.id = params['id'];
-      this.apiService.getClient(this.id).subscribe((client) => {
-        this.client = client;
-        console.log(client);
+      this.apiService.getClient(this.id).subscribe((rep) => {
+        if(!rep.success){
+          this.router.navigate(['/']);
+        }else{
+          this.client = rep.client;
+          if(this.client.paye==true){
+            this.router.navigate(['/']);
+          }else{
+            console.log(this.client);
+          }
+        }
       }),
       (err) => {
         console.log(err);
-        this.router.navigate(['/']);
       }
     });
 
@@ -94,24 +101,24 @@ export class PayementComponent implements OnInit {
       // Wrapping inside the Angular zone
       this._zone.run(() => {
         if (status === 200) {
-          console.log(`Success! Card token ${response.card.id}.`);
-
           let data = {
-            token: response.card.id,
+            token: response.id,
             data: {
               nom: form.nom,
               adresse: form.adresse,
               ville: form.ville,
               postal: form.postal,
               email: form.email,
-              numero: "3"
+              numero: this.client.numero
             },
-            offre: "2"
+            offre: this.client.offre
           }
           this.adminService.sendPaymentInfo(data).subscribe(res => {
             console.log(res);
             this.openDialog();
           }, (err) => {
+            this.openDialog();
+            console.log("dans le err c'est chiant");
             console.log(err);
           });
         }

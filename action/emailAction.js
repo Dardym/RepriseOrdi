@@ -14,11 +14,13 @@
   var exec = function(data){
     var apiInstance = new SibApiV3Sdk.SMTPApi();
 
+    let paiementUrl = "https://repriseordi.fr/paiement/" + data.client.id;
+
     var sendSmtpEmail =
       {
         "to": [{'name': data.client.nom, 'email': data.client.email}],
         "templateId": 28,
-        "params": {'OFFRE': data.offre, 'BORDEREAU':data.url}
+        "params": {'OFFRE': data.offre, 'BORDEREAU':data.url, 'PAIEMENT': paiementUrl}
       };
       
     apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {

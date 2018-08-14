@@ -39,13 +39,18 @@ router.post('/sendOffre', function (req, res, next) {
 /* GET SINGLE Client BY ID */
 router.get('/:id', function (req, res, next) {
 
-  console.log(req.params.id);
     clientService.getById(req.params.id)
     .then(function(client){
-      console.log("dans le then");
-      res.json(client);
+      data = {
+        client: client,
+        success: true
+      }
+      res.json(data);
     })
-    .catch(err => next(err));
+    .catch(function(err){
+      res.json({success:false});
+      next(err);
+    });
 });
 
 /* SAVE Client */
@@ -77,7 +82,7 @@ router.post('/contact', function(req,res,next){
     .catch(err =>{
       res.json({"success":false});
       next(err);
-    } );
+    });
 
 });
 
@@ -85,7 +90,6 @@ router.post('/contact', function(req,res,next){
 router.put('/:id', function (req, res, next) {
 
   if (req.session.admin) {
-
     clientService.updates(req.params.id, req.body)
       .then(function (post) {
         res.json(post)
