@@ -15,12 +15,11 @@ var apiInstance = new SibApiV3Sdk.SMTPApi();
 
 var templateId = 28; // Number | id of the template
 
-var exec = function (html,url) {
+var exec = function (url) {
     console.log("je suis dans le updateEmail");
     console.log(url);
     var smtpTemplate = {
-            'htmlContent' : html,
-            'attachmentUrl': 'C:/Users/maxim/Downloads/8R31002784704.pdf'
+            'attachmentUrl': url
         }
         
     console.log(smtpTemplate);

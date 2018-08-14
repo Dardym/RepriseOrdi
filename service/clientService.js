@@ -21,21 +21,26 @@ async function getAll() {
 }
 
 async function getById(id) {
-    return await Client.findById(id);
+    let client = await Client.findById(id);
+    console.log("après ce vieux bail là : "+ client);
+    if(!client){
+        throw err;
+    }
+    return client;
 }
 
 async function create(clientParam) {
     clientParam.etat = "nouveau";
-    clientParam.numero =  await Client.count() + 1 ;
+    clientParam.numero = await Client.count() + 1;
     const client = new Client(clientParam);
-    
+
     // save user
     await client.save();
-    if(client.newsletter){
+    if (client.newsletter) {
         await addListAction.exec(client);
     }
     await emailService.sendEmailNotif();
-    
+
 }
 
 async function updates(id, clientParam) {
@@ -70,7 +75,6 @@ async function sendOffre(offre, id) {
             offre: offre,
             url: url.label
         }
-        console.log(data);
         await emailAction.exec(data);
     }
     catch (err) {
@@ -78,6 +82,6 @@ async function sendOffre(offre, id) {
     }
 }
 
-async function getLabel(data){
+async function getLabel(data) {
     return await generateRetourAction.exec(data);
 }

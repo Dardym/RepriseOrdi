@@ -38,20 +38,14 @@ router.post('/sendOffre', function (req, res, next) {
 
 /* GET SINGLE Client BY ID */
 router.get('/:id', function (req, res, next) {
-  if (req.session.admin) {
 
-    clientService.findById(req.params.id)
-    .then(function (err, post) {
-      if (err) return next(err);
-      res.json(post);
+  console.log(req.params.id);
+    clientService.getById(req.params.id)
+    .then(function(client){
+      console.log("dans le then");
+      res.json(client);
     })
     .catch(err => next(err));
-
-  } else {
-    var err = new Error('Non autorisé');
-    err.status = 401;
-    throw err;
-  }
 });
 
 /* SAVE Client */

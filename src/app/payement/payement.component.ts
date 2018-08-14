@@ -5,20 +5,21 @@ import { THIS_EXPR } from '../../../node_modules/@angular/compiler/src/output/ou
 import { AdminService } from '../services/admin-service';
 import { ValidationDialogComponent } from '../validation-dialog/validation-dialog.component';
 import { MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
-import{MAT_DIALOG_DATA} from '@angular/material'
+import { Router, ActivatedRoute } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material'
+import { ApiService } from '../services/api.service';
 
 
 @Component({
   selector: 'app-payement',
   templateUrl: './payement.component.html',
   styleUrls: ['./payement.component.css'],
-  providers:[ValidationDialogComponent]
+  providers: [ValidationDialogComponent]
 })
 export class PayementComponent implements OnInit {
-  
+
   paymentForm: FormGroup;
-  
+
   private cvc: Number;
   private cardNumber: Number;
   private expirationDate: Date;
@@ -31,18 +32,35 @@ export class PayementComponent implements OnInit {
 
   public message: string;
 
+  private id:string;
+  private client:any;
+
   constructor(
     private _zone: NgZone,
     private formBuilder: FormBuilder,
     private adminService: AdminService,
-    private router:Router,
+    private router: Router,
     public dialog: MatDialog,
-    private validationDialog:ValidationDialogComponent
+    private validationDialog: ValidationDialogComponent,
+    private activatedRoute: ActivatedRoute,
+    private apiService:ApiService
   ) { }
 
 
 
   ngOnInit() {
+
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = params['id'];
+      this.apiService.getClient(this.id).subscribe((client) => {
+        this.client = client;
+        console.log(client);
+      }),
+      (err) => {
+        console.log(err);
+        this.router.navigate(['/']);
+      }
+    });
 
     this.paymentForm = this.formBuilder.group({
       'nom': [null, Validators.required],
@@ -53,7 +71,6 @@ export class PayementComponent implements OnInit {
       creditCard: ['', [<any>CreditCardValidator.validateCCNumber]],
       expirationDate: ['', [<any>CreditCardValidator.validateExpDate]],
       cvc: ['', [<any>Validators.required, <any>Validators.minLength(3), <any>Validators.maxLength(4)]]
-
     });
   }
 
@@ -77,7 +94,7 @@ export class PayementComponent implements OnInit {
       // Wrapping inside the Angular zone
       this._zone.run(() => {
         if (status === 200) {
-         console.log(`Success! Card token ${response.card.id}.`);
+          console.log(`Success! Card token ${response.card.id}.`);
 
           let data = {
             token: response.card.id,
@@ -89,17 +106,16 @@ export class PayementComponent implements OnInit {
               email: form.email,
               numero: "3"
             },
-            offre:"2"
+            offre: "2"
           }
           this.adminService.sendPaymentInfo(data).subscribe(res => {
             console.log(res);
             this.openDialog();
           }, (err) => {
             console.log(err);
-            this.openDialog();
           });
         }
-        else{
+        else {
           console.log("ah, c'est le problème serveur");
         }
       });
@@ -110,7 +126,7 @@ export class PayementComponent implements OnInit {
     const dialogRef = this.dialog.open(ValidationDialogComponent, {
       height: '350px',
       width: '',
-      data:{
+      data: {
         title: "Vos informations banquaires ont bien été transmises.",
         texte: "Votre argent vous sera viré sur votre carte dès que nous recevrons votre colis."
       }
