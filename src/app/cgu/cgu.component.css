@@ -1,0 +1,120 @@
+.form-title{
+    display: flex;
+    font-family: 'Google Sans',arial,sans-serif;
+    padding-bottom: 0;
+    font-size: 24px;
+    line-height: 1.3333;
+  }
+  
+  .information-container{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,.03);
+  box-shadow: 0 2px 2px rgba(0,0,0,.24),0 0 2px rgba(0,0,0,.12);
+  margin: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  flex: 1 1 100%;
+  min-height: 100%;
+  flex: 1 1 100%;
+  }
+  
+  .form-title{
+  display: flex;
+  align-content: left;
+  align-items: left;
+  justify-content: left;
+  color: rgba(0,0,0,.54);
+  background: rgba(0,0,0,.03);
+  background-size: cover;
+  padding: 1%;
+  }
+  
+  .information, .part-info-location{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  font-family: 'Google Sans',arial,sans-serif;
+  color: black;
+  font-size: 16px;
+  padding:2%;
+  }
+  
+  :host {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 75vh;
+  }
+  
+  h2{
+  color:#3f51b5;
+  display:block;
+  font-family:"Open Sans", sans-serif;
+  font-size:24px;
+  font-weight:400;
+  height:32.8px;
+  width:750px;
+  margin-left:2%;
+  }
+  
+  .info-location{
+  display:flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  }
+  
+  .part-info-location{
+  display: flex;
+  flex: 50%;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  }
+  
+  .info-contact{
+    display: flex;
+    flex: 1 1 30%;
+    flex-direction: row;
+  }
+  
+  .conctact-container{
+    display: flex;
+    flex-direction: column;
+    flex : 1 1 70%;
+  }
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    padding: 4%;
+  }
+  
+  .info-form{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    width: 30%;
+    height: 30%;
+  }
+  
+  .message{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    width: 100%;
+    margin-top: 2%;
+  }
+  
+  .le-message{
+    height: 100px;
+  }
+  
+  .texte{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    margin-bottom: 2%;
+  }
+  

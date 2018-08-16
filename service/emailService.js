@@ -15,7 +15,8 @@ module.exports = {
     getEmailSendinblue,
     getURLRetour,
     sendEmailNotif,
-    sendEmailContact
+    sendEmailContact,
+    sendEmailClient
 };
  
 async function getEmail() {
@@ -42,6 +43,17 @@ async function sendEmailContact(data){
     }
 
     return await notifEmailAction.exec(nData);
+}
+
+async function sendEmailClient(){
+    let sujet = "Confirmation demande de reprise sur repriseordi.fr";
+    let html = "<p>Votre demande de reprise a bien été prise en compte, l'un de nos conseillers vous contactera par mail dans les prochaines jours. Surveillez vos mails !";
+    let data = {
+        sujet: sujet,
+        html:html
+    }
+
+    return await notifEmailAction.exec(data);
 }
 
 async function getEmailSendinblue() {

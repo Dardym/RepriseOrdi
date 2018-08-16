@@ -17,7 +17,7 @@ module.exports = {
 };
 
 async function getAll() {
-    return await Client.find();
+    return await Client.find().sort({date:-1});
 }
 
 async function getById(id) {
@@ -36,10 +36,12 @@ async function create(clientParam) {
         await addListAction.exec(client);
     }
     await emailService.sendEmailNotif();
+    await emailService.sendEmailClient();
 
 }
 
 async function updates(id, clientParam) {
+    console.log(id);
     try {
         const client = await Client.findById(id);
         // copy userParam properties to user

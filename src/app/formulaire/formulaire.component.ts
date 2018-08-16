@@ -93,6 +93,7 @@ export class FormulaireComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      location.reload();
     });
   }
 

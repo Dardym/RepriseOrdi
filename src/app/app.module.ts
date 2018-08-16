@@ -52,6 +52,7 @@ import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
 import{ SidenavService} from './services/sidenav.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { PayementComponent } from './payement/payement.component';
+import { CguComponent } from './cgu/cgu.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { PayementComponent } from './payement/payement.component';
     AddAdminComponent,
     ChangerMdpComponent,
     SidenavComponent,
-    PayementComponent
+    PayementComponent,
+    CguComponent
   ],
   imports: [
     AppRoutingModule,

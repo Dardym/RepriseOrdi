@@ -26,4 +26,8 @@ export class FooterComponent implements OnInit {
     this.router.navigate(['/contacts']);
   }
 
+  redirectCGU(){
+    this.router.navigate(['/cgu']);
+  }
+
 }

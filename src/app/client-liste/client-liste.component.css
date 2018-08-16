@@ -80,3 +80,57 @@
   .mat-expansion-panel-header-description, .mat-expansion-panel-header-title{
     flex: 1 1;
   }
+
+  .accordion-header{
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 100%;
+    align-items: center;
+    height: 50px;
+    max-height: 50px;
+  }
+
+  .nom-header{
+    display: flex;
+    flex: 1 1 20%;
+    min-width: 48%;
+    padding-left: 2%;
+    color: black;
+    font-size: 16px;
+    font-family: 'Google Sans',arial,sans-serif;
+  }
+
+  .numero-header{
+    display: flex;
+    flex: 1 1 20%;
+    min-width: 18%;
+    color: black;
+    font-size: 16px;
+    font-family: 'Google Sans',arial,sans-serif;
+  }
+
+  .email-header{
+    display: flex;
+    flex: 1 1 20%;
+    min-width: 15%;
+    padding-right: 2%;
+    color: black;
+    font-size: 16px;
+    font-family: 'Google Sans',arial,sans-serif;
+  }
+
+  .date-header{
+    display: flex;
+    flex: 1 1 25%;
+    color: black;
+    font-size: 16px;
+    font-family: 'Google Sans',arial,sans-serif;
+  }
+
+  .etat-header{
+    flex: 1 1 12%;
+    color: black;
+    font-size: 16px;
+    font-family: 'Google Sans',arial,sans-serif;
+  }
+

@@ -1,17 +1,21 @@
-<footer  class="docs-footer" fxFlex="100" fxLayoutAlign="end none"  >
-  <div class="docs-footer-list" fxFlex="100" fxLayout="row" fxLayoutGap="2" fxLayout.xs="column">
+<footer class="docs-footer" fxFlex="100" fxLayoutAlign="end none">
+    <div class="docs-footer-list" fxFlex="100" fxLayout="row" fxLayoutGap="2" fxLayout.xs="column">
 
-    <div  class="docs-footer-logo" fxFlex="33" fxLayoutAlign="center center">
-        <button (click)="redirectQui()" mat-flat-button color="primary">Qui sommes nous ?</button>
+        <div class="docs-footer-logo" fxFlex="25" fxLayoutAlign="center center">
+            <button (click)="redirectQui()" mat-flat-button color="primary">Qui sommes nous ?</button>
+        </div>
+
+        <div class="docs-footer-version" fxFlex="25" fxLayoutAlign="center center">
+            <button (click)="redirectLegale()" mat-flat-button color="primary">Mentions Légales</button>
+        </div>
+
+        <div class="docs-footer-copyright" fxFlex="25" fxLayout="column" fxLayoutAlign="center center">
+            <button (click)="redirectContacts()" mat-flat-button color="primary">Nous contacter</button>
+        </div>
+
+        <div class="docs-footer-copyright" fxFlex="25" fxLayout="column" fxLayoutAlign="center center">
+            <button (click)="redirectCGU()" mat-flat-button color="primary">Conditions genérales d'utilisation</button>
+        </div>
+
     </div>
-
-    <div  class="docs-footer-version" fxFlex="33" fxLayoutAlign="center center">
-        <button (click)="redirectLegale()" mat-flat-button color="primary">Mentions Légales</button>
-    </div>
-
-    <div  class="docs-footer-copyright" fxFlex="33" fxLayout="column" fxLayoutAlign="center center">
-        <button (click)="redirectContacts()" mat-flat-button color="primary">Nous contacter</button>
-    </div>
-
-  </div>
 </footer>

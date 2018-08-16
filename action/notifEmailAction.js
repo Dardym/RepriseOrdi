@@ -12,10 +12,9 @@
             secureConnection: "true", //true or false
             auth: {
                 user: "hello@repriseordi.fr", //user@mydomain.com
-                pass: "LaTouche2014+" //password from specific user mail
+                pass: "Touche2018+" //password from specific user mail
             }
         }));
-
         transporter.verify(function(error,success){
             if (error) {
                 console.log(error);
@@ -23,7 +22,6 @@
                 console.log('Server is ready to take our messages');
            }
         });
-    
         var mailOptions = {
             from: "hello@repriseordi.fr",
             to: ["hello@repriseordi.fr"],

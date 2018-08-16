@@ -19,50 +19,7 @@ import { MatSidenavModule } from '../../../node_modules/@angular/material';
 export class ClientListeComponent implements OnInit {
 
   offreForm: FormGroup;
-  listeClients: any = [
-    /*{
-      'nom':'maxime dardy',
-      'email': 'maxime@touchedeclavier.com',
-      'ordinateur':{
-        'marque': 'asus',
-        'modele': 'unmodele',
-        'fonctionnel': 'true',
-        'visuel': 'true',
-        'complet': 'true',
-        'description': 'Ceci est la description détaillé de mon problème.'
-      },
-      'etat': 'nouveau',
-      'offre': '0'
-    },
-    {
-      'nom':'Pierre Baraquant',
-      'email': 'tocardu36@hotmail.fre',
-      'ordinateur':{
-        'marque': 'asus',
-        'modele': 'unmodele',
-        'fonctionnel': 'false',
-        'visuel': 'true',
-        'complet': 'false',
-        'description': 'Ceci est la description détaillé de mon problème.'
-      },
-      'etat': 'enCours'
-
-    },
-    {
-      'nom':'Pierre Baraquant',
-      'email': 'tocardu36@hotmail.fre',
-      'ordinateur':{
-        'marque': 'asus',
-        'modele': 'unmodele',
-        'fonctionnel': 'false',
-        'visuel': 'true',
-        'complet': 'false',
-        'description': 'Ceci est la description détaillé de mon problème.'
-      },
-      'etat': 'traite'
-
-    }*/
-  ];
+  listeClients: any ;
 
   constructor(public dialog: MatDialog, private apiService: ApiService, private formBuilder: FormBuilder, private router: Router) { }
 
@@ -96,6 +53,7 @@ export class ClientListeComponent implements OnInit {
   }
 
   saveEtat(id, etat) {
+    console.log(id);
     this.apiService.updateClient(id, etat)
       .subscribe(res => {
         console.log("état sauvegardé: " + res);

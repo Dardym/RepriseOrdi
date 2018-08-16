@@ -14,36 +14,42 @@ import { EmailComponent } from './email/email.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
 import { PayementComponent } from './payement/payement.component';
+import { CguComponent } from './cgu/cgu.component';
 
 const routes: Routes = [
 
-  {path: '', component: ClientPanelComponent, children:[
-    //{ path: '**', redirectTo: '', pathMatch:'full'},
-    { path: '', component: FrontPageComponent },
-    { path: 'qui', component: QuiComponent},
-    { path: 'legale', component: LegaleComponent},
-    { path: 'contacts', component: ContactsComponent}
-  ]},
+  {
+    path: '', component: ClientPanelComponent, children: [
+      //{ path: '**', redirectTo: '', pathMatch:'full'},
+      { path: '', component: FrontPageComponent },
+      { path: 'qui', component: QuiComponent },
+      { path: 'legale', component: LegaleComponent },
+      { path: 'contacts', component: ContactsComponent },
+      { path: 'cgu', component: CguComponent }
+    ]
+  },
   { path: 'login', component: LoginComponent },
-  { path: 'admin-panel', component: AdminPanelComponent, canActivate:[AuthGuard], children:[
-    { path: '', redirectTo: 'admin-panel', pathMatch: 'full', canActivate:[AuthGuard]},
-    { path: 'client-liste', component: ClientListeComponent, canActivate:[AuthGuard]},
-    { path: 'email', component: EmailComponent, canActivate:[AuthGuard]},
-    { path: "add-admin", component: AddAdminComponent, canActivate:[AuthGuard]},
-    { path: "changer-mdp", component: ChangerMdpComponent, canActivate:[AuthGuard]}
-  ]},
-  { path: 'paiement/:id', component: PayementComponent},
+  {
+    path: 'admin-panel', component: AdminPanelComponent, canActivate: [AuthGuard], children: [
+      { path: '', redirectTo: 'admin-panel', pathMatch: 'full', canActivate: [AuthGuard] },
+      { path: 'client-liste', component: ClientListeComponent, canActivate: [AuthGuard] },
+      { path: 'email', component: EmailComponent, canActivate: [AuthGuard] },
+      { path: "add-admin", component: AddAdminComponent, canActivate: [AuthGuard] },
+      { path: "changer-mdp", component: ChangerMdpComponent, canActivate: [AuthGuard] }
+    ]
+  },
+  { path: 'paiement/:id', component: PayementComponent },
   // otherwise redirect to home
-  { path: '**', redirectTo: '', pathMatch:'full'}
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 
 @NgModule({
-  exports: [ RouterModule ],
-  imports: [ 
+  exports: [RouterModule],
+  imports: [
     RouterModule.forRoot(routes)
-    ],
+  ],
   providers: [AuthGuard]
-  
+
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
