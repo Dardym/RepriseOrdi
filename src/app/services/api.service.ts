@@ -42,7 +42,6 @@ export class ApiService {
   
   updateClient(id,data): Observable<any> {
     const url = `${apiUrl}/${id}`;
-    data = {etat: data};
     return this.http.put(url, data, httpOptions)
       .pipe(
         catchError(this.handleError)

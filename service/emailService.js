@@ -105,3 +105,4 @@ async function update(texte) {
 async function _delete(id) {
     await Email.findByIdAndRemove(id);
 }
+

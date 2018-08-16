@@ -2,6 +2,7 @@ const config = require('../config.json');
 const db = require('../helpers/db');
 const Admin = db.Admin;
 const bcrypt = require('bcrypt');
+const payementAction = require('../action/payementAction');
  
 module.exports = {
     authenticate,
@@ -9,6 +10,7 @@ module.exports = {
     getById,
     create,
     update,
+    payment,
     delete: _delete
 };
  
@@ -82,4 +84,14 @@ async function update(id, adminParam) {
  
 async function _delete(id) {
     await User.findByIdAndRemove(id);
+}
+
+async function payment(data,offre,token){
+    try{
+        return await payementAction.exec(data,offre,token);
+    }
+    catch(err){
+        console.log(err);
+    }
+   
 }

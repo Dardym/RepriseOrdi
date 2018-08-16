@@ -51,17 +51,12 @@ function notifEmail(req,res,next){
 }
 
 function paiement(req,res,next){
-    console.log("juste avant le payementAction");
-    payementAction.exec(req.body.data,req.body.offre,req.body.token)
+    adminService.payment(req.body.data,req.body.offre,req.body.token)
         .then(function (rep) {
-            console.log("dans le then");
-            rep.success = true;
-            console.log(rep);
-            res.json(rep);
+            res.json({success:true});
         })
         .catch(function(err){
-            console.log("dans le carch");
-            //next(err)
+            next(err)
         });
 }
 

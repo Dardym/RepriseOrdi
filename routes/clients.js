@@ -38,7 +38,6 @@ router.post('/sendOffre', function (req, res, next) {
 
 /* GET SINGLE Client BY ID */
 router.get('/:id', function (req, res, next) {
-
     clientService.getById(req.params.id)
     .then(function(client){
       data = {
@@ -88,19 +87,11 @@ router.post('/contact', function(req,res,next){
 
 /* UPDATE Client */
 router.put('/:id', function (req, res, next) {
-
-  if (req.session.admin) {
     clientService.updates(req.params.id, req.body)
       .then(function (post) {
         res.json(post)
       })
       .catch(err => next(err));
-
-  } else {
-    var err = new Error('Non autorisé');
-    err.status = 401;
-    throw err;
-  }
 });
 /* DELETE Client */
 router.delete('/:id', function (req, res, next) {

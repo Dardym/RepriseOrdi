@@ -113,12 +113,12 @@ export class PayementComponent implements OnInit {
             },
             offre: this.client.offre
           }
-          this.adminService.sendPaymentInfo(data).subscribe(res => {
-            console.log(res);
+          this.adminService.sendPaymentInfo(data).subscribe( (res)=> {
+            this.apiService.updateClient(this.client._id,{paye:true})
+            .subscribe((res)=>
+            console.log(res));
             this.openDialog();
           }, (err) => {
-            this.openDialog();
-            console.log("dans le err c'est chiant");
             console.log(err);
           });
         }

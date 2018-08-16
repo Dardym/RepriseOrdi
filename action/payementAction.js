@@ -1,7 +1,7 @@
-var stripe = require("stripe")("sk_test_IFfouLxqBhJXcpae310FK0e8");
+var stripe = require("stripe")("sk_test_8FlIV8pkhQJHfALwQwTlLraU");
 
 var exec = function(data,offre,token){
-  console.log(data);
+
     stripe.customers.create({
       description: 'Client repriseordi.fr numéro' + data.numero,
       source: token, // obtained with Stripe.js
@@ -18,7 +18,6 @@ var exec = function(data,offre,token){
       if(err){
         console.log(err);
       } else{
-        console.log(customer);
         return customer;
       }
     });

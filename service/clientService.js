@@ -41,7 +41,6 @@ async function create(clientParam) {
 }
 
 async function updates(id, clientParam) {
-    console.log(id);
     try {
         const client = await Client.findById(id);
         // copy userParam properties to user
@@ -83,3 +82,4 @@ async function sendOffre(offre, id) {
 async function getLabel(data) {
     return await generateRetourAction.exec(data);
 }
+

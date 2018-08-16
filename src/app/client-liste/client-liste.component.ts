@@ -52,9 +52,9 @@ export class ClientListeComponent implements OnInit {
 
   }
 
-  saveEtat(id, etat) {
+  saveEtat(id, varEtat) {
     console.log(id);
-    this.apiService.updateClient(id, etat)
+    this.apiService.updateClient(id, {etat:varEtat})
       .subscribe(res => {
         console.log("état sauvegardé: " + res);
       }, err => {
