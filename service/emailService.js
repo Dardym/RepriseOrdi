@@ -58,7 +58,7 @@ async function sendEmailContact(data) {
 
 async function sendEmailClient(email) {
     let sujet = "Confirmation demande de reprise sur repriseordi.fr";
-    let html = "<img src='https://repriseordi.fr/assets/images/logo-fond-blanc.png' height='135.5px' width='366.5px'/><div>Bonjour,<br/><br/>Nous avons bien reçu votre demande d’estimation de reprise de votre ordinateur portable.<br/><br/>Un membre de notre équipe va rapidement se pencher sur la question et vous enverra une offre de reprise très rapidement par email<br/><br/>Surveillez votre boîte de réception :)<br/><br/>A bientôt,<br/><br/>L’équipe de RepriseOrdi.fr .</div>";
+    let html = "<img src='https://repriseordi.fr/assets/images/logo-fond-blanc.png' height='135.5px' width='366.5px'/><div>Bonjour,<br/><br/>Nous avons bien reçu votre demande d’estimation de reprise de votre ordinateur portable.<br/><br/>Un membre de notre équipe va rapidement se pencher sur la question et vous enverra une offre de reprise très rapidement par email.<br/><br/>Surveillez votre boîte de réception :)<br/><br/>A bientôt,<br/><br/>L’équipe de RepriseOrdi.fr</div>";
     let data = {
         sujet: sujet,
         html: html

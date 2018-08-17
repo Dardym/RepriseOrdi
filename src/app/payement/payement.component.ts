@@ -134,7 +134,7 @@ export class PayementComponent implements OnInit {
       height: '350px',
       width: '',
       data: {
-        title: "Vos informations banquaires ont bien été transmises.",
+        title: "Vos informations bancaires ont bien été transmises.",
         texte: "Votre argent vous sera viré sur votre carte dès que nous recevrons votre colis."
       }
     });
