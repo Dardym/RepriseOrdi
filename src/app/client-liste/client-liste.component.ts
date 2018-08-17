@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service'
-import { Client } from '../metier/client'
+
 import { MatDialog } from '@angular/material';
-import { Observable } from 'rxjs';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormulaireService } from '../services/formulaire-service.service';
-import { nodeValue } from '../../../node_modules/@angular/core/src/view';
+
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { DialogComponent } from '../dialog/dialog.component';
-import { MatSidenavModule } from '../../../node_modules/@angular/material';
+
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-client-liste',
@@ -21,14 +21,21 @@ export class ClientListeComponent implements OnInit {
   offreForm: FormGroup;
   listeClients: any ;
 
-  constructor(public dialog: MatDialog, private apiService: ApiService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    public dialog: MatDialog,
+    private apiService: ApiService, 
+    private formBuilder: FormBuilder, 
+    private router: Router,
+    private meta:Meta) { 
+      //this.meta.addTag({ name: 'robots', content: 'noindex' });
+    }
 
   ngOnInit() {
+    
     this.maj();
   }
 
   onFormSubmit(offre, id) {
-    console.log("Dans le onFormSubmit = offre: "+offre+" id: "+id);
     this.apiService.postOffre(offre, id)
           .subscribe(res => {
             this.maj();
@@ -53,10 +60,9 @@ export class ClientListeComponent implements OnInit {
   }
 
   saveEtat(id, varEtat) {
-    console.log(id);
     this.apiService.updateClient(id, {etat:varEtat})
       .subscribe(res => {
-        console.log("état sauvegardé: " + res);
+        console.log(res);
       }, err => {
         console.log(err);
       });
@@ -64,8 +70,7 @@ export class ClientListeComponent implements OnInit {
   }
 
   openDialog(offre, id) {
-    
-    console.log("Dans le opendialog = offre: "+offre+" id: "+id);
+  
     const dialogRef = this.dialog.open(DialogComponent, {
       //height: '350px',
       width: '400px'

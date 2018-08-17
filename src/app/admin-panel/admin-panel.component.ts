@@ -5,6 +5,7 @@ import { Admin } from '../metier/admin';
 import { AdminService } from '../services/admin-service';
 import { AuthenticationService } from '../services/authentification.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-panel',
@@ -17,7 +18,13 @@ export class AdminPanelComponent implements OnInit {
  
   currentUser: Admin;
  
-    constructor(private router:Router, private adminService: AdminService, private authenticationService: AuthenticationService) {
+    constructor(
+        private router:Router, 
+        private adminService: AdminService, 
+        private authenticationService: AuthenticationService,
+        private meta : Meta
+    ) {
+        this.meta.addTag({ name: 'robots', content: 'noindex' });
         this.currentUser = JSON.parse(localStorage.getItem('currentAdmin'));
     }
  

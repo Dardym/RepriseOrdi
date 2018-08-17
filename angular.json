@@ -20,7 +20,9 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/sitemap.xml",
+              "src/robots.txt"
             ],
             "styles": [
               {
@@ -83,7 +85,9 @@
             "scripts": ["../node_modules/jquery/dist/jquery.min.js"],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/sitemap.xml",
+              "src/robots.txt"
             ]
           }
         },

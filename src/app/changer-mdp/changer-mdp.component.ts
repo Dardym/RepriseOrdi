@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { FormulaireService } from '../services/formulaire-service.service';
 import { AdminService } from '../services/admin-service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-changer-mdp',
@@ -16,9 +17,18 @@ export class ChangerMdpComponent implements OnInit {
   mdp: string = '';
   confmdp: string = '';
 
-  constructor(private router: Router, private adminService: AdminService, private formBuilder: FormBuilder, private formulaireService: FormulaireService) { }
+  constructor(
+    private router: Router, 
+    private adminService: AdminService, 
+    private formBuilder: FormBuilder, 
+    private formulaireService: FormulaireService,
+    private meta : Meta
+  ) { 
+    //this.meta.addTag({ name: 'robots', content: 'noindex' });
+  }
 
   ngOnInit() {
+   
     this.mdpForm = this.formBuilder.group({
       'mdp': [null, Validators.required],
       'confmdp': [null, Validators.required]
