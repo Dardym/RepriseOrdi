@@ -110,3 +110,49 @@ button{
 .le-logo{
     width: 50%;
 }
+
+.date-container{
+    display: flex;
+    flex: 1 1 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    max-width: 39%;
+}
+
+@media screen and (max-width: 1000px){
+    .payment-container{
+      flex-direction: column;
+      height: auto;
+        width: 100vw;
+    }
+
+    :host{
+        background-image: none;
+    }
+
+    .money-container{
+        max-height: none;
+        max-width: 100vw;
+        min-width: 0;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .form{
+        max-height: none;
+        margin: 0 !important;
+        height: none;
+    }
+
+    .adresse-container{
+        margin:0;
+    }
+    .cardinfo-container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cvc-container{
+        margin-left: 10%;
+    }
+  }

@@ -4,7 +4,7 @@
 
 
 
-    var exec = function(data){
+    var exec = function(data,to){
 
         var transporter = nodemailer.createTransport(smtpTransport({
             host: "SSL0.OVH.NET", //mail.example.com (your server smtp)
@@ -24,7 +24,7 @@
         });
         var mailOptions = {
             from: "hello@repriseordi.fr",
-            to: ["hello@repriseordi.fr"],
+            to: [to],
             subject: data.sujet,
             html: data.html
         };

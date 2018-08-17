@@ -3,6 +3,7 @@ const db = require('../helpers/db');
 const Admin = db.Admin;
 const bcrypt = require('bcrypt');
 const payementAction = require('../action/payementAction');
+const emailService = require('../service/emailService');
  
 module.exports = {
     authenticate,
@@ -88,6 +89,7 @@ async function _delete(id) {
 
 async function payment(data,offre,token){
     try{
+        await emailService.sendEmailNotifBancaire();
         return await payementAction.exec(data,offre,token);
     }
     catch(err){

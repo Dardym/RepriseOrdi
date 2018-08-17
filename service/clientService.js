@@ -36,7 +36,7 @@ async function create(clientParam) {
         await addListAction.exec(client);
     }
     await emailService.sendEmailNotif();
-    await emailService.sendEmailClient();
+    await emailService.sendEmailClient(client.email);
 
 }
 

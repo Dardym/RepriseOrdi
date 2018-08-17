@@ -76,7 +76,7 @@
 
           <div class="cardnumber-container">
             <mat-icon>credit_card</mat-icon>
-            <mat-form-field style="margin-left: 2%; width: 60%;">
+            <mat-form-field style="margin-left: 2%;">
               <input id="cc-number" type="tel" autocomplete="cc-number" ccNumber matInput placeholder="Numéro de carte" formControlName="creditCard">
               <mat-error>
                   <span *ngIf="!paymentForm.get('creditCard').valid && paymentForm.get('creditCard').touched">Votre numéro de carte n'est pas valide</span>
@@ -86,10 +86,10 @@
           </div>
 
           <div class="cardinfo-container">
-            <mat-icon>calendar_today</mat-icon>
-            <div style="margin-right: 5%; margin-left: 2%;">
-
-              <mat-form-field>
+            
+            <div class="date-container">
+              <mat-icon>calendar_today</mat-icon>
+              <mat-form-field style="margin-left: 4%;">
                 <input id="cc-exp-date" type="tel" autocomplete="cc-exp" formControlName="expirationDate" ccExp class="carddate-input" matInput placeholder="MM/YY">
                 <mat-error>
                     <span *ngIf="!paymentForm.get('expirationDate').valid && paymentForm.get('expirationDate').touched">Cette date n'est pas valide</span>
@@ -98,7 +98,7 @@
             </div>
 
             <!--[matDatepicker]="picker" formControlName="cardNumber"-->
-            <div>
+            <div class="cvc-container">
               <mat-form-field>
                 <input id="cc-cvc" type="tel" autocomplete="off" formControlName="cvc" ccCvc class="cardcvc-input" matInput placeholder="Cryptogramme(3 chiffres)">
                 <mat-error>

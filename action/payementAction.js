@@ -1,4 +1,4 @@
-var stripe = require("stripe")("sk_test_8FlIV8pkhQJHfALwQwTlLraU");
+var stripe = require("stripe")("sk_live_VuPY2Pnlm1pBbi60aiG9btpq");
 
 var exec = function(data,offre,token){
 
